@@ -8789,6 +8789,9 @@ body {
   .navbar-mia {
     height: 63px; } }
 
+.close-menu-sm {
+  display: none; }
+
 @font-face {
   font-family: ReklameScript-Regular;
   src: url("/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }

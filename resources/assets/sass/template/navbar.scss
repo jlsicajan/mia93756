@@ -73,6 +73,7 @@
   height: 45px;
   position: fixed;
   z-index: 4;
+
   &:focus{
     outline: 0;
   }
@@ -87,4 +88,8 @@
   .navbar-mia {
     height: 63px;
   }
+}
+
+.close-menu-sm{
+  display: none;
 }
