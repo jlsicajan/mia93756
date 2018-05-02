@@ -8794,7 +8794,7 @@ body {
 
 @font-face {
   font-family: ReklameScript-Regular;
-  src: url("/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }
+  src: url("/public/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }
 
 .font_3 {
   font-family: ReklameScript-Regular;
@@ -8834,6 +8834,8 @@ body {
   padding-right: 30px;
   font-size: 15px; }
   .grid-block iframe {
+    width: 100%; }
+  .grid-block img {
     width: 100%; }
 
 .grid-block-md {
