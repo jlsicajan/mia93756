@@ -17,7 +17,33 @@
 .grid-block{
   height: 575px;
   width: 475px;
+  overflow: hidden;
+  overflow-y: auto;
+  font-family: roboto;
+  padding-top: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 15px;
+  iframe{
+    width: 100%;
+  }
+  img{
+    width: 100%;
+  }
 }
+
+.grid-block-md{
+ height: 285px;
+ width: 475px;
+}
+
+
+.grid-block-sm{
+ height: 125px;
+ width: 475px;
+
+}
+
 
 .grid-space{
   height: 250px;

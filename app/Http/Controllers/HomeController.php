@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use App\Article;
 
 class HomeController extends Controller {
 
@@ -25,7 +26,9 @@ class HomeController extends Controller {
 
     public function index()
     {
-        return view('home');
+    	$articles = Article::all()->toArray();
+        $articles = array_chunk($articles, count($articles)/2 + 1);
+        return view('home')->with(['articles' => $articles]);
     }
 
 }

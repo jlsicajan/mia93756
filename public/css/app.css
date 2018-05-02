@@ -8825,6 +8825,23 @@ body {
 
 .grid-block {
   height: 575px;
+  width: 475px;
+  overflow: hidden;
+  overflow-y: auto;
+  font-family: roboto;
+  padding-top: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 15px; }
+  .grid-block iframe {
+    width: 100%; }
+
+.grid-block-md {
+  height: 285px;
+  width: 475px; }
+
+.grid-block-sm {
+  height: 125px;
   width: 475px; }
 
 .grid-space {
@@ -8889,6 +8906,26 @@ body {
   .grid-header:after {
     bottom: -24px;
     z-index: 2; } }
+
+.play_button, .pause_button {
+  background: transparent;
+  border: none;
+  border: 2px solid black;
+  height: 85px;
+  border-radius: 50%;
+  width: 85px;
+  font-size: 40px;
+  play: flex; }
+  .play_button:focus, .pause_button:focus {
+    outline: none; }
+
+.play_button {
+  padding-left: 11px; }
+
+.vol_up, .vol_down {
+  background: transparent;
+  border: none;
+  font-size: 35px; }
 
 html, body, h1, h2, h3, h4, h5, h6 {
   padding: 0;

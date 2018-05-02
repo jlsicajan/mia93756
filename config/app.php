@@ -28,6 +28,18 @@ return [
 
 	'url' => 'http://localhost',
 
+
+	/*
+	|--------------------------------------------------------------------------
+	| Radio identification from content administrator
+	|--------------------------------------------------------------------------
+	|	Here set the id of the radio to use it in all the project
+	|
+	*/
+
+	'radio_id' => '2',
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
