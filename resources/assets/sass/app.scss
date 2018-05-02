@@ -1,0 +1,32 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+@import "resources/assets/sass/_variables";
+//template resources
+@import "resources/assets/sass/template/home";
+@import "resources/assets/sass/template/main";
+@import "resources/assets/sass/template/navbar";
+@import "resources/assets/sass/template/fonts";
+@import "resources/assets/sass/template/grid";
+
+@mixin set-border-box {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@mixin disable-text-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+*{
+  font-family: normal normal normal 13px/1.4em Arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif;
+  font-weight: 100;
+}

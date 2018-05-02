@@ -1,0 +1,23 @@
+@font-face {
+  font-family: ReklameScript-Regular;
+  src: url("/custom-fonts/ReklameScript-Regular.otf") format("opentype");
+}
+
+.font_3{
+  font-family: ReklameScript-Regular;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 68px;
+  line-height: 1em;
+  letter-spacing: 3px;
+}
+
+.font_2{
+  font-size: 37px;
+
+}
+
+.font_2_grid{
+  position: absolute;
+  margin-left: 7%;
+}

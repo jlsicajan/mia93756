@@ -1,0 +1,90 @@
+.navbar-mia {
+
+  .navbar-brand {
+    color: $navbar-items-color;
+    &:hover {
+      color: $navbar-items-color-hover;
+    }
+  }
+
+  height: 87px;
+  .nav-item {
+    .nav-link {
+      color: $navbar-items-color;
+      line-height: 16px;
+      font-size: 13px;
+
+      &:hover {
+        color: $navbar-items-color-hover;
+      }
+    }
+
+  }
+
+  .active{
+    color: $navbar-items-color-hover !important;
+  }
+
+  .menu-sm {
+    background-color: #000000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    /* bottom: 0; */
+    /* right: 0; */
+    /* padding-top: 50%; */
+    z-index: 3;
+    flex-direction: column;
+    /* overflow-y: auto; */
+    justify-content: center;
+    display: none;
+
+    .nav-item {
+      border-bottom: 1px solid white;
+      width: 50%;
+      text-align: center;
+
+      .nav-link {
+        color: white;
+        line-height: 1.8rem;
+        font-size: 1.5rem;
+
+        &:hover {
+          color: $navbar-items-color-hover;
+        }
+      }
+    }
+  }
+
+  .container{
+    .navbar-logo{
+      background-image: url("/img/logo/logo.png");
+      height: 50px;
+      width: 105px;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.navbar-toggler-mia {
+  background-color: #000000;
+  height: 45px;
+  position: fixed;
+  z-index: 4;
+  &:focus{
+    outline: 0;
+  }
+
+  i {
+    color: #ffffff;
+  }
+}
+
+//Mobile changes
+@include media-breakpoint-only(xs) {
+  .navbar-mia {
+    height: 63px;
+  }
+}

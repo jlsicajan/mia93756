@@ -1,0 +1,104 @@
+.bg-grid-secondary{
+  background-color: $background-secondary;
+}
+
+.bg-grid-default{
+  background-color: $background-default;
+}
+
+.mb-28px{
+  margin-bottom: 28px !important;
+}
+
+.pd-2rem{
+  padding-right: 2rem !important;
+}
+
+.grid-block{
+  height: 575px;
+  width: 475px;
+}
+
+.grid-space{
+  height: 250px;
+}
+.grid-space-middle{
+  height: 125px;
+}
+
+.grid-header-primary{
+  background-color: $background-primary !important;
+}
+
+.grid-header-primary:after{
+  border-color: $background-primary transparent transparent transparent !important;
+}
+
+.grid-header{
+  background-color: $background-secondary;
+  height: 60px;
+  width: 475px;
+  position: relative;
+  left: 0;
+  padding-right: 0 !important;
+
+  .gradient{
+    background-image: url("/img/grid/gradient.png");
+    height: 60px;
+    width: 240px;
+  }
+}
+
+.grid-header:after {
+  content: '';
+  /* display: block; */
+  position: absolute;
+  /* top: 10px; */
+  /* left: 100%; */
+  left: 10%;
+  bottom: -25px;
+  width: 0;
+  height: 0;
+  border-color: $background-secondary transparent transparent transparent;
+  border-style: solid;
+  border-width: 13px;
+  right: 0;
+  z-index: 2;
+}
+
+//cards
+.card-primary{
+  height: 244px;
+  width: 475px;
+  position: relative;
+  left: 0;
+
+}
+
+//Mobile changes
+@include media-breakpoint-only(xs) {
+  .pd-2rem{
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+
+  .grid-header{
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .grid-block{
+    width: 100%;
+  }
+
+  .right-grid-resize{
+    padding-left: 1rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .grid-header:after {
+    bottom: -24px;
+    z-index: 2;
+  }
+}
