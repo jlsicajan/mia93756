@@ -15,6 +15,7 @@
     </div>
     <div class="container">
         @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
+        @include('elements.for_grid.middle_space_block', ['classes' => ''])
 
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
