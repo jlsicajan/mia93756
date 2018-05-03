@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\MainControllers;
 
+use App\Staff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,10 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return view('main_views.staff.index');
+        $staff = Staff::all()->toArray();
+        $staff = array_chunk($staff, 3);
+        
+        return view('main_views.staff.index')->with(['staff' => $staff]);
     }
 
     /**
