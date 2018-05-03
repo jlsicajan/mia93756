@@ -26,7 +26,7 @@ class HomeController extends Controller {
 
     public function index()
     {
-    	$articles = Article::all()->toArray();
+    	$articles = Article::all()->take(8)->toArray();
         $articles = array_chunk($articles, count($articles)/2 + 1);
         return view('home')->with(['articles' => $articles]);
     }
