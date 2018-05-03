@@ -18,7 +18,7 @@ class StaffController extends Controller
         $staff = Staff::all()->toArray();
         $staff = array_chunk($staff, 3);
         
-        return view('main_views.staff.index')->with(['staff' => $staff]);
+        return view('main_views.staff.index')->with(array('staff_separated' => $staff, 'staff' => Staff::all()->toArray()));
     }
 
     /**

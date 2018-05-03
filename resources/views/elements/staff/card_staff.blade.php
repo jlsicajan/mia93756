@@ -5,6 +5,6 @@
         <p class="card-text">{{ strip_tags($card_text) }}</p>
     </div>
     <div class="card-footer">
-        <button class="btn btn-outline-info">Seguir leyendo +</button>
+        <button class="btn btn-outline-info keep_reading" data-staff-id="{{ $staff_id }}" data-toggle="modal" data-target="#staff_modal">Seguir leyendo +</button>
     </div>
 </div>
