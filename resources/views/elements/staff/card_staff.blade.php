@@ -1,5 +1,5 @@
 <div class="card shadow">
-    <img class="card-img-top img-responsive" src="{{ env('URL_SOURCE') }}/uploads/staff/{{ $image_url }}">
+    <div class="responsive-image card-img-top" style="background-image: url('{{ env('URL_SOURCE') }}/uploads/staff/{{ $image_url }}')"></div>
     <div class="card-body">
         {{--<h5 class="card-title">{{ $card_title }}</h5>--}}
         <p class="card-text">{{ strip_tags($card_text) }}</p>

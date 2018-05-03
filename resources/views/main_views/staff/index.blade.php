@@ -32,7 +32,10 @@
             height: 75px;
         }
         .card-img-top{
-            height: 170px;
+            height: 250px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 @endsection
