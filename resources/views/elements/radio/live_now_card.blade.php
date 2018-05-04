@@ -40,7 +40,7 @@
 
     .paff_message{
         font-family: Arial;
-        font-size: 45px;
+        font-size: 28px;
         margin-left: -41px; /* quick solution :c*/
         padding-left: 20px;
     }
