@@ -56,10 +56,10 @@
 </nav>
 <div class="social-icons-container">
     <div class="row social-icons d-flex flex-column">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/mia937/" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/mia937/" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UCVF-FE5crAg5-lCLhgnjjfQ" target="_blank"><i class="fa fa-youtube"></i></a>
+        <a href="https://twitter.com/mia937?lang=es" target="_blank"><i class="fa fa-twitter"></i></a>
     </div>
 </div>
 
