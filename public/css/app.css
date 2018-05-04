@@ -8770,7 +8770,7 @@ body {
         .navbar-mia .menu-sm .nav-item .nav-link:hover {
           color: #FF40A3; }
   .navbar-mia .container .navbar-logo {
-    background-image: url("/img/logo/logo.png");
+    background-image: url("/public/img/logo/logo.png");
     height: 50px;
     width: 105px;
     background-repeat: no-repeat; }
@@ -8866,7 +8866,7 @@ body {
   left: 0;
   padding-right: 0 !important; }
   .grid-header .gradient {
-    background-image: url("/img/grid/gradient.png");
+    background-image: url("/public/img/grid/gradient.png");
     height: 60px;
     width: 240px; }
 

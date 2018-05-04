@@ -6,14 +6,6 @@
         @endif
     </div>
     <div class="grid-block bg-grid-default col-12">
-        <div class="row flex-column next_show">
-            <div class="time_next_show">
-                <p class="font_7"> VIERNES 4:00PM</p>
-            </div>
-            <div class="name_next_show">
-                <h5 class="helvetica-100"><i class="fa fa-heart color-primary" aria-hidden="true"></i>&nbsp;  &nbsp;  El turno de bea</h5>
-            </div>
-        </div>
         @foreach($next_shows as $show)
             <div class="row flex-column next_show">
                 <div class="time_next_show">
