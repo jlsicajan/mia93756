@@ -50,7 +50,7 @@ class HomeController extends Controller
         $empresa_id = env('RADIO_ID');
         $proximosProgramasP1 = "SELECT PON.id AS Id FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id WHERE D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND (D.id_php * length(trim(PON.inicio_formato)) * PON.inicio_formato) > " . $concatHA . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT " . $limite;
         $proximosProgramasP1 = DB::select($proximosProgramasP1);
-        
+
         $resultadoPPp1 = $proximosProgramasP1;
         
         foreach ($resultadoPPp1 AS $datosPPp1) {
@@ -73,19 +73,17 @@ class HomeController extends Controller
             $proximosProgramasP2 = "SELECT PON.id AS Id FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id WHERE D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT " . $limite;
 
             $resultadoPPp2 = DB::select($proximosProgramasP2);
+
             
             foreach ($resultadoPPp2 AS $datosPPp2) {
                 array_push($arregloProgramas, $datosPPp2->Id);
             }
         }
-        
-        // echo "<pre>";
-        // print_r($arregloProgramas);
-        // echo "</pre>";
+    
         
         $programacionIdS = implode(",", $arregloProgramas);
-        
-        $proximosProgramas = "SELECT PON.*, D.nombre AS Dia, PMA.titulo AS Titulo, PMA.imagen AS Imagen FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.id IN(" . empty($programacionIdS) ? '' : $programacionIdS . ") ORDER BY " . $ordenMostrar . " concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
+        $programacionIdS = empty($programacionIdS) ? '' : $programacionIdS;
+        $proximosProgramas = "SELECT PON.*, D.nombre AS Dia, PMA.titulo AS Titulo, PMA.imagen AS Imagen FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.id IN(" . $programacionIdS . ") ORDER BY " . $ordenMostrar . " concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
 
 
         $proximosProgramas = empty($programacionIdS) ? [] : DB::select($proximosProgramas);
@@ -93,6 +91,7 @@ class HomeController extends Controller
 
         return $proximosProgramas;
     }
+
     function get_current_show(){
         //Abrahams files header adapted
         $empresa_id = env('RADIO_ID');

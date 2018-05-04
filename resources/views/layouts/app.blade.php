@@ -23,12 +23,17 @@
             <div class="navbar-brand navbar-logo"></div>
             <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item {{ (Request::is('home') ? 'active' : '') }}"><a class="nav-link" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item {{ (Request::is('pro') ? 'active' : '') }}"><a class="nav-link" href="{{ route('pro') }}">PROGRAMACION</a></li>
-                    <li class="nav-item {{ (Request::is('staff') ? 'active' : '') }}"><a class="nav-link" href="{{ route('staff') }}">STAFF</a></li>
-                    <li class="nav-item {{ (Request::is('cinema') ? 'active' : '') }}"><a class="nav-link" href="{{ route('cinema') }}">CINE</a></li>
-                    <li class="nav-item {{ (Request::is('photos') ? 'active' : '') }}"><a class="nav-link" href="{{ route('photos') }}">FOTOS</a></li>
-                    <li class="nav-item {{ (Request::is('the20') ? 'active' : '') }}"><a class="nav-link" href="{{ route('the20') }}">LOS 20+</a></li>
+                    
+                    {{--*/ $route = Request::route()->getName() /*--}}
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {{ ($route == 'pro') ? 'active' : '' }}" href="{{ route('pro') }}">PROGRAMACION</a></li>
+                    <li class="nav-item"><a class="nav-link {{ ($route == 'staff') ? 'active' : '' }}" href="{{ route('staff') }}">STAFF</a></li>
+                    <li class="nav-item"><a class="nav-link {{ ($route == 'cinema') ? 'active' : '' }}" href="{{ route('cinema') }}">CINE</a></li>
+                    <li class="nav-item"><a class="nav-link {{ ($route == 'photos') ? 'active' : '' }}" href="{{ route('photos') }}">FOTOS</a></li>
+                    <li class="nav-item"><a class="nav-link {{ ($route == 'the20') ? 'active' : '' }}" href="{{ route('the20') }}">LOS 20+</a></li>
                 </ul>
             </div>
 
@@ -40,12 +45,12 @@
     </button>
     <div class="menu-sm">
         <ul class="navbar-nav d-flex align-items-center flex-column">
-            <li class="nav-item {{ (Request::is('home') ? 'active' : '') }}"><a class="nav-link" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a></li>
-            <li class="nav-item {{ (Request::is('pro') ? 'active' : '') }}"><a class="nav-link" href="{{ route('pro') }}">PROGRAMACION</a></li>
-            <li class="nav-item {{ (Request::is('staff') ? 'active' : '') }}"><a class="nav-link" href="{{ route('staff') }}">STAFF</a></li>
-            <li class="nav-item {{ (Request::is('cinema') ? 'active' : '') }}"><a class="nav-link" href="{{ route('cinema') }}">CINE</a></li>
-            <li class="nav-item {{ (Request::is('photos') ? 'active' : '') }}"><a class="nav-link" href="{{ route('photos') }}">FOTOS</a></li>
-            <li class="nav-item {{ (Request::is('the20') ? 'active' : '') }}"><a class="nav-link" href="{{ route('the20') }}">LOS 20+</a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'pro') ? 'active' : '' }}" href="{{ route('pro') }}">PROGRAMACION</a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'staff') ? 'active' : '' }}" href="{{ route('staff') }}">STAFF</a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'cinema') ? 'active' : '' }}" href="{{ route('cinema') }}">CINE</a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'photos') ? 'active' : '' }}" href="{{ route('photos') }}">FOTOS</a></li>
+            <li class="nav-item"><a class="nav-link {{ ($route == 'the20') ? 'active' : '' }}" href="{{ route('the20') }}">LOS 20+</a></li>
         </ul>
     </div>
 </nav>
