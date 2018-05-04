@@ -25,7 +25,7 @@
                 @endforeach
             </div>
             <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                @include('elements.for_grid.grid_right', ['title' => 'PROGRAMACIÓN', 'grid_content' => '', 'gradient' => 1])
+                @include('elements.radio.next_shows', ['title' => 'Proximos programas', 'gradient' => 1])
                 @include("elements.radio.live_radio", ['position' => 'right', 'title' => 'RADIO EN LINEA', 'classes' => 'grid-header-primary', 'gradient' => 1])
                 @foreach($articles[1] as $article_right)
                     @include('elements.for_grid.grid_right', ['title' => $article_right['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_right['texto_uno']])
