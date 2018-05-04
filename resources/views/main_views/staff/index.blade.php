@@ -5,7 +5,7 @@
     <div class="container">
         @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
-        <button class="btn btn-outline-warning">escupe</button>
+        
         @foreach($staff_separated as $staff_chunk)
             <div class="row justify-content-center">
                 @foreach($staff_chunk as $staff_item)
@@ -62,12 +62,19 @@
     </style>
     <script type="text/javascript">
       var staffs = {!! json_encode($staff) !!};
+      var users_blog = {!! json_encode($usuarios_blog) !!};
 
       $('.keep_reading').unbind('click').click(function () {
         let staff_id = $(this).attr('data-staff-id');
         let staff_selected = staffs.find(st => st.id == staff_id);
+        console.warn(staff_selected);
+        let user_selected = users_blog.find(us => us.id == staff_selected.usuario_id);
 
+
+        console.log(users_blog);
+        console.log(user_selected);
         $('#staff_modal .modal-body').html(staff_selected['texto']);
+        $('#staff_modal .modal-title').empty().html(user_selected['nombre_completo']);
         console.log(staff_selected['texto']);
       });
     </script>

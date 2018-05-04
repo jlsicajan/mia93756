@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainControllers;
 
 use App\Staff;
+use App\UserBlog;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,8 +19,12 @@ class StaffController extends Controller
     {
         $staff = Staff::all()->toArray();
         $staff = array_chunk($staff, 3);
+
+        $usuarios_blog = UserBlog::all()->toArray();
         
-        return view('main_views.staff.index')->with(array('staff_separated' => $staff, 'staff' => Staff::all()->toArray()));
+        return view('main_views.staff.index')->with(array('staff_separated' => $staff, 
+                                                        'staff' => Staff::all()->toArray(),
+                                                        'usuarios_blog' => $usuarios_blog));
     }
 
     /**
