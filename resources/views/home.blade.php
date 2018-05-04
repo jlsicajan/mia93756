@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
-                @include('elements.for_grid.card_left', ['grid_content' => '', 'gradient' => 1])
+                @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
                 @foreach($articles[0] as $article_left)
                     @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left['texto_uno']])
                 @endforeach
