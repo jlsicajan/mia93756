@@ -65,6 +65,18 @@
 
 @yield('content')
 @stack('scripts')
+  <footer class="footer">
+      <div class="container-fluid center">
+        <div class="row justify-content-center">
+          <a class="nav-link js-scroll-trigger" href="">MIA &copy; 2018</a>
+        </div>
+      </div>
+    </footer>
+    <style type="text/css">
+        .footer{
+            background-color: #F2F2F2;
+        }
+    </style>
 <script type="text/javascript">
     $(document).ready(function(){
     });
