@@ -8679,8 +8679,7 @@ body {
 
 .mia-header {
   background-image: url("https://static.wixstatic.com/media/b2c0a7_f3ac39ecaa9c494fbbfb447fddc3b5a9.jpg/v1/fill/w_1920,h_542,al_c,q_85,usm_0.66_1.00_0.01/b2c0a7_f3ac39ecaa9c494fbbfb447fddc3b5a9.webp");
-  height: 54vh;
-  background-size: cover;
+  height: 75vh;
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
@@ -8738,8 +8737,14 @@ body {
   border-bottom: 3px solid #ffffff; }
 
 @media (max-width: 575px) {
-  .mia-header .row {
-    padding-left: 0; } }
+  .mia-header {
+    height: 50vh; }
+    .mia-header .title-container {
+      width: 65% !important; }
+    .mia-header .font_3 {
+      font-size: 50px; }
+    .mia-header .row {
+      padding-left: 0; } }
 
 .navbar-mia {
   height: 87px; }
@@ -8904,6 +8909,12 @@ body {
   width: 475px;
   position: relative;
   left: 0; }
+
+@media (max-width: 575px) {
+  .grid-block-sm {
+    width: 100%; }
+  .card-primary {
+    width: 100%; } }
 
 @media (max-width: 575px) {
   .pd-2rem {

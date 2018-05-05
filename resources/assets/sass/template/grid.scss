@@ -101,6 +101,18 @@
 
 }
 
+
+//Tablet changes
+@include media-breakpoint-only(xs) {
+  .grid-block-sm{
+    width: 100%;
+  }
+  .card-primary{
+    width: 100%;
+  }
+}
+
+
 //Mobile changes
 @include media-breakpoint-only(xs) {
   .pd-2rem{

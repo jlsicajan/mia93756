@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Billboard;
 
 class CinemaController extends Controller
 {
@@ -14,7 +15,14 @@ class CinemaController extends Controller
      */
     public function index()
     {
-        return view('main_views.cinema.index');
+        $movies = Billboard::with('location')->get()->toArray();
+        if(count($movies) == 2){
+            $movies = array_chunk($movies, 1);
+        }else{
+            $movies = array_chunk($movies, count($movies) / 2 + 1);
+        }
+        // print_r($movies);die();
+        return view('main_views.cinema.index')->with(array('movies' => $movies));
     }
 
     /**
