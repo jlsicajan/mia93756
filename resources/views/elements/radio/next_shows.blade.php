@@ -19,7 +19,6 @@
     </div>
 </div>
 <style type="text/css">
-
     .helvetica-100{
         font-family: helvetica;
         font-weight: 100;

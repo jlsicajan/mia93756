@@ -8715,8 +8715,21 @@ body {
 .bg-white {
   background-color: #ffffff !important; }
 
+.bg-primary {
+  background-color: #FF40A3 !important; }
+
+.btn-primary {
+  background-color: #FF40A3 !important;
+  border-color: #FF009E !important; }
+  .btn-primary:hover {
+    background-color: #d43386 !important;
+    border-color: #d43386 !important; }
+
 .color-white {
   color: #ffffff !important; }
+
+.color-primary {
+  color: #FF40A3 !important; }
 
 .border-top-white {
   border-top: 3px solid #ffffff; }

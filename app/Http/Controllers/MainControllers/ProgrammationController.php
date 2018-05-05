@@ -17,7 +17,9 @@ class ProgrammationController extends Controller
     {
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
-        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows, 'current_show' => $current_show));
+        $week_programation = $this->get_week_programation();
+        // print_r($week_programation);die();
+        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows, 'current_show' => $current_show, 'week_programation' => $week_programation));
     }
 
     function get_next_shows()
@@ -136,6 +138,26 @@ class ProgrammationController extends Controller
         $finPAAF = "00:00";
 
         return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+    }
+
+    function get_week_programation(){
+        $empresa_id = env('RADIO_ID');
+        $diasDeProgramacionS = "SELECT * FROM dia ORDER BY orden ASC";
+        $resultadoDDPs = DB::select($diasDeProgramacionS);
+        $result = [];
+        foreach($resultadoDDPs AS $datosDDPs){ 
+            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
+            $resultadoPPD = DB::select($programacionPorDia);
+
+            if($datosDDPs->id_php == date('N')){ 
+                array_push($result, ['active', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
+            }else{ 
+                array_push($result, ['inactive', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
+            }
+        }
+
+        return $result;
+
     }
     
     function convertirHoraMilitar($hora){

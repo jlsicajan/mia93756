@@ -19,7 +19,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
+                        <h4 class="modal-title"></h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -73,7 +73,7 @@
 
         console.log(users_blog);
         console.log(user_selected);
-        $('#staff_modal .modal-body').html(staff_selected['texto']);
+        $('#staff_modal .modal-body').empty().html(staff_selected['texto']);
         $('#staff_modal .modal-title').empty().html(user_selected['nombre_completo']);
         console.log(staff_selected['texto']);
       });
