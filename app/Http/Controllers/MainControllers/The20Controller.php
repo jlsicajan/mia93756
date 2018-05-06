@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\The20;
 
 class The20Controller extends Controller
 {
@@ -14,7 +15,9 @@ class The20Controller extends Controller
      */
     public function index()
     {
-        return view('main_views.the20.index');
+        $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
+        // print_r($the_20);die();
+        return view('main_views.the20.index')->with(array('the20' => $the_20));
     }
 
     /**
