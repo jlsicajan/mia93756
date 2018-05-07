@@ -8678,7 +8678,7 @@ body {
   overflow-x: hidden; }
 
 .mia-header {
-  background-image: url("https://static.wixstatic.com/media/b2c0a7_f3ac39ecaa9c494fbbfb447fddc3b5a9.jpg/v1/fill/w_1920,h_542,al_c,q_85,usm_0.66_1.00_0.01/b2c0a7_f3ac39ecaa9c494fbbfb447fddc3b5a9.webp");
+  background-image: url("/public/img/header/mia_header.png");
   height: 54vh;
   background-position: center;
   background-repeat: no-repeat;
