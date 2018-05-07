@@ -45,7 +45,7 @@ class ProgrammationController extends Controller
         
         $contadorPPp1 = count($resultadoPPp1);
         $limite -= $contadorPPp1;
-        
+        $ordenMostrar = "D.id_php ASC,";
         if ($limite) {
             if ($diaActual === 7) {
                 $diaActual = 1;
