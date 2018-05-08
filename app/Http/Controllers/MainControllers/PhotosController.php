@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\MainControllers;
 
+use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,14 @@ class PhotosController extends Controller
      */
     public function index()
     {
-        return view('main_views.photos.index');
+        $photos = Photo::all()->toArray();
+        if(count($photos) == 2){
+            $photos = array_chunk($photos, 1);
+        }else{
+            $photos = array_chunk($photos, count($photos) / 2 + 1);
+        }
+//        print_r($photos);die();
+        return view('main_views.photos.index')->with(array('photos' => $photos));
     }
 
     /**

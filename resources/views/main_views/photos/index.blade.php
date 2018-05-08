@@ -8,14 +8,18 @@
 
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
-                @include('elements.for_grid.grid_left', ['title' => 'TITLE', 'grid_content' => '', 'gradient' => 1])
-                @include('elements.for_grid.grid_left', ['title' => 'TITLE', 'grid_content' => '', 'gradient' => 1])
-                @include('elements.for_grid.grid_left', ['title' => 'TITLE', 'grid_content' => '', 'classes' => 'grid-header-primary', 'gradient' => 1])
+                @if(isset($photos[0]) && !empty($photos[0]))
+                    @foreach($photos[0] as $photos_left)
+                        {{ json_encode($photos_left) }}
+                    @endforeach
+                @endif
             </div>
             <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                @include('elements.for_grid.grid_right', ['title' => 'TITLE', 'grid_content' => '', 'gradient' => 1])
-                @include('elements.for_grid.grid_right', ['title' => 'TITLE', 'grid_content' => '', 'classes' => 'grid-header-primary', 'gradient' => 1])
-                @include('elements.for_grid.grid_right', ['title' => 'TITLE', 'grid_content' => '', 'gradient' => 1])
+                @if(isset($photos[1]) && !empty($photos[1]))
+                    @foreach($photos[1] as $photos_right)
+                        {{ json_encode($photos_right) }}
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
