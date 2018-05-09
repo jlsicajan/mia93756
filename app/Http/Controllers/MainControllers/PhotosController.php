@@ -19,7 +19,7 @@ class PhotosController extends Controller
         if(count($photos) == 2){
             $photos = array_chunk($photos, 1);
         }else{
-            $photos = array_chunk($photos, count($photos) / 2 + 1);
+            $photos = array_chunk($photos, count($photos) / 2);
         }
 //        print_r($photos);die();
         return view('main_views.photos.index')->with(array('photos' => $photos));
