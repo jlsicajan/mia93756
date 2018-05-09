@@ -11,7 +11,7 @@
 
             <div>
                 <audio id="{{ $music['orden'] }}"><source src="{{ env('URL_SOURCE_MULTIMEDIA') . $music['audio'] }}" type="audio/mp3">Your browser does not support the audio element.</audio>
-                <button data-for-music='{{ $music['orden'] }}' class="play_button color-white" type="button">
+                <button  data-is-playing="0" data-for-music='{{ $music['orden'] }}' class="play_button color-white" type="button">
                     <i class="fa fa-play color-white"></i><i class="fa fa-pause"></i>
                 </button>
             </div>

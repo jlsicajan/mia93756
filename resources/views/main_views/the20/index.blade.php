@@ -60,6 +60,11 @@
     border: 2px solid white !important;
 }
 
+.bg-grid-secondary{
+    background: linear-gradient(to bottom right, #bd3188, #e2008c) !important;
+}
+
+
 </style>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -70,39 +75,39 @@
     var button_selected;
 
     $('.play_button').unbind('click').click(function(){
+        console.log("clicked");
         let id_one = $(this).attr('data-for-music');
         music_selected = document.getElementById(id_one);
         button_selected = $(this);
-        stopt_all(toggle_radio);
-    });
 
+         $('audio').each(function(){
+            let id_other = $(this).attr('id');
 
-    function toggle_radio(){
-        console.log(button_selected);
-        console.log();
-        if(music_selected.paused == false){
+            if(id_other != id_one){
+                $(this).next().attr('data-is-playing', 0);
+                let music_one = document.getElementById(id_other);
+                music_one.pause();
+                music_one.currentTime = 0;
+            }
+        });
+
+        let status_one = button_selected.attr('data-is-playing');
+        if(status_one == 1){
             music_selected.pause();
             $('.play_button > .fa-pause').hide();
             $('.play_button > .fa-play').show();
             button_selected.find('.fa-pause').hide();
             button_selected.find('.fa-play').show();
+            button_selected.attr('data-is-playing', 0);
         }else{
             music_selected.play();
             $('.play_button > .fa-pause').hide();
             $('.play_button > .fa-play').show();
             button_selected.find('.fa-pause').show();
             button_selected.find('.fa-play').hide();
+            button_selected.attr('data-is-playing', 1);
         }
-    }
+    });
 
-
-    function stopt_all(callback){
-        $('audio').each(function(){
-            let id_one = $(this).attr('id');
-            let music_one = document.getElementById(id_one);
-            music_one.pause();
-        });
-        callback();
-    }
 </script>
 @endsection
