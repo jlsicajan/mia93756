@@ -24,4 +24,11 @@
             </div>
         </div>
     </div>
+    <style type="text/css">
+    .grid-photo-block{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
 @endsection
