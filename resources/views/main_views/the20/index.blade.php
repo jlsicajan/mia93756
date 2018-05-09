@@ -9,10 +9,12 @@
 
     <div class="row justify-content-center">
         @foreach($the20 as $plus)
-        <div class="col-12 col-sm-9 col-md-6 col-lg-4">
-         @include('elements.the20.simple_player', ['gradient' => 1, 'music' => $plus])
-     </div>
-     @endforeach
+            @if(!empty($plus['audio']) && !empty($plus['imagen']))
+                <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                    @include('elements.the20.simple_player', ['gradient' => 1, 'music' => $plus])
+                </div>
+            @endif
+        @endforeach
  </div>
 </div>
 <style type="text/css">
