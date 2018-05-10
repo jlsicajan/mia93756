@@ -57,14 +57,14 @@
 <div class="social-icons-container">
     <div class="row social-icons d-flex flex-column">
         @foreach(App\SocialNetwork::orderBy('orden', 'ASC')->get()->toArray() as $social_network)
-            <a href="{{ $social_network['link'] }}" target="_blank"><i class="fa fa-{{ strtolower($social_network['nombre']) }}"></i></a>
+            <a class="mb-15px" href="{{ $social_network['link'] }}" target="_blank"><i class="fa fa-{{ strtolower($social_network['nombre']) }}"></i></a>
         @endforeach
     </div>
 </div>
 
 @yield('content')
 @stack('scripts')
-      @include('elements.for_grid.middle_space_block', ['classes' => ''])
+  @include('elements.for_grid.middle_space_block', ['classes' => ''])
   <footer class="footer bg-grid-default">
       <div class="container center">
         <div class="row justify-content-center"> 
