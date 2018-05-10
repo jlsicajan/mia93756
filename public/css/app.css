@@ -8730,6 +8730,14 @@ body {
 .color-primary {
   color: #FF40A3 !important; }
 
+.color-black {
+  color: #000000; }
+  .color-black:hover {
+    color: #FF40A3 !important; }
+
+.color-black.active {
+  color: #FF40A3 !important; }
+
 .border-top-white {
   border-top: 3px solid #ffffff; }
 

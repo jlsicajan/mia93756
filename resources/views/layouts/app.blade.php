@@ -56,27 +56,40 @@
 </nav>
 <div class="social-icons-container">
     <div class="row social-icons d-flex flex-column">
-        <a href="https://www.facebook.com/mia937/" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.instagram.com/mia937/" target="_blank"><i class="fa fa-instagram"></i></a>
-        <a href="https://www.youtube.com/channel/UCVF-FE5crAg5-lCLhgnjjfQ" target="_blank"><i class="fa fa-youtube"></i></a>
-        <a href="https://twitter.com/mia937?lang=es" target="_blank"><i class="fa fa-twitter"></i></a>
+        @foreach(App\SocialNetwork::orderBy('orden', 'ASC')->get()->toArray() as $social_network)
+            <a href="{{ $social_network['link'] }}" target="_blank"><i class="fa fa-{{ strtolower($social_network['nombre']) }}"></i></a>
+        @endforeach
     </div>
 </div>
 
 @yield('content')
 @stack('scripts')
-  <footer class="footer">
-      <div class="container-fluid center">
-        <div class="row justify-content-center">
-          <a class="nav-link js-scroll-trigger" href="">MIA &copy; 2018</a>
+      @include('elements.for_grid.middle_space_block', ['classes' => ''])
+  <footer class="footer bg-grid-default">
+      <div class="container center">
+        <div class="row justify-content-center"> 
+          <div class="col-12 col-md-12">
+              <br>
+              <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary" href="https://elcaminoweb.com.gt" target="_blank">El Camino Web.</a></p>
+          </div>
+          <div class="col-12 col-md-12 row">
+               <ol class="breadcrumb bg-grid-default col-12 col-sm-8 col-md-9">
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO</a></li>
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'pro') ? 'active' : '' }}" href="{{ route('pro') }}">PROGRAMACION</a></li>
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'staff') ? 'active' : '' }}" href="{{ route('staff') }}">STAFF</a></li>
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'cinema') ? 'active' : '' }}" href="{{ route('cinema') }}">CINE</a></li>
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'photos') ? 'active' : '' }}" href="{{ route('photos') }}">FOTOS</a></li>
+                <li class="breadcrumb-item"><a class="color-black {{ ($route == 'the20') ? 'active' : '' }}" href="{{ route('the20') }}">LOS 20+</a></li>
+              </ol>
+              <div class="row social-icons justify-content-around d-flex col-12 col-sm-4 col-md-3">
+                @foreach(App\SocialNetwork::orderBy('orden', 'ASC')->get()->toArray() as $social_network)
+                    <a href="{{ $social_network['link'] }}" target="_blank"><i class="fa fa-{{ strtolower($social_network['nombre']) }} color-black"></i></a>
+                @endforeach
+              </div>
+          </div>
         </div>
       </div>
     </footer>
-    <style type="text/css">
-        .footer{
-            background-color: #F2F2F2;
-        }
-    </style>
 <script type="text/javascript">
     $(document).ready(function(){
     });

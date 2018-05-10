@@ -67,6 +67,17 @@ body{
   color: $brand-primary !important;
 }
 
+.color-black{
+  color: #000000;
+  &:hover{
+    color: $brand-primary !important;
+  }
+}
+
+.color-black.active{
+  color: $brand-primary !important;
+}
+
 .border-top-white{
   border-top: 3px solid #ffffff;
 }

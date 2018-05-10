@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\SocialNetwork;
+
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -33,6 +35,7 @@ class HomeController extends Controller
         $articles = array_chunk($articles, count($articles) / 2 + 1);
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
+        
         return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows, 'current_show' => $current_show));
     }
     
