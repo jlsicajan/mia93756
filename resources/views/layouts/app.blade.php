@@ -8,6 +8,9 @@
     <title>Mia 93.7</title>
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
+    <link rel="icon" href="/public/img/logo/logo_white_background.jpg" type="image/jpg">
+
+    <meta name="description" content="Escucha tu corazon">
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -20,7 +23,7 @@
 
     <nav class="navbar navbar-toggleable-md navbar-mia">
         <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto">
-            <div class="navbar-brand navbar-logo"></div>
+            <a class="navbar-brand navbar-logo" href="{{ route('home') }}"></a>
             <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
                 <ul class="navbar-nav ml-auto">
                     
