@@ -2,7 +2,7 @@
     <div class="grid-header col-12 {{ isset($classes) ? $classes : '' }}">
         <span class="font_2 color-white font_2_grid">{{ $movie['titulo'] }}</span>
         @if(isset($gradient) && $gradient)
-            <div class="gradient float-right"></div>
+        <div class="gradient float-right"></div>
         @endif
     </div>
     <div class="grid-block bg-grid-default col-12">
@@ -22,9 +22,9 @@
     			{!! $movie['sinopsis'] !!}
     		</div>
     		<hr>
-    		<div class="embed-responsive embed-responsive-16by9">
-    			<iframe class="embed-responsive-item" width="560" height="315" src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $movie['url_youtube']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-			</div>
-    	</div>
+            <iframe class="embed-responsive-item" width="560" height="315" src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $movie['url_youtube']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <hr>
+            <br>
+        </div>
     </div>
 </div>

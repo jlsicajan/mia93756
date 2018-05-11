@@ -19,7 +19,7 @@ class CinemaController extends Controller
         if(count($movies) == 2){
             $movies = array_chunk($movies, 1);
         }else{
-            $movies = array_chunk($movies, count($movies) / 2 + 1);
+            $movies = array_chunk($movies, count($movies) / 2);
         }
         // print_r($movies);die();
         return view('main_views.cinema.index')->with(array('movies' => $movies));
