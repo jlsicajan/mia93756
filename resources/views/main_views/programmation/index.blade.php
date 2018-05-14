@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+@endsection
+
 @section('content')
 @include('elements.mia-hdear', ['title' => $current_show['PAFF_titulo'], 
     'custom_background' => $current_show['PAFF_image'], 
@@ -12,6 +16,7 @@
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
                 @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
                 @include("elements.radio.live_radio", ['position' => 'left', 'title' => 'RADIO EN LINEA', 'classes' => 'grid-header-primary', 'gradient' => 1])
+                @include('elements.news.news_card')
             </div>
             <div class="col-12 col-md-6 py-md-4">
                 @include('elements.radio.next_shows', ['title' => 'Proximos programas', 'gradient' => 1])
@@ -54,4 +59,8 @@
         });
     });
 </script>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 @endsection

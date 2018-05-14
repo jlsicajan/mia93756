@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\MainControllers;
 
+use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,10 @@ class ProgrammationController extends Controller
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
         $week_programation = $this->get_week_programation();
+        $news = News::where('activo', '=', 1)->get()->toArray();
+        
         // print_r($week_programation);die();
-        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows, 'current_show' => $current_show, 'week_programation' => $week_programation));
+        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows, 'current_show' => $current_show, 'week_programation' => $week_programation, 'news' => $news));
     }
 
     function get_next_shows()

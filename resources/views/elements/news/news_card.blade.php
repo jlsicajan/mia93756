@@ -5,6 +5,7 @@
                     <div class="news_item d-flex flex-column align-items-center shadow text-center justify-content-center" style="background-image: url({{ $new['imagen'] }});">
                         <p class="color-white">NOTICIAS</p>
                         <p class="color-white">{{ $new['titulo'] }}</p>
+                        <a class="btn btn-primary" target="_blank" href="{{ $new['link'] }}">Ver mas</a>
                     </div>
                 @endforeach
         </div>
