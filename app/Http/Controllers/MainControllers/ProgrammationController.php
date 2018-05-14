@@ -95,7 +95,12 @@ class ProgrammationController extends Controller
         $resultadoPAAMyr= DB::select($programaAlAireMyr);
 
         if(empty($resultadoPAAMyr) || empty($resultadoPAAMnr)){
-            goto MuestraVacio;
+            $mensajePAAF = "Próximo programa";
+            $tituloPAAF = "No hay programa";
+            $imagenPAAF = "";
+            $inicioPAAF = "00:00";
+            $finPAAF = "00:00";
+            return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
         }else{
             $resultadoPAAMnr = $resultadoPAAMnr[0];
             $resultadoPAAMyr = $resultadoPAAMyr[0];
@@ -105,40 +110,59 @@ class ProgrammationController extends Controller
             $inicioMyr = $this->convertirHoraMilitar($resultadoPAAMyr->inicio);
             $finMyr = $this->convertirHoraMilitar($resultadoPAAMyr->fin);
 
-            if($resultadoPAAMnr && !$resultadoPAAMyr){ goto MuestraMenor; }
-            else if(!$resultadoPAAMnr && $resultadoPAAMyr){ goto MuestraMayor; }
-            else if(!$resultadoPAAMnr && !$resultadoPAAMyr){ goto MuestraVacio; }
+            if($resultadoPAAMnr && !$resultadoPAAMyr){
+                $mensajePAAF = "Al aire ahora";
+                $tituloPAAF = $resultadoPAAMnr->Titulo;
+                $imagenPAAF = $resultadoPAAMnr->Imagen;
+                $inicioPAAF = $resultadoPAAMnr->inicio;
+                $finPAAF = $resultadoPAAMnr->fin;
+                return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+            }
+            else if(!$resultadoPAAMnr && $resultadoPAAMyr){
+                $mensajePAAF = "Próximo programa";
+                $tituloPAAF = $resultadoPAAMyr->Titulo;
+                $imagenPAAF = $resultadoPAAMyr->Imagen;
+                $inicioPAAF = $resultadoPAAMyr->inicio;
+                $finPAAF = $resultadoPAAMyr->fin;
+                return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+            }
+            else if(!$resultadoPAAMnr && !$resultadoPAAMyr){
+                $mensajePAAF = "Próximo programa";
+                $tituloPAAF = "No hay programa";
+                $imagenPAAF = "";
+                $inicioPAAF = "00:00";
+                $finPAAF = "00:00";
+                return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+            }
             else{
                 // SI SON IGUALES
-                if( ($inicioMnr == $inicioMyr) && ($finMnr == $finMyr) ){ goto MuestraMenor; }
+                if( ($inicioMnr == $inicioMyr) && ($finMnr == $finMyr) ){
+                    $mensajePAAF = "Próximo programa";
+                    $tituloPAAF = $resultadoPAAMnr->Titulo;
+                    $imagenPAAF = $resultadoPAAMnr->Imagen;
+                    $inicioPAAF = $resultadoPAAMnr->inicio;
+                    $finPAAF = $resultadoPAAMnr->fin;
+                    return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+                }
 
-                if($finMnr > $horaActual){ goto MuestraMenor; }
-                else{ goto MuestraMayor; }
+                if($finMnr > $horaActual){
+                    $mensajePAAF = "Al aire ahora";
+                    $tituloPAAF = $resultadoPAAMnr->Titulo;
+                    $imagenPAAF = $resultadoPAAMnr->Imagen;
+                    $inicioPAAF = $resultadoPAAMnr->inicio;
+                    $finPAAF = $resultadoPAAMnr->fin;
+                    return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+                }
+                else{
+                    $mensajePAAF = "Próximo programa";
+                    $tituloPAAF = $resultadoPAAMyr->Titulo;
+                    $imagenPAAF = $resultadoPAAMyr->Imagen;
+                    $inicioPAAF = $resultadoPAAMyr->inicio;
+                    $finPAAF = $resultadoPAAMyr->fin;
+                    return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
+                }
             }
         }
-
-        MuestraMenor:
-        $mensajePAAF = "Al aire ahora";
-        $tituloPAAF = $resultadoPAAMnr->Titulo;
-        $imagenPAAF = $resultadoPAAMnr->Imagen;
-        $inicioPAAF = $resultadoPAAMnr->inicio;
-        $finPAAF = $resultadoPAAMnr->fin;
-        return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
-
-        MuestraMayor:
-        $mensajePAAF = "Próximo programa";
-        $tituloPAAF = $resultadoPAAMyr->Titulo;
-        $imagenPAAF = $resultadoPAAMyr->Imagen;
-        $inicioPAAF = $resultadoPAAMyr->inicio;
-        $finPAAF = $resultadoPAAMyr->fin;
-        return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
-
-        MuestraVacio:
-        $mensajePAAF = "Próximo programa";
-        $tituloPAAF = "No hay programa";
-        $imagenPAAF = "";
-        $inicioPAAF = "00:00";
-        $finPAAF = "00:00";
 
         return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
     }
