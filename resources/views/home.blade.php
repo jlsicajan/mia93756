@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
+@section('head')
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+@endsection
+
 @section('content')
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <div class="container-fluid mia-header">
     <div class="row justify-content-start">
         <div class="col-md-3 d-flex flex-column justify-content-center">
@@ -18,8 +23,15 @@
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
 
     <div class="row">
+        <div class="col-12">
+           
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12 col-md-6 py-md-4 pd-2rem">
             @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
+            @include('elements.news.news_card')
+    
             @if(isset($articles[0]) && !empty($articles[0]))
                 @foreach($articles[0] as $article_left)
                 @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left['texto_uno']])
@@ -38,4 +50,8 @@
     </div>
 
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 @endsection

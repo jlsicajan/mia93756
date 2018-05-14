@@ -8730,6 +8730,9 @@ body {
 .color-primary {
   color: #FF40A3 !important; }
 
+.color-secondary {
+  color: #00b7e5 !important; }
+
 .color-black {
   color: #000000; }
   .color-black:hover {
@@ -8919,11 +8922,14 @@ body {
   right: 0;
   z-index: 2; }
 
-.card-primary {
+.card-primary, .card-secondary {
   height: 244px;
   width: 475px;
   position: relative;
   left: 0; }
+
+.card-secondary {
+  background-color: #00b7e5; }
 
 @media (max-width: 575px) {
   .grid-block-sm {

@@ -97,12 +97,16 @@
 }
 
 //cards
-.card-primary{
+.card-primary, .card-secondary{
   height: 244px;
   width: 475px;
   position: relative;
   left: 0;
 
+}
+
+.card-secondary{
+  background-color: rgba(0, 183, 229, 1);
 }
 
 
