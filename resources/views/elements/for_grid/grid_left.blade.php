@@ -7,6 +7,9 @@
     </div>
     <div class="grid-block bg-grid-default col-12">
     	<p class="font_7">{{ $title }}</p>
-        {!! $grid_content['texto_uno'] !!}  <a class="color-primary" href="{{ route('article_one', $grid_content['id']) }}">Continuar leyendo</a>
+        <div class="article_content">
+            {!! $grid_content['texto_uno'] !!}
+        </div>
+        <a class="color-primary" href="{{ route('article_one', $grid_content['id']) }}">Continuar leyendo</a>
     </div>
 </div>

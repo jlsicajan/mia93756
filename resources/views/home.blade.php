@@ -50,6 +50,15 @@
     </div>
 
 </div>
+<style type="text/css">
+    .article_content{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 71.5%;
+    }
+
+</style>
 @endsection
 
 @section('scripts')
