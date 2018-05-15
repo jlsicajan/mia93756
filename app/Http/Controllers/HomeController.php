@@ -68,8 +68,22 @@ class HomeController extends Controller
         }else{
             $article->visitas = $article->visitas + 1;
             $article->save();
+            $section_header = Section::where('nombre', '=', 'header')->first();
+    
+            if($section_header){
+                $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
+        
+                if($get_path){
+                    $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+                }else{
+                    $header_path = '/public/img/header/mia_header.png';
+                }
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
             
-            return view('main_views.article.view')->with(array('article' => $article));
+            return view('main_views.article.view')->with(array('article' => $article,
+                    'header_path' => $header_path));
         }
     }
     
