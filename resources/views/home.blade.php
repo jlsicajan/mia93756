@@ -6,7 +6,7 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<div class="container-fluid mia-header">
+<div class="container-fluid mia-header" style="background-image: url({{ $header['path'] }});">
     <div class="row justify-content-start">
         <div class="col-md-3 d-flex flex-column justify-content-center">
             <div class="title-container border-bottom-white border-top-white">

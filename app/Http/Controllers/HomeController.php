@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\Section;
+use App\Slide;
 use App\SocialNetwork;
 use App\News;
 
@@ -37,8 +39,21 @@ class HomeController extends Controller
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
         $news = News::where('activo', '=', 1)->get()->toArray();
+        $section_header = Section::where('nombre', '=', 'header')->first();
+        
+        if($section_header){
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->get()->toArray();
+            $header_path['path'] = $get_path['ruta'];
+        }else{
+            $header_path['path'] = '/public/img/header/mia_header.png';
+        }
+        
         // print_r($articles);die();
-        return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows, 'current_show' => $current_show, 'news' => $news));
+        return view('home')->with(array('articles' => $articles,
+                'next_shows' => $next_shows,
+                'current_show' => $current_show,
+                'news' => $news,
+                'header' => $header_path));
     }
 
     public function article_one($article_id){
