@@ -67,7 +67,9 @@
 
 @yield('content')
 @yield('scripts')
-  @include('elements.for_grid.middle_space_block', ['classes' => ''])
+  <div class="container">
+      @include('elements.for_grid.middle_space_block', ['classes' => ''])
+  </div>
   <footer class="footer bg-grid-default">
       <div class="container center">
         <div class="row justify-content-center"> 
