@@ -37,8 +37,17 @@ class HomeController extends Controller
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
         $news = News::where('activo', '=', 1)->get()->toArray();
-        
+        // print_r($articles);die();
         return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows, 'current_show' => $current_show, 'news' => $news));
+    }
+
+    public function article_one($article_id){
+        $article = Article::findOrFail($article_id);
+        if(empty($article)){
+            print_r('Article not found');die();
+        }else{
+            return view('main_views.article.view')->with(array('article' => $article));
+        }
     }
     
     function get_next_shows()

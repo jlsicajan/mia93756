@@ -34,7 +34,7 @@
     
             @if(isset($articles[0]) && !empty($articles[0]))
                 @foreach($articles[0] as $article_left)
-                @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left['texto_uno']])
+                @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left])
                 @endforeach
             @endif
         </div>
@@ -43,7 +43,7 @@
             @include("elements.radio.live_radio", ['position' => 'right', 'title' => 'RADIO EN LINEA', 'classes' => 'grid-header-primary', 'gradient' => 1])
             @if(isset($articles[1]) && !empty($articles[1]))
                 @foreach($articles[1] as $article_right)
-                @include('elements.for_grid.grid_right', ['title' => $article_right['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_right['texto_uno']])
+                @include('elements.for_grid.grid_right', ['title' => $article_right['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_right])
                 @endforeach
             @endif
         </div>

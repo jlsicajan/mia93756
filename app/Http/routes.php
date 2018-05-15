@@ -18,3 +18,5 @@ Route::get('/programacion/', ['as'   => 'pro', 'uses' => 'MainControllers\Progra
 Route::get('/staff/', ['as'   => 'staff', 'uses' => 'MainControllers\StaffController@index']);
 Route::get('/fotos/', ['as'   => 'photos', 'uses' => 'MainControllers\PhotosController@index']);
 Route::get('/los20/', ['as'   => 'the20', 'uses' => 'MainControllers\The20Controller@index']);
+
+Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
