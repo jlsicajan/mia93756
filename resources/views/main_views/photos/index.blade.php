@@ -2,7 +2,6 @@
 
 @section('content')
     @include('elements.mia-hdear', ['title' => 'Fotos'])
-
     <div class="container">
         @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
