@@ -42,10 +42,15 @@ class HomeController extends Controller
         $section_header = Section::where('nombre', '=', 'header')->first();
         
         if($section_header){
-            $get_path = Slide::where('id_tabla', '=', $section_header->id)->get()->toArray();
-            $header_path['path'] = $get_path['ruta'];
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
+            
+            if($get_path){
+                $header_path = $get_path->ruta;
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
         }else{
-            $header_path['path'] = '/public/img/header/mia_header.png';
+            $header_path = '/public/img/header/mia_header.png';
         }
         
         // print_r($articles);die();
@@ -53,7 +58,7 @@ class HomeController extends Controller
                 'next_shows' => $next_shows,
                 'current_show' => $current_show,
                 'news' => $news,
-                'header' => $header_path));
+                'header_path' => $header_path));
     }
 
     public function article_one($article_id){
