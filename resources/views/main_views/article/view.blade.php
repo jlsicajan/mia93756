@@ -19,12 +19,14 @@
 <div class="container">
     @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
+    @include('elements.for_grid.middle_space_block', ['classes' => ''])
 
     <div class="row">
         <div class="col-12">
            <h3 class="color-primary">{{ $article['titulo'] }}</h3>
            <hr>
            <p>{!! $article['texto_uno'] !!}</p>
+           <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
     </div>
 

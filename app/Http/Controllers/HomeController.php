@@ -46,6 +46,9 @@ class HomeController extends Controller
         if(empty($article)){
             print_r('Article not found');die();
         }else{
+            $article->visitas = $article->visitas + 1;
+            $article->save();
+            
             return view('main_views.article.view')->with(array('article' => $article));
         }
     }
