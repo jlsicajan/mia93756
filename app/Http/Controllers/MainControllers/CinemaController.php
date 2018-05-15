@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\MainControllers;
 
+use App\Section;
+use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Billboard;
@@ -21,8 +23,23 @@ class CinemaController extends Controller
         }else{
             $movies = array_chunk($movies, count($movies) / 2);
         }
+        $section_header = Section::where('nombre', '=', 'header')->first();
+    
+        if($section_header){
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
+        
+            if($get_path){
+                $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
+        }else{
+            $header_path = '/public/img/header/mia_header.png';
+        }
+    
         // print_r($movies);die();
-        return view('main_views.cinema.index')->with(array('movies' => $movies));
+        return view('main_views.cinema.index')->with(array('movies' => $movies,
+                'header_path' => $header_path));
     }
 
     /**

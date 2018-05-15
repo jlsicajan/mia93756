@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainControllers;
 
 use App\Photo;
+use App\Section;
+use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -21,8 +23,24 @@ class PhotosController extends Controller
         }else{
             $photos = array_chunk($photos, count($photos) / 2);
         }
+    
+        $section_header = Section::where('nombre', '=', 'header')->first();
+    
+        if($section_header){
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
+        
+            if($get_path){
+                $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
+        }else{
+            $header_path = '/public/img/header/mia_header.png';
+        }
+
 //        print_r($photos);die();
-        return view('main_views.photos.index')->with(array('photos' => $photos));
+        return view('main_views.photos.index')->with(array('photos' => $photos,
+                'header_path' => $header_path));
     }
 
     /**

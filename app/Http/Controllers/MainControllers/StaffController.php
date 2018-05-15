@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\MainControllers;
 
+use App\Section;
+use App\Slide;
 use App\Staff;
 use App\UserBlog;
 
@@ -21,10 +23,24 @@ class StaffController extends Controller
         $staff = array_chunk($staff, 3);
 
         $usuarios_blog = UserBlog::all()->toArray();
+        $section_header = Section::where('nombre', '=', 'header')->first();
+    
+        if($section_header){
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
         
+            if($get_path){
+                $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
+        }else{
+            $header_path = '/public/img/header/mia_header.png';
+        }
+    
         return view('main_views.staff.index')->with(array('staff_separated' => $staff, 
-                                                        'staff' => Staff::all()->toArray(),
-                                                        'usuarios_blog' => $usuarios_blog));
+                'staff' => Staff::all()->toArray(),
+                'usuarios_blog' => $usuarios_blog,
+                'header_path' => $header_path));
     }
 
     /**

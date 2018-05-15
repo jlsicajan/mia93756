@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\MainControllers;
 
 use App\News;
+use App\Section;
+use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -20,9 +22,28 @@ class ProgrammationController extends Controller
         $current_show = $this->get_current_show();
         $week_programation = $this->get_week_programation();
         $news = News::where('activo', '=', 1)->get()->toArray();
+    
+        $section_header = Section::where('nombre', '=', 'header')->first();
+    
+        if($section_header){
+            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
+        
+            if($get_path){
+                $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+            }else{
+                $header_path = '/public/img/header/mia_header.png';
+            }
+        }else{
+            $header_path = '/public/img/header/mia_header.png';
+        }
+    
         
         // print_r($week_programation);die();
-        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows, 'current_show' => $current_show, 'week_programation' => $week_programation, 'news' => $news));
+        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows,
+                'current_show' => $current_show,
+                'week_programation' => $week_programation,
+                'news' => $news,
+                'header_path' => $header_path));
     }
 
     function get_next_shows()
