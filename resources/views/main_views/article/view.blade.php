@@ -31,7 +31,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="fb-comments" data-href="http://mia937.elcaminoweb.com" data-width="100%" data-numposts="5"></div>
+            <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
         </div>  
     </div>
 
