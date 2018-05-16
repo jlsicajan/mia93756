@@ -37,6 +37,7 @@ class StaffController extends Controller
             $header_path = '/public/img/header/mia_header.png';
         }
     
+        // print_r(Staff::all()->toArray());die();
         return view('main_views.staff.index')->with(array('staff_separated' => $staff, 
                 'staff' => Staff::all()->toArray(),
                 'usuarios_blog' => $usuarios_blog,

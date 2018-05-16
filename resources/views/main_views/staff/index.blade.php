@@ -10,7 +10,7 @@
             <div class="row justify-content-center">
                 @foreach($staff_chunk as $staff_item)
                     <div class="col-12 col-sm-9 col-md-4 col-lg-4">
-                        @include('elements.staff.card_staff', ['image_url' => $staff_item['imagen'], 'card_title' => $staff_item['orden_mostrar'], 'card_text' => $staff_item['texto'], 'staff_id' => $staff_item['id']])
+                        @include('elements.staff.card_staff', ['image_url' => $staff_item['imagen'], 'card_title' => $staff_item['orden_mostrar'], 'card_text' => $staff_item['texto'], 'staff_id' => $staff_item['id'], 'staff_name' => $staff_item['locutor']])
                     </div>
                 @endforeach
             </div>
@@ -59,6 +59,11 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .staff_name{
+            font-size: 2rem;
+            text-shadow: 2px 2px black;
+        }
     </style>
     <script type="text/javascript">
       var staffs = {!! json_encode($staff) !!};
@@ -68,13 +73,12 @@
         let staff_id = $(this).attr('data-staff-id');
         let staff_selected = staffs.find(st => st.id == staff_id);
         console.warn(staff_selected);
-        let user_selected = users_blog.find(us => us.id == staff_selected.usuario_id);
+        // let user_selected = users_blog.find(us => us.id == staff_selected.usuario_id);
 
 
         console.log(users_blog);
-        console.log(user_selected);
         $('#staff_modal .modal-body').empty().html(staff_selected['texto']);
-        $('#staff_modal .modal-title').empty().html(user_selected['nombre_completo']);
+        $('#staff_modal .modal-title').empty().html(staff_selected['locutor']);
         console.log(staff_selected['texto']);
       });
     </script>
