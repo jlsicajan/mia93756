@@ -52,7 +52,7 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('iframe').each(function(){
+        $('iframe, img').each(function(){
             $(this).css('width', '100%');
         });
     });
