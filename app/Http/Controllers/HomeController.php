@@ -54,7 +54,7 @@ class HomeController extends Controller
         }
 
         
-        print_r($header_path);die();
+        // print_r($header_path);die();
         return view('home')->with(array('articles' => $articles,
                 'next_shows' => $next_shows,
                 'current_show' => $current_show,
@@ -75,7 +75,7 @@ class HomeController extends Controller
                 $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
         
                 if($get_path){
-                    $header_path = env('URL_SLIDE_PATH')  . $get_path->ruta;
+                    $header_path = env('URL_SLIDE_PATH')  . $get_path->identificador . '/' . filter_var($get_path->nombre, FILTER_SANITIZE_ENCODED);
                 }else{
                     $header_path = '/public/img/header/mia_header.png';
                 }
