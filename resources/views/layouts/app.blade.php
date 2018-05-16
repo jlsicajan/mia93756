@@ -112,5 +112,6 @@
     });
 
 </script>
+@yield('after_body')
 </body>
 </html>
