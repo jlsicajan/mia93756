@@ -8678,11 +8678,10 @@ body {
   overflow-x: hidden; }
 
 .mia-header {
-  height: 54vh;
+  height: 63vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: absolute;
   width: 100%; }
   .mia-header .row {
     height: 100%;
@@ -8804,9 +8803,10 @@ body {
           color: #FF40A3; }
   .navbar-mia .container .navbar-logo {
     background-image: url("/public/img/logo/logo.png");
-    height: 50px;
-    width: 105px;
-    background-repeat: no-repeat; }
+    height: 56px;
+    width: 170px;
+    background-repeat: no-repeat;
+    background-size: cover; }
 
 .navbar-toggler-mia {
   background-color: #000000;

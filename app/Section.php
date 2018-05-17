@@ -12,4 +12,26 @@ class Section extends Model {
         return parent::newQuery()->where('empresa_id', '=', env("RADIO_ID"));
     }
 
+    public static function get_banner(){
+    	$section_header = Section::where('nombre', '=', 'header')->first();
+        $header_path = array();
+
+        if($section_header){
+            $route_banner = Slide::where('id_tabla', '=', $section_header->id)->get()->toArray();
+            if(count($route_banner) > 0){
+                foreach($route_banner as $banner){
+                    $banner_path = env('URL_SLIDE_PATH')  . $banner['identificador'] . '/' . filter_var($banner['nombre'], FILTER_SANITIZE_ENCODED);
+                    array_push($header_path, array('route' => $banner_path, 'data' => $banner));
+                }
+            }else{
+                array_push($header_path, array('route' => '/public/img/header/mia_header.png', 'data' => ''));
+            }
+        }else{
+            array_push($header_path, array('route' => '/public/img/header/mia_header.png', 'data' => ''));
+        }
+
+        return $header_path;
+
+    }
+
 }

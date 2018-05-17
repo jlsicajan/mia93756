@@ -23,19 +23,7 @@ class ProgrammationController extends Controller
         $week_programation = $this->get_week_programation();
         $news = News::where('activo', '=', 1)->get()->toArray();
     
-        $section_header = Section::where('nombre', '=', 'header')->first();
-    
-        if($section_header){
-            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
-        
-            if($get_path){
-                $header_path = env('URL_SLIDE_PATH')  . $get_path->identificador . '/' . filter_var($get_path->nombre, FILTER_SANITIZE_ENCODED);
-            }else{
-                $header_path = '/public/img/header/mia_header.png';
-            }
-        }else{
-            $header_path = '/public/img/header/mia_header.png';
-        }
+        $main_banner = Section::get_banner();
     
         
         // print_r($week_programation);die();
@@ -43,7 +31,7 @@ class ProgrammationController extends Controller
                 'current_show' => $current_show,
                 'week_programation' => $week_programation,
                 'news' => $news,
-                'header_path' => $header_path));
+                'main_banner' => $main_banner));
     }
 
     function get_next_shows()

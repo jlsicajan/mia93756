@@ -61,9 +61,10 @@
   .container{
     .navbar-logo{
       background-image: url("/public/img/logo/logo.png");
-      height: 50px;
-      width: 105px;
+      height: 56px;
+      width: 170px;
       background-repeat: no-repeat;
+      background-size: cover;
     }
   }
 }

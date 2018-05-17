@@ -39,27 +39,12 @@ class HomeController extends Controller
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
         $news = News::where('activo', '=', 1)->get()->toArray();
-        $section_header = Section::where('nombre', '=', 'header')->first();
-        
-        if($section_header){
-            $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
-            
-            if($get_path){
-                $header_path = env('URL_SLIDE_PATH')  . $get_path->identificador . '/' . filter_var($get_path->nombre, FILTER_SANITIZE_ENCODED);
-            }else{
-                $header_path = '/public/img/header/mia_header.png';
-            }
-        }else{
-            $header_path = '/public/img/header/mia_header.png';
-        }
+        $main_banner = Section::get_banner();
 
         
-        // print_r($header_path);die();
-        return view('home')->with(array('articles' => $articles,
-                'next_shows' => $next_shows,
-                'current_show' => $current_show,
-                'news' => $news,
-                'header_path' => $header_path));
+        // print_r($main_banner);die();
+        return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows,
+                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner));
     }
 
     public function article_one($article_id){
@@ -69,22 +54,10 @@ class HomeController extends Controller
         }else{
             $article->visitas = $article->visitas + 1;
             $article->save();
-            $section_header = Section::where('nombre', '=', 'header')->first();
-    
-            if($section_header){
-                $get_path = Slide::where('id_tabla', '=', $section_header->id)->first();
-        
-                if($get_path){
-                    $header_path = env('URL_SLIDE_PATH')  . $get_path->identificador . '/' . filter_var($get_path->nombre, FILTER_SANITIZE_ENCODED);
-                }else{
-                    $header_path = '/public/img/header/mia_header.png';
-                }
-            }else{
-                $header_path = '/public/img/header/mia_header.png';
-            }
+            $main_banner = Section::get_banner();
             
             return view('main_views.article.view')->with(array('article' => $article,
-                    'header_path' => $header_path));
+                    'main_banner' => $main_banner));
         }
     }
     
