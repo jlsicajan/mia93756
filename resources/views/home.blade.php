@@ -34,7 +34,6 @@
                 @endif
             </div>
         </div>
-        <hr>
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
                 @if(isset($home_categories[2]) && !empty($home_categories[2]))

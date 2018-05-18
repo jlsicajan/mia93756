@@ -7,12 +7,12 @@
     <ul class="dropdown-menu" aria-labelledby="categories_multimenu">
         @foreach(App\Category::list_for_menu() as $category)
             @if(empty($category['subcategories']))
-                <li><a class="dropdown-item" href="#">{{ $category['nombre'] }}</a></li>
+                <li><a class="dropdown-item" href="{{ route('content', [$category['id'], 0]) }}">{{ $category['nombre'] }}</a></li>
             @else
                 <li><a class="dropdown-item dropdown-toggle" href="#">{{ $category['nombre'] }}</a>
                     <ul class="dropdown-menu">
                         @foreach($category['subcategories'] as $subcategory)
-                            <li><a class="dropdown-item" href="#">{{ $subcategory['nombre'] }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('content', [$category['id'], $subcategory['id']]) }}">{{ $subcategory['nombre'] }}</a></li>
                         @endforeach
                     </ul>
                 </li>

@@ -20,3 +20,5 @@ Route::get('/fotos/', ['as'   => 'photos', 'uses' => 'MainControllers\PhotosCont
 Route::get('/los20/', ['as'   => 'the20', 'uses' => 'MainControllers\The20Controller@index']);
 
 Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
+
+Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
