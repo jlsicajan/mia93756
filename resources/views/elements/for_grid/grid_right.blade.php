@@ -6,7 +6,7 @@
         @endif
     </div>
     <div class="grid-block bg-grid-default col-12">
-    	<p class="font_7">{{ $title }}</p>
+    	<p class="font_7">{{ $grid_content['titulo'] }}</p>
         <div class="article_content mb-1">
             {!! $grid_content['texto_uno'] !!}
         </div>

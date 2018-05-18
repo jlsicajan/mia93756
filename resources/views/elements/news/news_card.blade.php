@@ -31,6 +31,7 @@ $(document).ready(function(){
 </script>
 <style type="text/css">
     .news-container{
+        overflow: hidden;
         padding-top: 10px;
         padding-bottom: 10px;
     }

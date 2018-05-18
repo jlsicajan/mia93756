@@ -5,6 +5,8 @@ use App\Section;
 use App\Slide;
 use App\SocialNetwork;
 use App\News;
+use App\Category;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -34,7 +36,15 @@ class HomeController extends Controller
     
     public function index()
     {
+        $tell_me_more_category = Category::where('nombre', 'like', '%NTAME MAS%')->with('articles')->first()->toArray();
+        $my_love = Category::where('nombre', 'like', '%MIAMOR%')->with('articles')->first()->toArray();
+        $healthy = Category::where('nombre', 'like', '%SALUDABLE-MENTE%')->with('articles')->first()->toArray();
+
+        $home_categories = array(1 => $tell_me_more_category, 2 => $my_love, 3 => $healthy);
+
+//        print_r($home_categories);die();
         $articles = Article::all()->take(8)->toArray();
+//        print_r($articles);die();
         $articles = array_chunk($articles, count($articles) / 2 + 1);
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
@@ -44,7 +54,7 @@ class HomeController extends Controller
         
         // print_r($main_banner);die();
         return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows,
-                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner));
+                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'home_categories' => $home_categories));
     }
 
     public function article_one($article_id){

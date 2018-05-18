@@ -104,6 +104,10 @@ body{
     }
   }
 
+  .wxs-100{
+    width: 100% !important;
+  }
+
 }
 
 //big screens changes
@@ -112,4 +116,11 @@ body{
     height: 55vh !important;
   }
 
+}
+
+//tablet screens changes
+@include media-breakpoint-only(sm) {
+  .wxs-100{
+    width: 100% !important;
+  }
 }
