@@ -9,8 +9,10 @@
 @include('elements.mia-hdear', ['main_banner', $main_banner])
 
 <div class="container">
-    @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
+    {{-- @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down']) --}}
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
+    @include('elements.for_grid.middle_space_block', ['classes' => ''])
+
     @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
 
     <div class="row">
@@ -25,7 +27,8 @@
             @endif
         </div>
         <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-            @include('elements.radio.next_shows', ['title' => 'Proximos programas', 'gradient' => 1])
+            {{-- @include('elements.radio.next_shows', ['title' => 'Proximos programas', 'gradient' => 1]) --}}
+            @include("elements.for_grid.iframe", ['iframe_url' => 'https://www.instagram.com/mia937/'])
             @include("elements.radio.live_radio", ['position' => 'right', 'title' => 'RADIO EN LINEA', 'classes' => 'grid-header-primary', 'gradient' => 1])
             @if(isset($articles[1]) && !empty($articles[1]))
                 @foreach($articles[1] as $article_right)
