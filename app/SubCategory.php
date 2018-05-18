@@ -16,4 +16,8 @@ class SubCategory extends Model {
         return parent::newQuery()->where('empresa_id', '=', env("RADIO_ID"));
     }
 
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
 }

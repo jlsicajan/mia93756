@@ -1,0 +1,22 @@
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="https://bootstrapthemes.co" id="categories_multimenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        CATEGORIAS
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="categories_multimenu">
+        @foreach(App\Category::list_for_menu() as $category)
+            @if(empty($category['subcategories']))
+                <li><a class="dropdown-item" href="#">{{ $category['nombre'] }}</a></li>
+            @else
+                <li><a class="dropdown-item dropdown-toggle" href="#">{{ $category['nombre'] }}</a>
+                    <ul class="dropdown-menu">
+                        @foreach($category['subcategories'] as $subcategory)
+                            <li><a class="dropdown-item" href="#">{{ $subcategory['nombre'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endif
+        @endforeach
+    </ul>
+</li>

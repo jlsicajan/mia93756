@@ -20,5 +20,12 @@ class Category extends Model {
         return $this->hasMany('App\Article', 'categoria_id');
     }
 
+    public function subcategories(){
+        return $this->hasMany('App\SubCategory', 'categoria_id');
+    }
 
+    public static  function list_for_menu(){
+        $categories_list = Category::with('subcategories')->orderBy('orden', 'ASC')->get()->toArray();
+        return $categories_list;
+    }
 }

@@ -51,7 +51,6 @@ class HomeController extends Controller
         $news = News::where('activo', '=', 1)->get()->toArray();
         $main_banner = Section::get_banner();
 
-        
         // print_r($main_banner);die();
         return view('home')->with(array('articles' => $articles, 'next_shows' => $next_shows,
                 'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'home_categories' => $home_categories));

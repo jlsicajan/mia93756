@@ -26,7 +26,7 @@
             <a class="navbar-brand navbar-logo" href="{{ route('home') }}"></a>
             <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
                 <ul class="navbar-nav ml-auto">
-                    
+
                     {{--*/ $route = Request::route()->getName() /*--}}
 
                     <li class="nav-item">
@@ -36,6 +36,7 @@
                     <li class="nav-item"><a class="nav-link {{ ($route == 'staff') ? 'active' : '' }}" href="{{ route('staff') }}">STAFF</a></li>
                     <li class="nav-item"><a class="nav-link {{ ($route == 'cinema') ? 'active' : '' }}" href="{{ route('cinema') }}">CINE</a></li>
                     <li class="nav-item"><a class="nav-link {{ ($route == 'photos') ? 'active' : '' }}" href="{{ route('photos') }}">FOTOS</a></li>
+                    @include('layouts.categories_menu')
                     <li class="nav-item"><a class="nav-link {{ ($route == 'the20') ? 'active' : '' }}" href="{{ route('the20') }}">LOS 20+</a></li>
                 </ul>
             </div>
@@ -72,7 +73,7 @@
   </div>
   <footer class="footer bg-grid-default">
       <div class="container center">
-        <div class="row justify-content-center"> 
+        <div class="row justify-content-center">
           <div class="col-12 col-md-12">
               <br>
               <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary" href="https://elcaminoweb.com.gt" target="_blank">El Camino Web.</a></p>
@@ -97,6 +98,27 @@
     </footer>
 <script type="text/javascript">
     $(document).ready(function(){
+        $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
+            var $el = $( this );
+            var $parent = $( this ).offsetParent( ".dropdown-menu" );
+            if ( !$( this ).next().hasClass( 'show' ) ) {
+                $( this ).parents( '.dropdown-menu' ).first().find( '.show' ).removeClass( "show" );
+            }
+            var $subMenu = $( this ).next( ".dropdown-menu" );
+            $subMenu.toggleClass( 'show' );
+
+            $( this ).parent( "li" ).toggleClass( 'show' );
+
+            $( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
+                $( '.dropdown-menu .show' ).removeClass( "show" );
+            } );
+
+            if ( !$parent.parent().hasClass( 'navbar-nav' ) ) {
+                $el.next().css( { "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 } );
+            }
+
+            return false;
+        } );
     });
     $('.open-menu-sm').unbind('click').click(function(){
         $('.menu-sm').css('display', 'flex');
@@ -112,6 +134,28 @@
     });
 
 </script>
+<style type="text/css">
+    .navbar-light .navbar-nav .nav-link {
+        color: rgb(64, 64, 64);
+    }
+    .btco-menu li > a {
+        padding: 10px 15px;
+        color: #000;
+
+    }
+
+    .btco-menu .active a:focus,
+    .btco-menu li a:focus ,
+    .navbar > .show > a:focus{
+        background: transparent;
+        outline: 0;
+    }
+
+
+    .dropdown-menu .show > .dropdown-toggle::after{
+        transform: rotate(-90deg);
+    }
+</style>
 @yield('after_body')
 </body>
 </html>
