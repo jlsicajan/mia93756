@@ -12,8 +12,11 @@
                 <li><a class="dropdown-item dropdown-toggle" href="#">{{ $category['nombre'] }}</a>
                     <ul class="dropdown-menu">
                         @foreach($category['subcategories'] as $subcategory)
-                            <li><a class="dropdown-item"
-                                   href="{{ route('content', [$category['id'], $subcategory['id']]) }}">{{ $subcategory['nombre'] }}</a>
+                            <li>
+                                <a class="dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
+                                   href="{{ route('content', [$category['id'], $subcategory['id']]) }}">
+                                    {{ $subcategory['nombre'] }}
+                                </a>
                             </li>
                         @endforeach
                     </ul>
