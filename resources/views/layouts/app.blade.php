@@ -26,18 +26,7 @@
             <a class="navbar-brand navbar-logo" href="{{ route('home') }}"></a>
             <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
                 <ul class="navbar-nav ml-auto">
-
-                    {{--*/ $route = Request::route()->getName() /*--}}
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link {{ ($route == 'pro') ? 'active' : '' }}" href="{{ route('pro') }}">PROGRAMACION</a></li>
-                    <li class="nav-item"><a class="nav-link {{ ($route == 'staff') ? 'active' : '' }}" href="{{ route('staff') }}">STAFF</a></li>
-                    <li class="nav-item"><a class="nav-link {{ ($route == 'cinema') ? 'active' : '' }}" href="{{ route('cinema') }}">CINE</a></li>
-                    <li class="nav-item"><a class="nav-link {{ ($route == 'photos') ? 'active' : '' }}" href="{{ route('photos') }}">FOTOS</a></li>
                     @include('layouts.categories_menu')
-                    <li class="nav-item"><a class="nav-link {{ ($route == 'the20') ? 'active' : '' }}" href="{{ route('the20') }}">LOS 20+</a></li>
                 </ul>
             </div>
 
@@ -48,6 +37,7 @@
         <i class="fa fa-close close-menu-sm"></i>
     </button>
     <div class="menu-sm">
+        {{--*/ $route = Request::route()->getName() /*--}}
         <ul class="navbar-nav d-flex align-items-center flex-column">
             <li class="nav-item"><a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO<span class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link {{ ($route == 'pro') ? 'active' : '' }}" href="{{ route('pro') }}">PROGRAMACION</a></li>

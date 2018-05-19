@@ -8775,7 +8775,7 @@ body {
   .navbar-mia .nav-item .nav-link {
     color: #000000;
     line-height: 16px;
-    font-size: 13px; }
+    font-size: 11px; }
     .navbar-mia .nav-item .nav-link:hover {
       color: #FF40A3; }
   .navbar-mia .active {
@@ -8926,7 +8926,7 @@ body {
   width: 1150px !important; }
 
 .grid-header-double:after {
-  left: 4% !important; }
+  left: 5% !important; }
 
 .grid-header:after {
   content: '';
