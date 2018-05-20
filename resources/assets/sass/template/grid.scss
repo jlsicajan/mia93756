@@ -126,6 +126,19 @@
   background-color: rgba(0, 183, 229, 1);
 }
 
+.multiple_article{
+  height: 200px;
+  &:hover{
+    opacity: 0.8;
+  }
+}
+
+.img-cover{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 //Tablet changes
 @include media-breakpoint-only(xs) {
@@ -183,5 +196,11 @@
   .grid-header-double:after{
     bottom: -24px;
     z-index: 2;
+  }
+
+  .multiple_article{
+    margin-bottom: 20px;
+    margin-left: unset !important;
+    margin-right: unset !important;
   }
 }

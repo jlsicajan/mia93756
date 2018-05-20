@@ -8853,6 +8853,12 @@ body {
 .font_2_grid_double {
   margin-left: 3% !important; }
 
+.text-shadow {
+  text-shadow: 2px 2px black; }
+
+.text-no-decoration {
+  text-decoration: none !important; }
+
 .bg-grid-secondary {
   background-color: #FF009E; }
 
@@ -8953,6 +8959,16 @@ body {
 .card-secondary {
   background-color: #00b7e5; }
 
+.multiple_article {
+  height: 200px; }
+  .multiple_article:hover {
+    opacity: 0.8; }
+
+.img-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 @media (max-width: 575px) {
   .grid-block-sm {
     width: 100%; }
@@ -8986,7 +9002,11 @@ body {
     z-index: 2; }
   .grid-header-double:after {
     bottom: -24px;
-    z-index: 2; } }
+    z-index: 2; }
+  .multiple_article {
+    margin-bottom: 20px;
+    margin-left: unset !important;
+    margin-right: unset !important; } }
 
 .play_button, .pause_button {
   background: transparent;
