@@ -25,6 +25,9 @@
         @endforeach
     </ul>
 </li>
+<li class="nav-item">
+    <a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO</a>
+</li>
 @foreach(App\Category::list_for_menu() as $category)
     <li class="nav-item">
         <a class="nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
