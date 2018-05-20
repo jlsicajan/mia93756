@@ -23,7 +23,7 @@
   padding-left: 6rem !important;
 }
 
-.grid-block{
+.grid-block, .element-block{
   height: 575px;
   width: 475px;
   overflow: hidden;
@@ -39,6 +39,12 @@
   img{
     width: 100%;
   }
+}
+
+.element-block{
+  padding-left: unset !important;
+  padding-right: unset !important;
+  width: 490px !important;
 }
 
 .grid-block-double{

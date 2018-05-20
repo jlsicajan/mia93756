@@ -8878,7 +8878,7 @@ body {
   padding-right: 6rem !important;
   padding-left: 6rem !important; }
 
-.grid-block {
+.grid-block, .element-block {
   height: 575px;
   width: 475px;
   overflow: hidden;
@@ -8888,10 +8888,15 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   font-size: 15px; }
-  .grid-block iframe {
+  .grid-block iframe, .element-block iframe {
     width: 100%; }
-  .grid-block img {
+  .grid-block img, .element-block img {
     width: 100%; }
+
+.element-block {
+  padding-left: unset !important;
+  padding-right: unset !important;
+  width: 490px !important; }
 
 .grid-block-double {
   width: 1155px !important; }
