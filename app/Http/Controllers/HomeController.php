@@ -142,8 +142,11 @@ class HomeController extends Controller
         
         $programaAlAireMyr="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen FROM programacion PON INNER JOIN dia D ON D.id = PON.dia_id INNER JOIN programa PMA ON PMA.id = PON.programa_id WHERE PON.inicio_formato >= " . $horaActual . " AND D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT 0,1";
         $resultadoPAAMyr= DB::select($programaAlAireMyr);
-        
-        if(empty($resultadoPAAMyr) || empty($resultadoPAAMnr)){
+
+//        print_r($resultadoPAAMyr);die();
+//        print_r($resultadoPAAMyr);die();
+
+        if(empty($resultadoPAAMyr) && empty($resultadoPAAMnr)){
             $mensajePAAF = "Próximo programa";
             $tituloPAAF = "No hay programa";
             $imagenPAAF = "";
@@ -151,13 +154,18 @@ class HomeController extends Controller
             $finPAAF = "00:00";
             return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
         }else{
-            $resultadoPAAMnr = $resultadoPAAMnr[0];
-            $resultadoPAAMyr = $resultadoPAAMyr[0];
-            
-            $inicioMnr = $this->convertirHoraMilitar($resultadoPAAMnr->inicio);
-            $finMnr = $this->convertirHoraMilitar($resultadoPAAMnr->fin);
-            $inicioMyr = $this->convertirHoraMilitar($resultadoPAAMyr->inicio);
-            $finMyr = $this->convertirHoraMilitar($resultadoPAAMyr->fin);
+            if(isset($resultadoPAAMnr[0]) && !empty($resultadoPAAMnr[0])){
+                $resultadoPAAMnr = $resultadoPAAMnr[0];
+                $inicioMnr = $this->convertirHoraMilitar($resultadoPAAMnr->inicio);
+                $finMnr = $this->convertirHoraMilitar($resultadoPAAMnr->fin);
+            }
+
+            if(isset($resultadoPAAMyr[0]) && !empty($resultadoPAAMyr[0])) {
+                $resultadoPAAMyr = $resultadoPAAMyr[0];
+                $inicioMyr = $this->convertirHoraMilitar($resultadoPAAMyr->inicio);
+                $finMyr = $this->convertirHoraMilitar($resultadoPAAMyr->fin);
+            }
+
             
             if($resultadoPAAMnr && !$resultadoPAAMyr){
                 $mensajePAAF = "Al aire ahora";
