@@ -1,23 +1,23 @@
-.play_button, .pause_button{
-	background: transparent;
-	border: none;
-	border: 2px solid black;
-	height: 85px;
-	border-radius: 50%;
-	width: 85px;
-	font-size: 40px;
-	play: flex;
-
-	&:focus{
-		outline: none;
-	}	
-}
-.play_button{
-	padding-left: 6px;	
-}
-
-.vol_up, .vol_down{
-	background: transparent;
-	border: none;
-	font-size: 35px;
-}
+//.play_button, .pause_button{
+//	background: transparent;
+//	border: none;
+//	border: 2px solid black;
+//	height: 85px;
+//	border-radius: 50%;
+//	width: 85px;
+//	font-size: 40px;
+//	play: flex;
+//
+//	&:focus{
+//		outline: none;
+//	}
+//}
+//.play_button{
+//	padding-left: 6px;
+//}
+//
+//.vol_up, .vol_down{
+//	background: transparent;
+//	border: none;
+//	font-size: 35px;
+//}

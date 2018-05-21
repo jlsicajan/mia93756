@@ -20,7 +20,7 @@
                 {{--@include('elements.news.news_card')--}}
             </div>
             <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                @include("elements.for_grid.iframe", ['iframe_url' => ''])
+{{--                @include("elements.for_grid.iframe", ['iframe_url' => ''])--}}
             </div>
         </div>
 
@@ -52,6 +52,7 @@
         </div>
 
     </div>
+    @include('elements.radio.live_radio_element')
     <style type="text/css">
         .article_content {
             overflow: hidden;

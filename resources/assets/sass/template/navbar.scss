@@ -28,6 +28,7 @@
   .menu-sm {
     background-color: #000000;
     position: fixed;
+    overflow: auto;
     width: 100vw;
     height: 100vh;
     left: 0;
@@ -49,7 +50,7 @@
       .nav-link {
         color: white;
         line-height: 1.8rem;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
 
         &:hover {
           color: $navbar-items-color-hover;
