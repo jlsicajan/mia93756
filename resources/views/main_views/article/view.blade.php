@@ -7,8 +7,8 @@
 @include('elements.mia-hdear', ['main_banner', $main_banner])
 <div class="container">
     @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-    @include('elements.for_grid.middle_space_block', ['classes' => ''])
     @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
+    @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-md-up hidden-lg-up'])
 
     <div class="row">
         <div class="col-12">
@@ -35,17 +35,41 @@
         @endforeach
     </div>
     <hr>
+    <div class="row this">
+        <div class="col-12">
+            <div class="share" id="share">
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_google_plusone_share"></a>
+                    <a class="addthis_button_linkedin"></a>
+                    <a class="addthis_button_compact"></a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
-        </div>  
+        </div>
     </div>
 </div>
+@include('elements.radio.live_radio_element')
 @endsection
 
+<div id="fb-root"></div>
 @section('after_body')
-<div id="fb-root"></div>
-<div id="fb-root"></div>
+<style type="text/css">
+    footer{
+        position: absolute;
+        /* bottom: -22px; */
+        margin-bottom: 70px;
+        width: 100%;
+    }
+    .slideInLeft, .addthis-smartlayers{
+        display: none !important;
+    }
+</style>
 <script>
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -57,9 +81,12 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('iframe, img').each(function(){
-            $(this).css('width', '100%');
-        });
+        // $("#at-share-dock").prependTo("#share");
+        if ($(window).width() < 860) {
+            $('iframe, img').each(function(){
+                $(this).css('width', '100%');
+            });
+        }
     });
 </script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
