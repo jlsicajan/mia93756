@@ -6,9 +6,7 @@
 @section('content')
 @include('elements.mia-hdear', ['main_banner', $main_banner])
 <div class="container">
-    @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-    @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
-    @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-md-up hidden-lg-up'])
+    @include('elements.for_grid.space_block_header', ['classes' => ''])
 
     <div class="row">
         <div class="col-12">

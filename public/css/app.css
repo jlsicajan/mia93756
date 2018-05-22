@@ -8678,7 +8678,7 @@ body {
   overflow-x: hidden; }
 
 .mia-header {
-  height: 63vh;
+  height: 65vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8921,6 +8921,9 @@ body {
 .grid-space {
   height: 250px; }
 
+.grid-space-header {
+  height: 65vh; }
+
 .grid-space-middle {
   height: 125px; }
 
@@ -8983,13 +8986,17 @@ body {
   background-repeat: no-repeat;
   background-position: center; }
 
-@media (max-width: 575px) {
+@media (min-width: 576px) and (max-width: 767px) {
+  .grid-space-header {
+    height: 33vh !important; }
   .grid-block-sm {
     width: 100%; }
   .card-primary {
     width: 100%; } }
 
 @media (max-width: 575px) {
+  .grid-space-header {
+    height: 23vh !important; }
   .px-6rem {
     padding-right: 2rem !important;
     padding-left: 2rem !important; }

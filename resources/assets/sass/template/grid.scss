@@ -68,6 +68,11 @@
 .grid-space{
   height: 250px;
 }
+
+.grid-space-header{
+  height: 65vh;
+}
+
 .grid-space-middle{
   height: 125px;
 }
@@ -148,7 +153,11 @@
 
 
 //Tablet changes
-@include media-breakpoint-only(xs) {
+@include media-breakpoint-only(sm) {
+  .grid-space-header{
+    height: 33vh !important;
+  }
+
   .grid-block-sm{
     width: 100%;
   }
@@ -160,6 +169,10 @@
 
 //Mobile changes
 @include media-breakpoint-only(xs) {
+  .grid-space-header{
+    height: 23vh !important;
+  }
+
   .px-6rem{
     padding-right: 2rem !important;
     padding-left: 2rem !important;

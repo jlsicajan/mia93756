@@ -9,10 +9,8 @@
     @include('elements.mia-hdear', ['main_banner', $main_banner])
 
     <div class="container">
-        {{-- @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down']) --}}
-        @include('elements.for_grid.middle_space_block', ['classes' => ''])
-        @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
-        @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
+        @include('elements.for_grid.space_block_header', ['classes' => ''])
+
         <div class="row mb-5">
             <div class="col-12 content_title_container">
                 <h2 class="font_7 content_title">{{ $path_info }}</h2>
