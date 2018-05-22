@@ -68,9 +68,10 @@ class HomeController extends Controller
             $article->visitas = $article->visitas + 1;
             $article->save();
             $main_banner = Section::get_banner();
+            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen')->get()->toArray();
             
             return view('main_views.article.view')->with(array('article' => $article,
-                    'main_banner' => $main_banner));
+                    'main_banner' => $main_banner, 'articles_related' => $articles_related));
         }
     }
     

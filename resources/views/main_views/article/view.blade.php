@@ -18,12 +18,28 @@
            <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="font_7">Articulos relacionados</h2>
+        </div>
+        <hr>
+        @foreach($articles_related as $article_related)
+            <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
+                <a class="text-no-decoration" href="{{ route('article_one', $article_related['id']) }}">
+                    <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article_related['imagen'] }}')">
+                        <p class="text-shadow color-white font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
+    <hr>
     <div class="row">
         <div class="col-12">
             <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
         </div>  
     </div>
- 
 </div>
 @endsection
 

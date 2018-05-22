@@ -45,13 +45,6 @@
             max-height: 71.5%;
         }
 
-        .font_7 {
-            font-size: 20px;
-            color: #FF40A3;
-            font-style: italic;
-
-        }
-
         footer{
             position: absolute;
             /* bottom: -22px; */
