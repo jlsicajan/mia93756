@@ -13,7 +13,11 @@
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
         @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
         @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
-
+        <div class="row mb-5">
+            <div class="col-12 content_title_container">
+                <h2 class="font_7 content_title">{{ $path_info }}</h2>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
                 @if(isset($articles[0]) && !empty($articles[0]))
@@ -32,6 +36,7 @@
         </div>
 
     </div>
+    @include('elements.radio.live_radio_element')
     <style type="text/css">
         .article_content {
             overflow: hidden;
@@ -45,6 +50,13 @@
             color: #FF40A3;
             font-style: italic;
 
+        }
+
+        footer{
+            position: absolute;
+            /* bottom: -22px; */
+            margin-bottom: 70px;
+            width: 100%;
         }
     </style>
 @endsection

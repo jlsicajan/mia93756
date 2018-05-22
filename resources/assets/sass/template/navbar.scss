@@ -36,7 +36,7 @@
     /* bottom: 0; */
     /* right: 0; */
     /* padding-top: 50%; */
-    z-index: 3;
+    z-index: 21;
     flex-direction: column;
     /* overflow-y: auto; */
     justify-content: center;
@@ -44,7 +44,7 @@
 
     .nav-item {
       border-bottom: 1px solid white;
-      width: 50%;
+      width: 65%;
       text-align: center;
 
       .nav-link {
@@ -74,7 +74,7 @@
   background-color: #000000;
   height: 45px;
   position: fixed;
-  z-index: 4;
+  z-index: 22;
 
   &:focus{
     outline: 0;

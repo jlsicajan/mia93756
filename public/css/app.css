@@ -8746,6 +8746,9 @@ body {
 .border-bottom-white {
   border-bottom: 3px solid #ffffff; }
 
+.content_title_container {
+  padding-left: 7%; }
+
 @media (max-width: 575px) {
   .mia-header {
     height: 50vh; }
@@ -8791,7 +8794,7 @@ body {
     /* bottom: 0; */
     /* right: 0; */
     /* padding-top: 50%; */
-    z-index: 3;
+    z-index: 21;
     -ms-flex-direction: column;
     flex-direction: column;
     /* overflow-y: auto; */
@@ -8800,7 +8803,7 @@ body {
     display: none; }
     .navbar-mia .menu-sm .nav-item {
       border-bottom: 1px solid white;
-      width: 50%;
+      width: 65%;
       text-align: center; }
       .navbar-mia .menu-sm .nav-item .nav-link {
         color: white;
@@ -8819,7 +8822,7 @@ body {
   background-color: #000000;
   height: 45px;
   position: fixed;
-  z-index: 4; }
+  z-index: 22; }
   .navbar-toggler-mia:focus {
     outline: 0; }
   .navbar-toggler-mia i {

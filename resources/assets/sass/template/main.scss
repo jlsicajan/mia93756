@@ -89,6 +89,10 @@ body{
   border-bottom: 3px solid #ffffff;
 }
 
+.content_title_container{
+  padding-left: 7%;
+}
+
 //Mobile changes
 @include media-breakpoint-only(xs) {
   .mia-header{
