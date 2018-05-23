@@ -8812,7 +8812,6 @@ body {
         .navbar-mia .menu-sm .nav-item .nav-link:hover {
           color: #FF40A3; }
   .navbar-mia .container .navbar-logo {
-    background-image: url("/public/img/logo/logo.png");
     height: 56px;
     width: 170px;
     background-repeat: no-repeat;

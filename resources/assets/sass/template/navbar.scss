@@ -61,11 +61,11 @@
 
   .container{
     .navbar-logo{
-      background-image: url("/public/img/logo/logo.png");
       height: 56px;
       width: 170px;
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-position: center;
     }
   }
 }
