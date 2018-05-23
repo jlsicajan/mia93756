@@ -55,9 +55,30 @@ class HomeController extends Controller
         $current_show = $this->get_current_show();
         $news = News::where('activo', '=', 1)->get()->toArray();
         $main_banner = Section::get_banner();
+        $week_programation = $this->get_week_programation();
 
         return view('home')->with(array('next_shows' => $next_shows,
-                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'home_categories' => $home_categories));
+                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'home_categories' => $home_categories, 'week_programation' => $week_programation));
+    }
+
+    function get_week_programation(){
+        $empresa_id = env('RADIO_ID');
+        $diasDeProgramacionS = "SELECT * FROM dia ORDER BY orden ASC";
+        $resultadoDDPs = DB::select($diasDeProgramacionS);
+        $result = [];
+        foreach($resultadoDDPs AS $datosDDPs){
+            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
+            $resultadoPPD = DB::select($programacionPorDia);
+
+            if($datosDDPs->id_php == date('N')){
+                array_push($result, ['active', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
+            }else{
+                array_push($result, ['inactive', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
+            }
+        }
+
+        return $result;
+
     }
 
     public function article_one($article_id){

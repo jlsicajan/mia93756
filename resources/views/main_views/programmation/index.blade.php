@@ -23,11 +23,11 @@
             </div>
         </div>
         <div class="row">
-         <div class="col-12">
-            @include("elements.radio.week_shows")
+            <div class="col-12">
+                @include("elements.radio.week_shows")
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div class="modal fade" id="week_show_modal">
     <div class="modal-dialog modal-lg">
