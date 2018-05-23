@@ -8815,7 +8815,8 @@ body {
     height: 56px;
     width: 170px;
     background-repeat: no-repeat;
-    background-size: cover; }
+    background-size: contain;
+    background-position: center; }
 
 .navbar-toggler-mia {
   background-color: #000000;
