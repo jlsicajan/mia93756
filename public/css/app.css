@@ -8770,7 +8770,8 @@ body {
     width: 100% !important; } }
 
 .navbar-mia {
-  height: 87px; }
+  height: 87px;
+  background-color: #ffffff; }
   .navbar-mia .navbar-brand {
     color: #000000; }
     .navbar-mia .navbar-brand:hover {
@@ -8985,6 +8986,9 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; }
+
+.article_grid_image {
+  height: 310px; }
 
 @media (min-width: 576px) and (max-width: 767px) {
   .grid-space-header {

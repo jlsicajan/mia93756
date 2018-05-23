@@ -151,6 +151,10 @@
   background-position: center;
 }
 
+.article_grid_image{
+  height: 310px;
+}
+
 
 //Tablet changes
 @include media-breakpoint-only(sm) {

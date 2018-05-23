@@ -56,9 +56,11 @@ class HomeController extends Controller
         $news = News::where('activo', '=', 1)->get()->toArray();
         $main_banner = Section::get_banner();
         $week_programation = $this->get_week_programation();
+        $main_background = Section::get_background();
+//        print_r($main_background);die();
 
         return view('home')->with(array('next_shows' => $next_shows,
-                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'home_categories' => $home_categories, 'week_programation' => $week_programation));
+                'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'main_background' => $main_background, 'home_categories' => $home_categories, 'week_programation' => $week_programation));
     }
 
     function get_week_programation(){

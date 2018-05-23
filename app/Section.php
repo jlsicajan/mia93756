@@ -34,4 +34,13 @@ class Section extends Model {
 
     }
 
+    public static function get_background(){
+        $section_background = Section::where('nombre', '=', 'background')->first();
+        $route_background = Slide::where('id_tabla', '=', $section_background->id)->first()->toArray();
+        $background_path = env('URL_SLIDE_PATH')  . $route_background['identificador'] . '/' . filter_var($route_background['nombre'], FILTER_SANITIZE_ENCODED);
+
+        return $background_path;
+
+    }
+
 }

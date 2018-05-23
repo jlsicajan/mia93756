@@ -19,7 +19,7 @@
 
     @yield('head')
 </head>
-<body>
+<body @if(isset($main_background) && !empty($main_background)) style="background-image: url({{ $main_background }})" @endif>
 
     <nav class="navbar navbar-toggleable-md navbar-mia">
         <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto">
