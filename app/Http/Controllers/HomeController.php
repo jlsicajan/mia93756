@@ -40,9 +40,9 @@ class HomeController extends Controller
         $my_love = Category::where('nombre', 'like', '%MIAMOR%')->first()->toArray();
         $healthy = Category::where('nombre', 'like', '%SALUDABLE-MENTE%')->first()->toArray();
 
-        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen')->get()->toArray();
-        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen')->get()->toArray();
-        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen')->get()->toArray();
+        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor')->get()->toArray();
+        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
+        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
 
         $home_categories = array(
             1 => $tell_me_more_category,
@@ -68,7 +68,7 @@ class HomeController extends Controller
             $article->visitas = $article->visitas + 1;
             $article->save();
             $main_banner = Section::get_banner();
-            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen')->get()->toArray();
+            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
             
             return view('main_views.article.view')->with(array('article' => $article,
                     'main_banner' => $main_banner, 'articles_related' => $articles_related));
