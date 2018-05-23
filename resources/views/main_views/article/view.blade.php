@@ -25,9 +25,15 @@
         @foreach($articles_related as $article_related)
             <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
                 <a class="text-no-decoration" href="{{ route('article_one', $article_related['id']) }}">
-                    <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article_related['imagen'] }}')">
-                        <p class="text-shadow color-white font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
-                    </div>
+                    @if($article_related['autor'] == 'Gthoy')
+                        <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ $article_related['imagen'] }}')">
+                            <p class="text-shadow color-white font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
+                        </div>
+                    @else
+                        <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article_related['imagen'] }}')">
+                            <p class="text-shadow color-white font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
+                        </div>
+                    @endif
                 </a>
             </div>
         @endforeach
