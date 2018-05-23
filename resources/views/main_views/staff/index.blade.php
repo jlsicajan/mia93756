@@ -6,16 +6,14 @@
         @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
         @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
-        
-        @foreach($staff_separated as $staff_chunk)
-            <div class="row justify-content-center">
-                @foreach($staff_chunk as $staff_item)
+
+        <div class="row">
+            @foreach($staff_separated as $staff_item)
                     <div class="col-12 col-sm-9 col-md-6 col-lg-6">
                         @include('elements.staff.card_staff', ['image_url' => $staff_item['imagen'], 'card_title' => $staff_item['orden_mostrar'], 'card_text' => $staff_item['texto'], 'staff_id' => $staff_item['id'], 'staff_name' => $staff_item['locutor']])
                     </div>
-                @endforeach
-            </div>
-        @endforeach
+            @endforeach
+        </div>
         <div class="modal fade" id="staff_modal">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">

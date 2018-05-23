@@ -20,7 +20,7 @@ class StaffController extends Controller
     public function index()
     {
         $staff = Staff::all()->toArray();
-        $staff = array_chunk($staff, 3);
+//        $staff = array_chunk($staff, 3);
 
         $usuarios_blog = UserBlog::all()->toArray();
         $main_banner = Section::get_banner();
