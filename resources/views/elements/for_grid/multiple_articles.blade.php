@@ -12,12 +12,12 @@
                     <a class="text-no-decoration" href="{{ route('article_one', $article['id']) }}">
                         @if($article['autor'] == 'Gthoy')
                             <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ $article['imagen'] }}')">
-                                <p class="text-shadow color-white font-weight-bold text-center">{{ $article['titulo'] }}</p>
                             </div>
+                            <p class="color-primary font-weight-bold text-center">{{ $article['titulo'] }}</p>
                         @else
                             <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')">
-                                <p class="text-shadow color-white font-weight-bold text-center">{{ $article['titulo'] }}</p>
                             </div>
+                            <p class="color-primary font-weight-bold text-center">{{ $article['titulo'] }}</p>
                         @endif
                     </a>
                 </div>

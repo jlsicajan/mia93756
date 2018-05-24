@@ -14,7 +14,6 @@
 
 .font_2{
   font-size: 37px;
-
 }
 
 .font_2_grid{
@@ -38,4 +37,11 @@
 
 .text-no-decoration{
   text-decoration: none !important;
+}
+
+//Mobile changes
+@include media-breakpoint-only(xs) {
+  .font_2{
+    font-size: 30px;
+  }
 }
