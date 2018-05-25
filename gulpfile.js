@@ -26,4 +26,8 @@ elixir(function(mix) {
     '../../../resources/assets/js/main_views/programmation/week_programmation.js'
     ], 'public/js/main_views/programmation/app.js');
 
+     mix.scripts([
+    '../../../resources/assets/js/main_views/staff/staff.js'
+    ], 'public/js/main_views/staff/staff.js');
+
 });

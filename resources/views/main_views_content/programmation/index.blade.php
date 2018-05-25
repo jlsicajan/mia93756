@@ -9,7 +9,6 @@
         <div class="row">
             <div class="col-12 col-md-6 py-md-4 pd-2rem">
                 @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
-                @include("elements.radio.live_radio", ['position' => 'left', 'title' => 'RADIO EN LINEA', 'classes' => 'grid-header-primary', 'gradient' => 1])
                 @include('elements.news.news_card')
             </div>
             <div class="col-12 col-md-6 py-md-4">

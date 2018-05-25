@@ -1,0 +1,31 @@
+.keep_reading {
+  cursor: pointer;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-body {
+  max-height: 170px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.card-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 75px;
+}
+
+.card-img-top {
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.staff_name{
+  font-size: 2rem;
+  text-shadow: 2px 2px black;
+}

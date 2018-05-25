@@ -32,6 +32,19 @@ class StaffController extends Controller
                 'main_banner' => $main_banner));
     }
 
+    public function index_ajax()
+    {
+        $staff = Staff::all()->toArray();
+
+        $usuarios_blog = UserBlog::all()->toArray();
+        $main_banner = Section::get_banner();
+
+        return view('main_views_content.staff.index')->with(array('staff_separated' => $staff,
+                'staff' => Staff::all()->toArray(),
+                'usuarios_blog' => $usuarios_blog,
+                'main_banner' => $main_banner));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
