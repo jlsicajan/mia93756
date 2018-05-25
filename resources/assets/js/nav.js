@@ -20,6 +20,7 @@ $(document).ready(function(){
 
         return false;
     } );
+
 });
 $('.open-menu-sm').unbind('click').click(function(){
     $('.menu-sm').css('display', 'flex');

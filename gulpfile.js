@@ -18,6 +18,7 @@ elixir(function(mix) {
     '../../../node_modules/bootstrap/dist/js/bootstrap.js',
     '../../../resources/assets/js/page_cleaner.js',
     '../../../resources/assets/js/nav.js',
+    '../../../resources/assets/js/nav_movements.js',
     '../../../resources/assets/js/main_views/programmation/week_programmation.js'
     ], 'public/js/app.js');
 

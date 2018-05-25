@@ -14,7 +14,10 @@
 Route::get('/', ['as'   => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('/cine/', ['as'   => 'cinema', 'uses' => 'MainControllers\CinemaController@index']);
+
 Route::get('/programacion/', ['as'   => 'pro', 'uses' => 'MainControllers\ProgrammationController@index']);
+Route::get('/programacion_ajax/', ['as'   => 'pro', 'uses' => 'MainControllers\ProgrammationController@index_ajax']);
+
 Route::get('/staff/', ['as'   => 'staff', 'uses' => 'MainControllers\StaffController@index']);
 Route::get('/fotos/', ['as'   => 'photos', 'uses' => 'MainControllers\PhotosController@index']);
 Route::get('/los20/', ['as'   => 'the20', 'uses' => 'MainControllers\The20Controller@index']);

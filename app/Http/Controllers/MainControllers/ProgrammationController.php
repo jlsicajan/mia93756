@@ -34,6 +34,23 @@ class ProgrammationController extends Controller
                 'main_banner' => $main_banner));
     }
 
+    public function index_ajax(){
+        $next_shows = $this->get_next_shows();
+        $current_show = $this->get_current_show();
+        $week_programation = $this->get_week_programation();
+        $news = News::where('activo', '=', 1)->get()->toArray();
+
+        $main_banner = Section::get_banner();
+
+
+        // print_r($week_programation);die();
+        return view('main_views_content.programmation.index')->with(array('next_shows' => $next_shows,
+            'current_show' => $current_show,
+            'week_programation' => $week_programation,
+            'news' => $news,
+            'main_banner' => $main_banner));
+    }
+
     function get_next_shows()
     {
         //Abraham's code adapted to laravel ORM, this have to be adapted correctly

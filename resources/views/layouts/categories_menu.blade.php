@@ -6,15 +6,15 @@
     <li class="nav-item dropdown">
         @if(empty($category['subcategories']))
             @if(isset($category['url']) && !empty($category['url']))
-                <a class="nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
-                   href="{{ $category['url'] }}">
+                <button class="ajax_link nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
+                   data-href="{{ $category['url'] }}">
                     {{ $category['nombre'] }}
-                </a>
+                </button>
             @else
-                <a class="nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
-                   href="{{ route('content', [$category['id'], 0]) }}">
+                <button class="ajax_link nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
+                   data-href="{{ route('content', [$category['id'], 0]) }}">
                     {{ $category['nombre'] }}
-                </a>
+                </button>
             @endif
         @else
             <a class="nav-link dropdown-toggle" href="https://bootstrapthemes.co" id="categories_multimenu"
@@ -25,15 +25,15 @@
                 @foreach($category['subcategories'] as $subcategory)
                     <li class="nav-item">
                         @if(isset($subcategory['url']) && !empty($subcategory['url']))
-                            <a class="dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
-                               href="{{ $subcategory['url'] }}">
+                            <button class="ajax_link dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
+                               data-href="{{ $subcategory['url'] }}">
                                 {{ $subcategory['nombre'] }}
-                            </a>
+                            </button>
                         @else
-                            <a class="dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
-                               href="{{ route('content', [$category['id'], $subcategory['id']]) }}">
+                            <button class="ajax_link dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
+                               data-href="{{ route('content', [$category['id'], $subcategory['id']]) }}">
                                 {{ $subcategory['nombre'] }}
-                            </a>
+                            </button>
                         @endif
 
                     </li>
