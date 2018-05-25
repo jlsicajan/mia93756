@@ -9,6 +9,7 @@ use App\UserBlog;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class StaffController extends Controller
 {
@@ -32,8 +33,12 @@ class StaffController extends Controller
                 'main_banner' => $main_banner));
     }
 
-    public function index_ajax()
+    public function index_ajax(Request $request)
     {
+        if (! $request->ajax()) {
+            return Redirect::route('staff');
+        }
+
         $staff = Staff::all()->toArray();
 
         $usuarios_blog = UserBlog::all()->toArray();

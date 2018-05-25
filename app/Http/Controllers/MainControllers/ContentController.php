@@ -9,6 +9,7 @@ use App\Section;
 use App\Slide;
 use App\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ContentController extends Controller {
 
@@ -51,7 +52,10 @@ class ContentController extends Controller {
         }
     }
 
-    public function index_ajax($category, $subcategory){
+    public function index_ajax($category, $subcategory, \Illuminate\Http\Request $request){
+        if (! $request->ajax()) {
+            return Redirect::route('content', [$category, $subcategory]);
+        }
         if(empty($category)){
             print_r('Category or subcategory not found');die();
         }else{

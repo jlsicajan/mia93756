@@ -22,8 +22,11 @@ class PinkCarpetController extends Controller {
         return view('main_views.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
 	}
 
-	public function index_ajax()
+	public function index_ajax(Request $request)
 	{
+        if (! $request->ajax()) {
+            return Redirect::route('pink_carpet');
+        }
         $main_banner = Section::get_banner();
         $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
 

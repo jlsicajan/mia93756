@@ -24,7 +24,7 @@
         <hr>
         @foreach($articles_related as $article_related)
             <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                <a class="text-no-decoration" href="{{ route('article_one', $article_related['id']) }}">
+                <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_related['id']) }}">
                     @if($article_related['autor'] == 'Gthoy')
                         <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ $article_related['imagen'] }}')">
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                         <p class="color-primary font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
                     @endif
-                </a>
+                </button>
             </div>
         @endforeach
     </div>

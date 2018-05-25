@@ -8,6 +8,7 @@ use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class ProgrammationController extends Controller
 {
@@ -34,7 +35,10 @@ class ProgrammationController extends Controller
                 'main_banner' => $main_banner));
     }
 
-    public function index_ajax(){
+    public function index_ajax(Request $request){
+        if (! $request->ajax()) {
+            return Redirect::route('pro');
+        }
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
         $week_programation = $this->get_week_programation();

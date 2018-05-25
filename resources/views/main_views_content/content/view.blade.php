@@ -24,4 +24,22 @@
     </div>
 
 </div>
-@include('elements.radio.live_radio_element')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.ajax_link').unbind('click').click(function(){
+            let load_page_ajax = get_path_ajax_to_load($(this));
+            $('.ajax_link').removeClass('active');
+            $(this).addClass('active');
+            $('.footer').hide();
+            // alert(load_page_ajax);
+
+            clean_main_content_container(function () {
+                console.log('done!');
+                $('.footer').show();
+
+            }, load_page_ajax);
+        });
+
+    });
+
+</script>

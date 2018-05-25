@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\Request;
 use App\Section;
 use App\Slide;
 use App\SocialNetwork;
@@ -9,6 +10,7 @@ use App\Category;
 
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -123,7 +125,11 @@ class HomeController extends Controller
         }
     }
 
-    public function article_one_ajax($article_id){
+    public function article_one_ajax($article_id, \Illuminate\Http\Request $request){
+        if (!$request->ajax()) {
+            return Redirect::route('article_one', [$article_id]);
+        }
+
         $article = Article::findOrFail($article_id);
         if(empty($article)){
             print_r('Article not found');die();
