@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Section;
+use App\Slide;
 use App\SubCategory;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class ContentController extends Controller {
             $category_info = Category::find($category);
             $subcategory_info = SubCategory::find($subcategory);
             $path_info = '';
+            $main_background = $this->get_background_path($category_info->fondo);
 
             if($subcategory != 0){
                 $articles = Article::where('categoria_id', '=', $category)->where('sub_categoria_id', '=', $subcategory)->get()->toArray();
@@ -45,7 +47,7 @@ class ContentController extends Controller {
             $main_banner = Section::get_banner();
 
             return view('main_views.content.view')->with(array('articles' => $articles,
-                'main_banner' => $main_banner, 'path_info' => $path_info));
+                'main_banner' => $main_banner, 'path_info' => $path_info, 'main_background' => $main_background));
         }
     }
 
@@ -113,4 +115,7 @@ class ContentController extends Controller {
 		//
 	}
 
+	function get_background_path($background_name){
+        return env('URL_RADIO_INFO_PATH')  . '/' . filter_var($background_name, FILTER_SANITIZE_ENCODED);
+    }
 }
