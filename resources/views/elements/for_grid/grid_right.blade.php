@@ -18,6 +18,6 @@
             {!! $grid_content['texto_uno'] !!}
         </div>
 
-        <a class="color-primary" href="{{ route('article_one', $grid_content['id']) }}">Continuar leyendo</a>
+        <button class="ajax_link color-primary" data-href="{{ route('article_one', $grid_content['id']) }}">Continuar leyendo</button>
     </div>
 </div>
