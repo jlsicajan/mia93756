@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container main_content_container">
     @include('elements.for_grid.space_block_header', ['classes' => ''])
 
     <div class="row mb-5">

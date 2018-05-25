@@ -63,8 +63,11 @@ class HomeController extends Controller
                 'current_show' => $current_show, 'news' => $news, 'main_banner' => $main_banner, 'main_background' => $main_background, 'home_categories' => $home_categories, 'week_programation' => $week_programation));
     }
 
-    public function index_ajax()
+    public function index_ajax(\Illuminate\Http\Request $request)
     {
+        if (! $request->ajax()) {
+            return Redirect::route('home');
+        }
         $tell_me_more_category = Category::where('nombre', 'like', '%NTAME MAS%')->first()->toArray();
         $my_love = Category::where('nombre', 'like', '%MIAMOR%')->first()->toArray();
         $healthy = Category::where('nombre', 'like', '%SALUDABLE-MENTE%')->first()->toArray();
