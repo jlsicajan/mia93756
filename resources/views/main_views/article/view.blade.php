@@ -5,7 +5,7 @@
 
 @section('content')
 @include('elements.mia-hdear', ['main_banner', $main_banner])
-<div class="container">
+<div class="container main_content_container">
     @include('elements.for_grid.space_block_header', ['classes' => ''])
 
     <div class="row">
