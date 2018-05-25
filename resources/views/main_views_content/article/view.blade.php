@@ -16,7 +16,7 @@
     <hr>
     @foreach($articles_related as $article_related)
         <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-            <a class="text-no-decoration" href="{{ route('article_one', $article_related['id']) }}">
+            <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_related['id']) }}">
                 @if($article_related['autor'] == 'Gthoy')
                     <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ $article_related['imagen'] }}')">
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                     <p class="color-primary font-weight-bold text-center">{{ $article_related['titulo'] }}</p>
                 @endif
-            </a>
+            </button>
         </div>
     @endforeach
 </div>
@@ -78,7 +78,22 @@
                 $(this).css('width', '100%');
             });
         }
+
+        $('.ajax_link').unbind('click').click(function(){
+            let load_page_ajax = get_path_ajax_to_load($(this));
+            $('.ajax_link').removeClass('active');
+            $(this).addClass('active');
+            $('.footer').hide();
+            // alert(load_page_ajax);
+
+            clean_main_content_container(function () {
+                console.log('done!');
+                $('.footer').show();
+
+            }, load_page_ajax);
+        });
     });
+
 </script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e"></script>

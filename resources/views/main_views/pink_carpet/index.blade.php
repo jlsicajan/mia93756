@@ -19,11 +19,11 @@
         <div class="row">
             @foreach($articles_gthoy as $article_gthoy)
                 <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                    <a class="text-no-decoration" href="{{ route('article_one', $article_gthoy['id']) }}">
+                    <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_gthoy['id']) }}">
                         <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2" style="background-image: url('{{ $article_gthoy['imagen'] }}')">
                         </div>
                         <p class="color-primary font-weight-bold text-center">{{ $article_gthoy['titulo'] }}</p>
-                    </a>
+                    </button>
                 </div>
             @endforeach
         </div>
