@@ -3537,4 +3537,59 @@ var Popover = function ($) {
 
 }();
 
+$(document).ready(function () {
+    alert('it works');
+    $('.change_page').unbind('click').click(function(){
+        $('.main_content_container').empty();
+        $('.main_content_container').load('https://www.google.com.gt/');
+        console.log('cleaned');
+    });
+});
+$(document).ready(function(){
+    $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
+        var $el = $( this );
+        var $parent = $( this ).offsetParent( ".dropdown-menu" );
+        if ( !$( this ).next().hasClass( 'show' ) ) {
+            $( this ).parents( '.dropdown-menu' ).first().find( '.show' ).removeClass( "show" );
+        }
+        var $subMenu = $( this ).next( ".dropdown-menu" );
+        $subMenu.toggleClass( 'show' );
+
+        $( this ).parent( "li" ).toggleClass( 'show' );
+
+        $( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
+            $( '.dropdown-menu .show' ).removeClass( "show" );
+        } );
+
+        if ( !$parent.parent().hasClass( 'navbar-nav' ) ) {
+            $el.next().css( { "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 } );
+        }
+
+        return false;
+    } );
+});
+$('.open-menu-sm').unbind('click').click(function(){
+    $('.menu-sm').css('display', 'flex');
+    $('.open-menu-sm').css('display', 'none');
+    $('.close-menu-sm').css('display', 'block');
+});
+
+
+$('.close-menu-sm').unbind('click').click(function(){
+    $('.menu-sm').css('display', 'none');
+    $('.open-menu-sm').css('display', 'block');
+    $('.close-menu-sm').css('display', 'none');
+});
+$(document).ready(function(){
+    $('.more_info_week_shows').unbind('click').click(function(){
+        let main_position = $(this).attr('data-main-position');
+        let show_position = $(this).attr('data-show-position');
+        let time_slot = week_shows[main_position][3][show_position]['inicio'] + ' - ' + week_shows[main_position][3][show_position]['fin'];
+        $('#week_show_modal .modal-title').empty().html(week_shows[main_position][3][show_position]['Titulo'] + ' ' + time_slot);
+        $('#week_show_modal .modal-body').empty().html(week_shows[main_position][3][show_position]['Contenido']);
+        console.log(main_position);
+        console.log(show_position);
+        console.log(week_shows[main_position][3][show_position]);
+    });
+});
 //# sourceMappingURL=app.js.map

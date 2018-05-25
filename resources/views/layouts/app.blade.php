@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="/public/js/app.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Anton:n,b,i,bi|Basic:n,b,i,bi|Caudex:n,b,i,bi|Chelsea+Market:n,b,i,bi|Corben:n,b,i,bi|EB+Garamond:n,b,i,bi|Enriqueta:n,b,i,bi|Forum:n,b,i,bi|Fredericka+the+Great:n,b,i,bi|Jockey+One:n,b,i,bi|Josefin+Slab:n,b,i,bi|Jura:n,b,i,bi|Kelly+Slab:n,b,i,bi|Marck+Script:n,b,i,bi|Lobster:n,b,i,bi|Mr+De+Haviland:n,b,i,bi|Niconne:n,b,i,bi|Noticia+Text:n,b,i,bi|Overlock:n,b,i,bi|Patrick+Hand:n,b,i,bi|Play:n,b,i,bi|Sarina:n,b,i,bi|Signika:n,b,i,bi|Spinnaker:n,b,i,bi|Monoton:n,b,i,bi|Sacramento:n,b,i,bi|Cookie:n,b,i,bi|Raleway:n,b,i,bi|Open+Sans+Condensed:300:n,b,i,bi|Amatic+SC:n,b,i,bi|Cinzel:n,b,i,bi|Sail:n,b,i,bi|Playfair+Display:n,b,i,bi|Libre+Baskerville:n,b,i,bi|Roboto:n,b,i,bi|Roboto:n,b,i,bi|Work+Sans:n,b,i,bi|Work+Sans:n,b,i,bi|Poppins:n,b,i,bi|Poppins:n,b,i,bi|Barlow:n,b,i,bi|Barlow:n,b,i,bi|Oswald:n,b,i,bi|Oswald:n,b,i,bi|Cormorant+Garamond:n,b,i,bi|Cormorant+Garamond:n,b,i,bi|Playfair+Display:n,b,i,bi|Dancing+Script:n,b,i,bi|Damion:n,b,i,bi|Suez+One:n,b,i,bi|Rozha+One:n,b,i,bi|Raleway:n,b,i,bi|Lato:n,b,i,bi|Questrial:n,b,i,bi|&subset=latin-ext,cyrillic,japanese,korean,arabic,hebrew,latin" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
     @yield('head')
 </head>
@@ -81,66 +82,6 @@
         </div>
       </div>
     </footer>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
-            var $el = $( this );
-            var $parent = $( this ).offsetParent( ".dropdown-menu" );
-            if ( !$( this ).next().hasClass( 'show' ) ) {
-                $( this ).parents( '.dropdown-menu' ).first().find( '.show' ).removeClass( "show" );
-            }
-            var $subMenu = $( this ).next( ".dropdown-menu" );
-            $subMenu.toggleClass( 'show' );
-
-            $( this ).parent( "li" ).toggleClass( 'show' );
-
-            $( this ).parents( 'li.nav-item.dropdown.show' ).on( 'hidden.bs.dropdown', function ( e ) {
-                $( '.dropdown-menu .show' ).removeClass( "show" );
-            } );
-
-            if ( !$parent.parent().hasClass( 'navbar-nav' ) ) {
-                $el.next().css( { "top": $el[0].offsetTop, "left": $parent.outerWidth() - 4 } );
-            }
-
-            return false;
-        } );
-    });
-    $('.open-menu-sm').unbind('click').click(function(){
-        $('.menu-sm').css('display', 'flex');
-        $('.open-menu-sm').css('display', 'none');
-        $('.close-menu-sm').css('display', 'block');
-    });
-
-
-    $('.close-menu-sm').unbind('click').click(function(){
-        $('.menu-sm').css('display', 'none');
-        $('.open-menu-sm').css('display', 'block');
-        $('.close-menu-sm').css('display', 'none');
-    });
-
-</script>
-<style type="text/css">
-    .navbar-light .navbar-nav .nav-link {
-        color: rgb(64, 64, 64);
-    }
-    .btco-menu li > a {
-        padding: 10px 15px;
-        color: #000;
-
-    }
-
-    .btco-menu .active a:focus,
-    .btco-menu li a:focus ,
-    .navbar > .show > a:focus{
-        background: transparent;
-        outline: 0;
-    }
-
-
-    .dropdown-menu .show > .dropdown-toggle::after{
-        transform: rotate(-90deg);
-    }
-</style>
 @yield('after_body')
 </body>
 </html>

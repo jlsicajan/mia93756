@@ -7,8 +7,7 @@
 @section('content')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     @include('elements.mia-hdear', ['main_banner', $main_banner])
-
-    <div class="container">
+    <div class="container main_content_container">
         {{-- @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down']) --}}
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
         @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
