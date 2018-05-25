@@ -22,6 +22,14 @@ class PinkCarpetController extends Controller {
         return view('main_views.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
 	}
 
+	public function index_ajax()
+	{
+        $main_banner = Section::get_banner();
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
+
+        return view('main_views_content.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

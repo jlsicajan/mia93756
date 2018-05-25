@@ -24,6 +24,14 @@ class The20Controller extends Controller
                 'main_banner' => $main_banner));
     }
 
+    public function index_ajax()
+    {
+        $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
+        $main_banner = Section::get_banner();
+        return view('main_views_content.the20.index')->with(array('the20' => $the_20,
+                'main_banner' => $main_banner));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

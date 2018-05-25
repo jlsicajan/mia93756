@@ -30,4 +30,8 @@ elixir(function(mix) {
     '../../../resources/assets/js/main_views/staff/staff.js'
     ], 'public/js/main_views/staff/staff.js');
 
+     mix.scripts([
+    '../../../resources/assets/js/main_views/the20/the20.js'
+    ], 'public/js/main_views/the20/the20.js');
+
 });
