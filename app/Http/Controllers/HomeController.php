@@ -122,6 +122,21 @@ class HomeController extends Controller
                     'main_banner' => $main_banner, 'articles_related' => $articles_related));
         }
     }
+
+    public function article_one_ajax($article_id){
+        $article = Article::findOrFail($article_id);
+        if(empty($article)){
+            print_r('Article not found');die();
+        }else{
+            $article->visitas = $article->visitas + 1;
+            $article->save();
+            $main_banner = Section::get_banner();
+            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
+
+            return view('main_views_content.article.view')->with(array('article' => $article,
+                    'main_banner' => $main_banner, 'articles_related' => $articles_related));
+        }
+    }
     
     function get_next_shows()
     {

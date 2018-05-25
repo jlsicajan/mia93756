@@ -36,7 +36,8 @@ Route::get('/los20_ajax/', ['as'   => 'the20_ajax', 'uses' => 'MainControllers\T
 Route::get('/alfombrarosa/', ['as'   => 'pink_carpet', 'uses' => 'MainControllers\PinkCarpetController@index']);
 Route::get('/alfombrarosa_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
 
-Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
+Route::get('/articulov/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
+Route::get('/articulo_ajax/{articulo_id}', ['as'   => 'article_one_ajax', 'uses' => 'HomeController@article_one_ajax']);
 
 Route::get('/contenido/{category}/{subcategory}/articulo', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
 Route::get('/contenido/{category}/{subcategory}/ajax', ['as'   => 'content_ajax', 'uses' => 'MainControllers\ContentController@index_ajax']);
