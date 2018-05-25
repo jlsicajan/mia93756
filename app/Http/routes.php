@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', ['as'   => 'home', 'uses' => 'HomeController@index']);
+//Route::get('/', ['as'   => 'home_root', 'uses' => 'HomeController@index']);
+Route::get('/', function()
+{
+    return Redirect::route('home');
+});
+
+Route::get('/home', ['as'   => 'home', 'uses' => 'HomeController@index']);
+Route::get('/home_ajax', ['as'   => 'home_ajax', 'uses' => 'HomeController@index_ajax']);
 
 Route::get('/cine/', ['as'   => 'cinema', 'uses' => 'MainControllers\CinemaController@index']);
 
@@ -31,4 +38,5 @@ Route::get('/alfombrarosa_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'Main
 
 Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
 
-Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
+Route::get('/contenido/{category}/{subcategory}/articulo', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
+Route::get('/contenido/{category}/{subcategory}/ajax', ['as'   => 'content_ajax', 'uses' => 'MainControllers\ContentController@index_ajax']);

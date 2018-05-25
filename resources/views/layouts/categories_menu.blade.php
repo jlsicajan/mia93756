@@ -1,6 +1,6 @@
 {{--*/ $route = Request::route()->getName() /*--}}
 <li class="nav-item">
-    <a class="nav-link {{ ($route == 'home') ? 'active' : '' }}" href="{{ route('home') }}">INICIO</a>
+    <button class="ajax_link nav-link {{ ($route == 'home') ? 'active' : '' }}" data-href="{{ route('home') }}">INICIO</button>
 </li>
 @foreach(App\Category::list_for_menu() as $category)
     <li class="nav-item dropdown">

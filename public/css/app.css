@@ -8852,6 +8852,11 @@ body {
 .dropdown-menu .show > .dropdown-toggle::after {
   transform: rotate(-90deg); }
 
+.ajax_link {
+  background: transparent;
+  border: none;
+  cursor: pointer; }
+
 @font-face {
   font-family: ReklameScript-Regular;
   src: url("/public/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }

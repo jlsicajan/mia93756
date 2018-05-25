@@ -118,3 +118,9 @@
 .dropdown-menu .show > .dropdown-toggle::after{
   transform: rotate(-90deg);
 }
+
+.ajax_link{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

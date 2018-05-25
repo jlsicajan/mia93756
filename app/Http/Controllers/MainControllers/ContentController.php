@@ -51,6 +51,36 @@ class ContentController extends Controller {
         }
     }
 
+    public function index_ajax($category, $subcategory){
+        if(empty($category)){
+            print_r('Category or subcategory not found');die();
+        }else{
+            $category_info = Category::find($category);
+            $subcategory_info = SubCategory::find($subcategory);
+            $path_info = '';
+            $main_background = $this->get_background_path($category_info->fondo);
+
+            if($subcategory != 0){
+                $articles = Article::where('categoria_id', '=', $category)->where('sub_categoria_id', '=', $subcategory)->get()->toArray();
+                $path_info = $category_info->nombre . ' > ' . $subcategory_info->nombre;
+            }else{
+                $articles = Article::where('categoria_id', '=', $category)->get()->toArray();
+                $path_info = $category_info->nombre;
+            }
+            $articles = count($articles) > 1 ? array_chunk($articles, count($articles) / 2) : $articles;
+            if(count($articles) == 1){
+                $new_articles[0] = $articles;
+                $new_articles[1] = array();
+                $articles = $new_articles;
+            }
+
+            $main_banner = Section::get_banner();
+
+            return view('main_views_content.content.view')->with(array('articles' => $articles,
+                'main_banner' => $main_banner, 'path_info' => $path_info, 'main_background' => $main_background));
+        }
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
