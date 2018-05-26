@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PinkCarpetController extends Controller {
 
