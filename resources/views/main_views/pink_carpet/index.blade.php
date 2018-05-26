@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     @include('elements.mia-hdear', ['main_banner', $main_banner])
 
-    <div class="container">
+    <div class="container main_content_container">
         @include('elements.for_grid.space_block_header', ['classes' => ''])
 
         <div class="row mb-5">
