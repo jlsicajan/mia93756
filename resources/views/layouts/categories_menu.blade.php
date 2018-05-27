@@ -35,7 +35,6 @@
                                 {{ $subcategory['nombre'] }}
                             </button>
                         @endif
-
                     </li>
                 @endforeach
             </ul>

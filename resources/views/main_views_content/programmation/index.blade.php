@@ -1,4 +1,4 @@
-@include('elements.mia-hdear', ['main_banner', $main_banner])
+@include('elements.mia-hdear', ['main_banner' => $main_banner])
 <div class="container">
     @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
