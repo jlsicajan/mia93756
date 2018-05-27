@@ -3546,7 +3546,20 @@ $(document).ready(function () {
 function clean_main_content_container(callback, page_to_load){
     $('.main_content_container').empty();
     $('.main_content_container').load(page_to_load);
+    callback();
 }
+function close_menu_sm(){
+    $('.menu-sm').css('display', 'none');
+    $('.open-menu-sm').css('display', 'block');
+    $('.close-menu-sm').css('display', 'none');
+}
+
+function open_menu_sm(){
+    $('.menu-sm').css('display', 'flex');
+    $('.open-menu-sm').css('display', 'none');
+    $('.close-menu-sm').css('display', 'block');
+}
+
 $(document).ready(function(){
     $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
         var $el = $( this );
@@ -3570,18 +3583,9 @@ $(document).ready(function(){
         return false;
     } );
 
-});
-$('.open-menu-sm').unbind('click').click(function(){
-    $('.menu-sm').css('display', 'flex');
-    $('.open-menu-sm').css('display', 'none');
-    $('.close-menu-sm').css('display', 'block');
-});
+    $('.open-menu-sm').unbind('click').click(open_menu_sm);
 
-
-$('.close-menu-sm').unbind('click').click(function(){
-    $('.menu-sm').css('display', 'none');
-    $('.open-menu-sm').css('display', 'block');
-    $('.close-menu-sm').css('display', 'none');
+    $('.close-menu-sm').unbind('click').click(close_menu_sm);
 });
 $(document).ready(function(){
     $('.ajax_link').unbind('click').click(function(){
@@ -3595,6 +3599,22 @@ $(document).ready(function(){
             console.log('done!');
             $('.footer').show();
 
+        }, load_page_ajax);
+    });
+
+    $('.ajax_link_sm').unbind('click').click(function(){
+        let load_page_ajax = get_path_ajax_to_load($(this));
+        $('.ajax_link').removeClass('active');
+        $(this).addClass('active');
+        $('.footer').hide();
+        // alert(load_page_ajax);
+
+        clean_main_content_container(function () {
+            console.log('done!');
+            $('.footer').show();
+            $('.menu-sm').css('display', 'none');
+            $('.open-menu-sm').css('display', 'block');
+            $('.close-menu-sm').css('display', 'none');
         }, load_page_ajax);
     });
 

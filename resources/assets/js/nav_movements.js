@@ -13,6 +13,22 @@ $(document).ready(function(){
         }, load_page_ajax);
     });
 
+    $('.ajax_link_sm').unbind('click').click(function(){
+        let load_page_ajax = get_path_ajax_to_load($(this));
+        $('.ajax_link').removeClass('active');
+        $(this).addClass('active');
+        $('.footer').hide();
+        // alert(load_page_ajax);
+
+        clean_main_content_container(function () {
+            console.log('done!');
+            $('.footer').show();
+            $('.menu-sm').css('display', 'none');
+            $('.open-menu-sm').css('display', 'block');
+            $('.close-menu-sm').css('display', 'none');
+        }, load_page_ajax);
+    });
+
 });
 
 

@@ -40,7 +40,7 @@
     <div class="menu-sm">
         {{--*/ $route = Request::route()->getName() /*--}}
         <ul class="navbar-nav d-flex align-items-center flex-column">
-            @include('layouts.categories_menu')
+            @include('layouts.categories_menu_sm')
         </ul>
     </div>
 </nav>

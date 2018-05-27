@@ -4,15 +4,6 @@
         @include('elements.for_grid.middle_space_block', ['classes' => ''])
 
         <div class="row">
-            <div class="col-12 col-md-6 py-md-4 pd-2rem">
-                @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
-                @include('elements.news.news_card')
-            </div>
-            <div class="col-12 col-md-6 py-md-4">
-                @include('elements.radio.next_shows', ['title' => 'Proximos programas', 'gradient' => 1])
-            </div>
-        </div>
-        <div class="row">
             <div class="col-12">
                 @include("elements.radio.week_shows")
             </div>
