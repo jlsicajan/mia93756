@@ -3,7 +3,11 @@
         @include('elements.mia-hdear', ['main_banner' => $content['main_banner']])
     @endif
     <div class="container">
-        @include('elements.for_grid.space_block_header', ['classes' => ''])
+        @if($content['hide_banner'])
+            @include('elements.for_grid.space_block_navbar', ['classes' => ''])
+        @else
+            @include('elements.for_grid.space_block_header', ['classes' => ''])
+        @endif
 
         <div class="row mb-5">
             <div class="col-12 content_title_container">

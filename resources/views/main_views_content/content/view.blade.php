@@ -3,8 +3,12 @@
 @endif
 
 <div class="container">
-    @include('elements.for_grid.space_block_header', ['classes' => ''])
 
+    @if($content['hide_banner'])
+        @include('elements.for_grid.space_block_navbar', ['classes' => ''])
+    @else
+        @include('elements.for_grid.space_block_header', ['classes' => ''])
+    @endif
     <div class="row mb-5">
         <div class="col-12 content_title_container">
             <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
@@ -29,8 +33,8 @@
 
 </div>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('.ajax_link').unbind('click').click(function(){
+    $(document).ready(function () {
+        $('.ajax_link').unbind('click').click(function () {
             let load_page_ajax = get_path_ajax_to_load($(this));
             $('.ajax_link').removeClass('active');
             $(this).addClass('active');

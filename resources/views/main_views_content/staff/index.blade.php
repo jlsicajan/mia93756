@@ -32,5 +32,4 @@
         var users_blog = {!! json_encode($usuarios_blog) !!};
     </script>
     <script src="/public/js/main_views/staff/staff.js"></script>
-
 </div>
