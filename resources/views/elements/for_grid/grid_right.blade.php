@@ -15,7 +15,7 @@
         @endif
     	<p class="font_7">{{ $grid_content['titulo'] }}</p>
         <div class="article_content mb-1">
-            {!! $grid_content['texto_uno'] !!}
+            {!! strip_tags($grid_content['texto_uno']) !!}
         </div>
 
         <button class="ajax_link color-primary" data-href="{{ route('article_one', $grid_content['id']) }}">Continuar leyendo</button>

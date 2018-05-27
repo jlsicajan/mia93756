@@ -25,12 +25,12 @@
                 @foreach($category['subcategories'] as $subcategory)
                     <li class="nav-item">
                         @if(isset($subcategory['url']) && !empty($subcategory['url']))
-                            <button class="ajax_link dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
+                            <button class="ajax_link dropdown-item-mia dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
                                data-href="{{ $subcategory['url'] }}">
                                 {{ $subcategory['nombre'] }}
                             </button>
                         @else
-                            <button class="ajax_link dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
+                            <button class="ajax_link dropdown-item-mia dropdown-item {{ Request::is('contenido/' . $category['id'] . '/' . $subcategory['id']) ? 'active' : '' }}"
                                data-href="{{ route('content', [$category['id'], $subcategory['id']]) }}">
                                 {{ $subcategory['nombre'] }}
                             </button>

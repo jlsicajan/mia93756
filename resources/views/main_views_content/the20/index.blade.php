@@ -13,4 +13,9 @@
         @endforeach
     </div>
 </div>
+<style type="text/css">
+    .bg-grid-secondary{
+        background: linear-gradient(to bottom right, #bd3188, #e2008c) !important;
+    }
+</style>
 <script src="/public/js/main_views/the20/the20.js"></script>

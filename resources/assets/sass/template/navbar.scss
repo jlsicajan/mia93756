@@ -123,6 +123,9 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  &:focus{
+    outline: 0;
+  }
 }
 
 .dropdown-item-mia{

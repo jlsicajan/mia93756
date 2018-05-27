@@ -8677,6 +8677,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 body {
   overflow-x: hidden; }
 
+.addthis-smartlayers {
+  display: none !important; }
+
 .mia-header {
   height: 65vh;
   background-size: cover;
@@ -8856,6 +8859,8 @@ body {
   background: transparent;
   border: none;
   cursor: pointer; }
+  .ajax_link:focus, .ajax_link_sm:focus {
+    outline: 0; }
 
 .dropdown-item-mia {
   font-size: 11px;

@@ -39,5 +39,7 @@ Route::get('/alfombrarosa_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'Main
 Route::get('/articulov/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
 Route::get('/articulo_ajax/{articulo_id}', ['as'   => 'article_one_ajax', 'uses' => 'HomeController@article_one_ajax']);
 
-Route::get('/contenido/{category}/{subcategory}/articulo', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
-Route::get('/contenido/{category}/{subcategory}/ajax', ['as'   => 'content_ajax', 'uses' => 'MainControllers\ContentController@index_ajax']);
+Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
+
+Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
+//Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
