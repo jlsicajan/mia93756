@@ -22,9 +22,18 @@
             </div>
             <div class="row">
                 @foreach($content['content'] as $video)
-                    <div class="col-12 col-sm-9 col-md-6 col-lg-6 mb-28px">
-                        <iframe class="embed-responsive-item" width="100%" height="315" src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $video['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        <h4 class="font_7">{{ $video['titulo'] }}</h4>
+                    <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 p-4">
+                        <div class="vide_article_container row border">
+                            <div class="col-12 p-0">
+                                <iframe class="embed-responsive-item" width="100%" height="200px"
+                                        src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $video['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-12 p-2 mt-2">
+                                <p class="date text-muted text-left">{{ $video['fecha'] }}</p>
+                                <p class="title font-weight-bold text-left">{{ $video['titulo'] }}</p>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>

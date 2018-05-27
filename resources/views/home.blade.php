@@ -71,12 +71,6 @@
             font-style: italic;
 
         }
-        footer{
-            position: absolute;
-            /* bottom: -22px; */
-            margin-bottom: 70px;
-            width: 100%;
-        }
     </style>
     <div class="modal fade" id="week_show_modal">
         <div class="modal-dialog modal-lg">

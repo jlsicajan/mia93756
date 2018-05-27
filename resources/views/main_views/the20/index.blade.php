@@ -19,6 +19,7 @@
             </div>
         </div>
     </div>
+    @include('elements.radio.live_radio_element')
     <style type="text/css">
         .bg-grid-secondary{
             background: linear-gradient(to bottom right, #bd3188, #e2008c) !important;

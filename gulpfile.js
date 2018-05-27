@@ -18,7 +18,6 @@ elixir(function(mix) {
     '../../../node_modules/bootstrap/dist/js/bootstrap.js',
     '../../../resources/assets/js/page_cleaner.js',
     '../../../resources/assets/js/nav.js',
-    '../../../resources/assets/js/nav_movements.js',
     '../../../resources/assets/js/main_views/programmation/week_programmation.js'
     ], 'public/js/app.js');
 
@@ -33,5 +32,9 @@ elixir(function(mix) {
      mix.scripts([
     '../../../resources/assets/js/main_views/the20/the20.js'
     ], 'public/js/main_views/the20/the20.js');
+
+     mix.scripts([
+         '../../../resources/assets/js/nav_movements.js'
+    ], 'public/js/nav_movements.js');
 
 });

@@ -27,9 +27,10 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        var staffs = {!! json_encode($staff) !!};
-        var users_blog = {!! json_encode($usuarios_blog) !!};
-    </script>
-    <script src="/public/js/main_views/staff/staff.js"></script>
 </div>
+<script type="text/javascript">
+    var staffs = {!! json_encode($staff) !!};
+    var users_blog = {!! json_encode($usuarios_blog) !!};
+</script>
+<script src="/public/js/main_views/staff/staff.js"></script>
+<script src="/public/js/nav_movements.js"></script>

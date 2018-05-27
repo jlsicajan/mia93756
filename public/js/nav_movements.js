@@ -78,3 +78,5 @@ function get_path_ajax_to_load(element){
 
     return content_to_load;
 }
+
+//# sourceMappingURL=nav_movements.js.map

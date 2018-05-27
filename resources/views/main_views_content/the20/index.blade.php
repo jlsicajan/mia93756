@@ -20,3 +20,4 @@
     }
 </style>
 <script src="/public/js/main_views/the20/the20.js"></script>
+<script src="/public/js/nav_movements.js"></script>

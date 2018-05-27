@@ -86,7 +86,7 @@ class HomeController extends Controller
 
     }
 
-    public function article_one($article_id){
+    public function article_one($article_id, \Illuminate\Http\Request $request){
         $article = Article::findOrFail($article_id);
         if(empty($article)){
             print_r('Article not found');die();
@@ -94,28 +94,11 @@ class HomeController extends Controller
             $article->visitas = $article->visitas + 1;
             $article->save();
             $main_banner = Section::get_banner();
-            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
-            
-            return view('main_views.article.view')->with(array('article' => $article,
-                    'main_banner' => $main_banner, 'articles_related' => $articles_related));
-        }
-    }
+            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->get()->toArray();
 
-    public function article_one_ajax($article_id, \Illuminate\Http\Request $request){
-        if (!$request->ajax()) {
-            return Redirect::route('article_one', [$article_id]);
-        }
+            $view = $request->ajax() ? 'main_views_content.article.view' : 'main_views.article.view';
 
-        $article = Article::findOrFail($article_id);
-        if(empty($article)){
-            print_r('Article not found');die();
-        }else{
-            $article->visitas = $article->visitas + 1;
-            $article->save();
-            $main_banner = Section::get_banner();
-            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
-
-            return view('main_views_content.article.view')->with(array('article' => $article,
+            return view($view)->with(array('article' => $article,
                     'main_banner' => $main_banner, 'articles_related' => $articles_related));
         }
     }

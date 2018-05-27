@@ -21,6 +21,8 @@
         </div>
     </div>
 </div>
+<script src="/public/js/nav_movements.js"></script>
+
 <style type="text/css">
     .grid-photo-block {
         background-size: cover;

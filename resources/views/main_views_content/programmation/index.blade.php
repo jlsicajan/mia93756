@@ -29,4 +29,5 @@
     var week_shows = {!! json_encode($week_programation) !!};
 </script>
 <script src="/public/js/main_views/programmation/app.js"></script>
+<script src="/public/js/nav_movements.js"></script>
 

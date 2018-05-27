@@ -65,23 +65,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.ajax_link').unbind('click').click(function(){
-            let load_page_ajax = get_path_ajax_to_load($(this));
-            $('.ajax_link').removeClass('active');
-            $(this).addClass('active');
-            $('.footer').hide();
-            // alert(load_page_ajax);
-
-            clean_main_content_container(function () {
-                console.log('done!');
-                $('.footer').show();
-
-            }, load_page_ajax);
-        });
-
-    });
-</script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="/public/js/main_views/programmation/app.js"></script>
+<script src="/public/js/nav_movements.js"></script>

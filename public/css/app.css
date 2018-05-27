@@ -8772,6 +8772,12 @@ body {
   .wxs-100 {
     width: 100% !important; } }
 
+footer {
+  position: absolute;
+  /* bottom: -22px; */
+  margin-bottom: 70px;
+  width: 100%; }
+
 .navbar-mia {
   height: 87px;
   background-color: #ffffff; }
@@ -9133,21 +9139,69 @@ body {
 .play_button, .pause_button {
   border: 2px solid white !important; }
 
-.article_container {
+.article_container, .vide_article_container {
+  background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   position: relative;
-  transition: all 0.15s ease; }
-  .article_container:hover {
+  transition: all 0.15s ease;
+  height: 425px; }
+  .article_container:hover, .vide_article_container:hover {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.15);
     transform: translate(0px, -5px); }
-    .article_container:hover .title {
+    .article_container:hover .title, .vide_article_container:hover .title {
       color: #FF40A3; }
-  .article_container .title {
+  .article_container .title, .vide_article_container .title {
     color: #000; }
-  .article_container .description {
+  .article_container .description, .vide_article_container .description {
     font-size: 13px; }
-  .article_container .date {
+  .article_container .date, .vide_article_container .date {
     font-size: 12px; }
+
+.vide_article_container {
+  height: 325px; }
+  .vide_article_container .title {
+    cursor: pointer; }
+
+.loading {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  z-index: 3;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px; }
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #FF40A3;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s; }
+
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1; }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0; } }
 
 html, body, h1, h2, h3, h4, h5, h6 {
   padding: 0;
