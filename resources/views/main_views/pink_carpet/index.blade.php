@@ -18,12 +18,17 @@
             <div class="row">
                 @foreach($articles_gthoy as $article_gthoy)
                     <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                        <button class="ajax_link text-no-decoration"
-                                data-href="{{ route('article_one', $article_gthoy['id']) }}">
-                            <div class="multiple_article img-cover d-flex align-items-center flex-column justify-content-center p-2"
-                                 style="background-image: url('{{ $article_gthoy['imagen'] }}')">
+                        <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_gthoy['id']) }}">
+                            <div class="article_container row border">
+                                <div class="col-12 multiple_article img-cover"
+                                     style="background-image: url('{{ $article_gthoy['imagen'] }}')">
+                                </div>
+                                <div class="col-12 p-2 mt-2">
+                                    <p class="date text-muted text-left">{{ $article_gthoy['fecha'] }}</p>
+                                    <p class="title font-weight-bold text-left">{{ $article_gthoy['titulo'] }}</p>
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_gthoy['texto_uno']), 35) }} ...</p>
+                                </div>
                             </div>
-                            <p class="color-primary font-weight-bold text-center">{{ $article_gthoy['titulo'] }}</p>
                         </button>
                     </div>
                 @endforeach

@@ -15,20 +15,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6 py-md-4 pd-2rem">
-            @if(isset($content['content'][0]) && !empty($content['content'][0]))
-                @foreach($content['content'][0] as $article_left)
-                    @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left])
-                @endforeach
-            @endif
-        </div>
-        <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-            @if(isset($content['content'][1]) && !empty($content['content'][1]))
-                @foreach($content['content'][1] as $article_right)
-                    @include('elements.for_grid.grid_right', ['title' => $article_right['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_right])
-                @endforeach
-            @endif
-        </div>
+        @foreach($content['content'] as $article)
+            <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
+                <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article['id']) }}">
+                    <div class="article_container row border">
+                        @if($article['autor'] == 'Gthoy')
+                            <div class="col-12 multiple_article img-cover"
+                                 style="background-image: url('{{ $article['imagen'] }}')"></div>
+                        @else
+                            <div class="col-12 multiple_article img-cover"
+                                 style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+                        @endif
+                        <div class="col-12 p-2 mt-2">
+                            <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
+                            <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
+                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article['texto_uno']), 35) }}
+                                ...</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        @endforeach
     </div>
 
 </div>

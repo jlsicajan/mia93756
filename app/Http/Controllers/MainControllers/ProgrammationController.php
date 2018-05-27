@@ -17,7 +17,7 @@ class ProgrammationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
@@ -25,34 +25,17 @@ class ProgrammationController extends Controller
         $news = News::where('activo', '=', 1)->get()->toArray();
     
         $main_banner = Section::get_banner();
-    
-        
-        // print_r($week_programation);die();
-        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows,
-                'current_show' => $current_show,
-                'week_programation' => $week_programation,
-                'news' => $news,
-                'main_banner' => $main_banner));
-    }
-
-    public function index_ajax(Request $request){
-        if (! $request->ajax()) {
-            return Redirect::route('pro');
-        }
-        $next_shows = $this->get_next_shows();
-        $current_show = $this->get_current_show();
-        $week_programation = $this->get_week_programation();
-        $news = News::where('activo', '=', 1)->get()->toArray();
-
-        $main_banner = Section::get_banner();
-
-
-        // print_r($week_programation);die();
-        return view('main_views_content.programmation.index')->with(array('next_shows' => $next_shows,
+        $content = array('next_shows' => $next_shows,
             'current_show' => $current_show,
             'week_programation' => $week_programation,
             'news' => $news,
-            'main_banner' => $main_banner));
+            'main_banner' => $main_banner);
+
+        if ($request->ajax()) {
+            return view('main_views_content.programmation.index')->with($content);
+        }else{
+            return view('main_views.programmation.index')->with($content);
+        }
     }
 
     function get_next_shows()

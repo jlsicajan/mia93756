@@ -1,0 +1,25 @@
+.article_container{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+  position: relative;
+  transition: all 0.15s ease;
+  &:hover{
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.15);
+    transform: translate(0px, -5px);
+
+    .title{
+      color: $brand-primary;
+    }
+  }
+
+  .title{
+    color: #000;
+  }
+
+  .description{
+    font-size: 13px;
+  }
+
+  .date{
+    font-size: 12px;
+  }
+}

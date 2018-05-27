@@ -16,25 +16,17 @@ class The20Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
         $main_banner = Section::get_banner();
-        // print_r($the_20);die();
-        return view('main_views.the20.index')->with(array('the20' => $the_20,
+
+        $view = $request->ajax() ? 'main_views_content.the20.index' : 'main_views.the20.index';
+
+        return view($view)->with(array('the20' => $the_20,
                 'main_banner' => $main_banner));
     }
 
-    public function index_ajax(Request $request)
-    {
-        if (! $request->ajax()) {
-            return Redirect::route('the20');
-        }
-        $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
-        $main_banner = Section::get_banner();
-        return view('main_views_content.the20.index')->with(array('the20' => $the_20,
-                'main_banner' => $main_banner));
-    }
 
     /**
      * Show the form for creating a new resource.

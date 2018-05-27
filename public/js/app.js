@@ -3633,7 +3633,7 @@ function get_path_ajax_to_load(element){
     let content_to_load = '';
 
     if(page_to_load.includes('home')){
-        page_to_load = page_to_load.replace('home', 'home_ajax');
+        // page_to_load = page_to_load.replace('home', 'home_ajax');
         content_to_load = location + page_to_load;
     }else{
         if(page_to_load.includes('articulov')){
@@ -3646,7 +3646,7 @@ function get_path_ajax_to_load(element){
 
                 content_to_load = location + page_to_load;
             }else{
-                content_to_load = location + '/' + page_to_load + '_ajax';
+                content_to_load = location + '/' + page_to_load;
             }
         }
     }

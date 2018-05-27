@@ -9020,8 +9020,6 @@ body {
 
 .multiple_article {
   height: 200px; }
-  .multiple_article:hover {
-    opacity: 0.8; }
 
 .img-cover {
   background-size: cover;
@@ -9134,6 +9132,22 @@ body {
 
 .play_button, .pause_button {
   border: 2px solid white !important; }
+
+.article_container {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  transition: all 0.15s ease; }
+  .article_container:hover {
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.15);
+    transform: translate(0px, -5px); }
+    .article_container:hover .title {
+      color: #FF40A3; }
+  .article_container .title {
+    color: #000; }
+  .article_container .description {
+    font-size: 13px; }
+  .article_container .date {
+    font-size: 12px; }
 
 html, body, h1, h2, h3, h4, h5, h6 {
   padding: 0;

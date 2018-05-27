@@ -40,15 +40,15 @@ class Article extends Model {
         }
 
         $content = $subcategory != 0 ? Article::get_by_sub_category($category, $subcategory) : Article::get_by_category($category);
-        if(!$is_video){
-            //reorder for articles display, for the moment, this should be fixed
-            $content = count($content) > 1 ? array_chunk($content, count($content) / 2) : $content;
-            if(count($content) == 1){
-                $new_articles[0] = $content;
-                $new_articles[1] = array();
-                $content = $new_articles;
-            }
-        }
+//        if(!$is_video){
+//            //reorder for articles display, for the moment, this should be fixed
+//            $content = count($content) > 1 ? array_chunk($content, count($content) / 2) : $content;
+//            if(count($content) == 1){
+//                $new_articles[0] = $content;
+//                $new_articles[1] = array();
+//                $content = $new_articles;
+//            }
+//        }
 
         return array(
             'is_video' => $is_video,
@@ -79,4 +79,11 @@ class Article extends Model {
 
         return array(0 => env('URL_RADIO_INFO_PATH')  . '/' . filter_var($banner_name, FILTER_SANITIZE_ENCODED));
     }
+
+    public static function limit_words($string, $word_limit)
+    {
+        $words = explode(" ",$string);
+        return implode(" ",array_splice($words,0,$word_limit));
+    }
+
 }
