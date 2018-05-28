@@ -35,7 +35,7 @@ $(document).ready(function(){
             $('.open-menu-sm').css('display', 'block');
             $('.close-menu-sm').css('display', 'none');
             setTimeout(function(){
-                $('.loading').removeClass('d-flex').addClass('d-none')
+                $('.loading').removeClass('d-flex').addClass('d-none');
                 $(window).scrollTop(0);
             }, 800);
 
@@ -47,10 +47,9 @@ $(document).ready(function(){
 
 function get_path_ajax_to_load(element){
     let original_href = element.attr('data-href');
-    let location = window.location.origin;
     page_to_load = original_href;
-    page_to_load = page_to_load.replace('http://mia937.elcaminoweb.com/', '');
-    page_to_load = page_to_load.replace(location, '');
+    // page_to_load = page_to_load.replace('http://mia937.elcaminoweb.com/', '');
+    // page_to_load = page_to_load.replace(location, '');
 
     window.history.pushState({"html": page_to_load,"pageTitle":original_href},"", page_to_load);
 
