@@ -8890,6 +8890,10 @@ footer {
   .ajax_link:focus, .ajax_link_sm:focus {
     outline: 0; }
 
+.ajax_link {
+  font-size: 10px !important;
+  margin-top: 1.5px !important; }
+
 .dropdown-item-mia {
   font-size: 11px;
   font-weight: lighter; }
@@ -8915,6 +8919,10 @@ footer {
 .font_2_grid {
   position: absolute;
   margin-left: 7%; }
+
+.font_9 {
+  font-size: 17px;
+  text-shadow: 2px 2px black; }
 
 .font_7 {
   font-size: 20px;
@@ -9066,6 +9074,8 @@ footer {
     width: 100%; } }
 
 @media (max-width: 575px) {
+  .grid-space-navbar {
+    height: 10px !important; }
   .grid-space-header {
     height: 23vh !important; }
   .px-6rem {
@@ -9130,6 +9140,43 @@ footer {
   background: transparent;
   border: none;
   font-size: 25px; }
+
+.week_show_image:hover {
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.15); }
+  .week_show_image:hover .card-img-overlay {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.62); }
+    .week_show_image:hover .card-img-overlay .card-text {
+      opacity: 1; }
+    .week_show_image:hover .card-img-overlay .more_info_week_shows {
+      opacity: 1; }
+
+.week_show_image .card-img-overlay .card-text {
+  height: 35px !important;
+  opacity: 0; }
+
+.week_show_image .card-img-overlay .more_info_week_shows {
+  cursor: pointer;
+  opacity: 0; }
+
+.nav-week-item .nav-week-link.active {
+  border-color: unset !important;
+  background-color: #FF40A3;
+  color: #ffffff !important; }
+
+.nav-week-item .nav-week-link {
+  border-color: white; }
+  .nav-week-item .nav-week-link:hover {
+    border-color: unset !important;
+    background-color: #FF40A3;
+    color: #ffffff !important; }
+
+.tab-week-content {
+  background-color: white;
+  padding: 15px; }
+
+.nav-week-tabs {
+  border-bottom: white; }
 
 .keep_reading {
   cursor: pointer; }
@@ -9220,7 +9267,10 @@ footer {
     .article_container:hover .title, .video_article_container:hover .title {
       color: #FF40A3; }
   .article_container .title, .video_article_container .title {
-    color: #000; }
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2em; }
   .article_container .description, .video_article_container .description {
     font-size: 13px; }
   .article_container .date, .video_article_container .date {

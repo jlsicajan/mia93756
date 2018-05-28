@@ -54,10 +54,17 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo_ajax/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
+            <div id="fb-comments" class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
         </div>
     </div>
     <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:comments href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" num_posts="5" width="100%"></fb:comments>
+
+    <script>
+        FB.XFBML.parse(document.getElementById('fb-comments'));
+    </script>
+
     <style type="text/css">
         footer{
             position: absolute;

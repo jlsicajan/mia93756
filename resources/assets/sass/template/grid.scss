@@ -176,6 +176,9 @@
 
 //Mobile changes
 @include media-breakpoint-only(xs) {
+  .grid-space-navbar{
+    height: 10px !important;
+  }
   .grid-space-header{
     height: 23vh !important;
   }

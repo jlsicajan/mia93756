@@ -105,7 +105,7 @@
   .navbar-mia {
     height: 70px;
     justify-content: center;
-    
+
     >.container{
       padding: 0 !important;
       .navbar-logo{
@@ -154,6 +154,11 @@
   &:focus{
     outline: 0;
   }
+}
+
+.ajax_link{
+  font-size: 10px !important;
+  margin-top: 1.5px !important;
 }
 
 .dropdown-item-mia{

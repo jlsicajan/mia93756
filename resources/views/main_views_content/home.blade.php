@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
+<link href="public/css/elements/week_shows.css" rel="stylesheet">
 <div class="container">
     {{-- @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down']) --}}
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
