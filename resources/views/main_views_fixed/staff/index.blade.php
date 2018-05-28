@@ -2,18 +2,11 @@
 
 @section('content')
     <div class="main_content_container">
-        @if(!$hide_banner)
-            @include('elements.mia-hdear', ['main_banner', $main_banner])
-        @endif
+        @include('elements.mia-hdear', ['main_banner', $main_banner])
         <div class="container">
-
-            @if(!$hide_banner)
-                @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-                @include('elements.for_grid.middle_space_block', ['classes' => ''])
-                @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
-            @else
-                @include('elements.for_grid.space_block_navbar', ['classes' => ''])
-            @endif
+            @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
+            @include('elements.for_grid.middle_space_block', ['classes' => ''])
+            @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
 
             <div class="row">
                 @foreach($staff_separated as $staff_item)

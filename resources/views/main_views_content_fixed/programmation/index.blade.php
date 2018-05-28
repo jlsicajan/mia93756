@@ -1,13 +1,7 @@
-@if(!$hide_banner)
-    @include('elements.mia-hdear', ['main_banner' => $main_banner])
-@endif
+@include('elements.mia-hdear', ['main_banner' => $main_banner])
 <div class="container">
-    @if(!$hide_banner)
-        @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-        @include('elements.for_grid.middle_space_block', ['classes' => ''])
-    @else
-        @include('elements.for_grid.space_block_navbar', ['classes' => ''])
-    @endif
+    @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
+    @include('elements.for_grid.middle_space_block', ['classes' => ''])
 
     <div class="row">
         <div class="col-12">
@@ -36,4 +30,3 @@
 </script>
 <script src="/public/js/main_views/programmation/app.js"></script>
 <script src="/public/js/nav_movements.js"></script>
-

@@ -25,7 +25,7 @@ class StaffController extends Controller
         $usuarios_blog = UserBlog::all()->toArray();
         $main_banner = Section::get_banner();
 
-        $view = $request->ajax() ? 'main_views_content.staff.index' : 'main_views.staff.index';
+        $view = $request->ajax() ? 'main_views_content_fixed.staff.index' : 'main_views_fixed.staff.index';
 
         return view($view)->with(array('staff_separated' => $staff,
                 'staff' => Staff::all()->toArray(),

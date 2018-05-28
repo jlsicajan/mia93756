@@ -5,19 +5,12 @@
 
 @section('content')
     <div class="main_content_container">
-        @if(!$hide_banner)
-            @include('elements.mia-hdear', ['title' => $current_show['PAFF_titulo'],
-            'custom_background' => $current_show['PAFF_image'],
-            'custom_subtitle' => $current_show['PAFF_start'] . ' - ' . $current_show['PAFF_end']])
-        @endif
-
+        @include('elements.mia-hdear', ['title' => $current_show['PAFF_titulo'],
+       'custom_background' => $current_show['PAFF_image'],
+       'custom_subtitle' => $current_show['PAFF_start'] . ' - ' . $current_show['PAFF_end']])
         <div class="container">
-            @if(!$hide_banner)
-                @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-                @include('elements.for_grid.middle_space_block', ['classes' => ''])
-            @else
-                @include('elements.for_grid.space_block_navbar', ['classes' => ''])
-            @endif
+            @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
+            @include('elements.for_grid.middle_space_block', ['classes' => ''])
             <div class="row">
                 <div class="col-12">
                     @include("elements.radio.week_shows")
