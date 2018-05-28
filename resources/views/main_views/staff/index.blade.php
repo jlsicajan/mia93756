@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+    @include('elements.radio.live_radio_element')
     <script type="text/javascript">
         var staffs = {!! json_encode($staff) !!};
         var users_blog = {!! json_encode($usuarios_blog) !!};

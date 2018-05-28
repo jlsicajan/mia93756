@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    @include('elements.radio.live_radio_element')
     <style type="text/css">
     .grid-photo-block{
         background-size: cover;

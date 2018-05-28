@@ -64,7 +64,7 @@ function get_path_ajax_to_load(element){
             if(page_to_load.includes('articulo')){
                 // page_to_load = page_to_load.replace('articulo', 'ajax');
 
-                content_to_load = location + page_to_load;
+                content_to_load = location + '/' + page_to_load;
             }else{
                 content_to_load = location + '/' + page_to_load;
             }

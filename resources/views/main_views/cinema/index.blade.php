@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    @include('elements.radio.live_radio_element')
     <style type="text/css">
         .movie_image {
             height: 250px;
