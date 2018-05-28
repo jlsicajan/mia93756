@@ -6,9 +6,15 @@
 
 @section('content')
     <div class="main_content_container">
-        @include('elements.mia-hdear', ['main_banner', $main_banner])
+        @if(!$hide_banner)
+            @include('elements.mia-hdear', ['main_banner', $main_banner])
+        @endif
         <div class="container">
-            @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @if(!$hide_banner)
+                @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @else
+                @include('elements.for_grid.space_block_navbar', ['classes' => ''])
+            @endif
 
             <div class="row mb-5">
                 <div class="col-12">

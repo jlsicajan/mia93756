@@ -6,7 +6,6 @@
             @include('elements.mia-hdear', ['main_banner', $main_banner])
         @endif
         <div class="container">
-
             @if(!$hide_banner)
                 @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
                 @include('elements.for_grid.middle_space_block', ['classes' => ''])

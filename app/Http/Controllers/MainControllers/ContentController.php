@@ -10,6 +10,7 @@ use App\Section;
 use App\Slide;
 use App\Staff;
 use App\SubCategory;
+use App\The20;
 use App\UserBlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,6 +51,10 @@ class ContentController extends Controller {
             return $this->programmationPage($request, $content);
         }elseif(strpos($content['redirect'], 'staff') !== false){
             return $this->staffPage($request, $content);
+        }elseif(strpos($content['redirect'], 'alfombrarosa') !== false){
+            return $this->pinkCarpetPage($request, $content);
+        }elseif(strpos($content['redirect'], 'los20') !== false){
+            return $this->the20Page($request, $content);
         }else{
             Redirect::route('home');
         }
@@ -93,6 +98,33 @@ class ContentController extends Controller {
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
             'hide_banner' => $content['hide_banner']);
+        return array('view' => $view, 'data' => $content_for_view);
+    }
+
+    public function pinkCarpetPage($request, $content){
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->get()->toArray();
+
+        $view = $request->ajax() ? 'main_views_content.pink_carpet.index' : 'main_views.pink_carpet.index';
+        $content_for_view = array(
+            'articles_gthoy' => $articles_gthoy,
+            'main_banner' => $content['main_banner'],
+            'main_background' => $content['main_background'],
+            'hide_banner' => $content['hide_banner']);
+
+        return array('view' => $view, 'data' => $content_for_view);
+
+    }
+
+    public function the20Page($request, $content){
+        $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
+
+        $view = $request->ajax() ? 'main_views_content.the20.index' : 'main_views.the20.index';
+        $content_for_view = array(
+            'the20' => $the_20,
+            'main_banner' => $content['main_banner'],
+            'main_background' => $content['main_background'],
+            'hide_banner' => $content['hide_banner']);
+
         return array('view' => $view, 'data' => $content_for_view);
     }
 

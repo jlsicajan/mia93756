@@ -21,9 +21,9 @@ class PinkCarpetController extends Controller {
         $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->get()->toArray();
 
         if ($request->ajax()) {
-            return view('main_views_content.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+            return view('main_views_content_fixed.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
         }else{
-            return view('main_views.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+            return view('main_views_fixed.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
         }
 	}
 

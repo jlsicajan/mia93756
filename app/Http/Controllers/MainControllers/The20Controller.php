@@ -21,7 +21,7 @@ class The20Controller extends Controller
         $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
         $main_banner = Section::get_banner();
 
-        $view = $request->ajax() ? 'main_views_content.the20.index' : 'main_views.the20.index';
+        $view = $request->ajax() ? 'main_views_content_fixed.the20.index' : 'main_views_fixed.the20.index';
 
         return view($view)->with(array('the20' => $the_20,
                 'main_banner' => $main_banner));
