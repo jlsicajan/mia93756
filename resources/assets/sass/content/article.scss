@@ -1,4 +1,4 @@
-.article_container, .vide_article_container{
+.article_container, .video_article_container{
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
   position: relative;
@@ -30,5 +30,12 @@
   height: 325px;
   .title{
     cursor: pointer;
+  }
+}
+
+//Mobile changes
+@include media-breakpoint-only(xs) {
+  .article_container{
+    height: 440px !important;
   }
 }

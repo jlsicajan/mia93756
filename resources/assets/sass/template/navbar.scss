@@ -55,6 +55,7 @@
           border-bottom: unset !important;
           width: 100%;
           .ajax_link_sm{
+            background-color: unset!important;
             color: #ffffff;
             margin-top: 4px;
             margin-bottom: 4px;
@@ -102,7 +103,21 @@
 //Mobile changes
 @include media-breakpoint-only(xs) {
   .navbar-mia {
-    height: 63px;
+    height: 70px;
+    justify-content: center;
+    
+    >.container{
+      padding: 0 !important;
+      .navbar-logo{
+        height: 40px;
+        width: 150px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .navbar{
+    padding-left: 0 !important;
   }
 }
 

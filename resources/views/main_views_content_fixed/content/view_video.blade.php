@@ -17,7 +17,7 @@
         <div class="row">
             @foreach($content['content'] as $video)
                 <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 p-4">
-                    <div class="vide_article_container row border">
+                    <div class="video_article_container row border">
                         <div class="col-12 p-0">
                             <iframe class="embed-responsive-item" width="100%" height="200px"
                                     src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $video['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"

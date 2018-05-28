@@ -40,4 +40,20 @@
 
 .play_button, .pause_button{
   border: 2px solid white !important;
+  background: transparent;
+  border: none;
+  border: 2px solid black;
+  height: 70px;
+  border-radius: 50%;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .fa{
+    font-size: 40px !important;
+  }
+  &:focus{
+    outline: 0 !important;
+  }
 }

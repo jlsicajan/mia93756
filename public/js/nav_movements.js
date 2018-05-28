@@ -3,6 +3,7 @@ $(document).ready(function(){
         let load_page_ajax = get_path_ajax_to_load($(this));
         $('.ajax_link').removeClass('active');
         $(this).addClass('active');
+
         $('.footer').hide();
         $('.loading').removeClass('d-none').addClass('d-flex');
         // alert(load_page_ajax);
@@ -12,6 +13,7 @@ $(document).ready(function(){
             $('.footer').show();
             setTimeout(function(){
                 $('.loading').removeClass('d-flex').addClass('d-none');
+                $(window).scrollTop(0);
             }, 800);
 
         }, load_page_ajax);
@@ -19,8 +21,9 @@ $(document).ready(function(){
 
     $('.ajax_link_sm').unbind('click').click(function(){
         let load_page_ajax = get_path_ajax_to_load($(this));
-        $('.ajax_link').removeClass('active');
+        $('.ajax_link_sm').removeClass('active');
         $(this).addClass('active');
+
         $('.footer').hide();
         // alert(load_page_ajax);
         $('.loading').removeClass('d-none').addClass('d-flex');
@@ -32,7 +35,8 @@ $(document).ready(function(){
             $('.open-menu-sm').css('display', 'block');
             $('.close-menu-sm').css('display', 'none');
             setTimeout(function(){
-                $('.loading').removeClass('d-flex').addClass('d-none');
+                $('.loading').removeClass('d-flex').addClass('d-none')
+                $(window).scrollTop(0);
             }, 800);
 
         }, load_page_ajax);

@@ -1,7 +1,7 @@
 @if(!$hide_banner)
     @include('elements.mia-hdear', ['main_banner', $main_banner])
 @endif
-
+<link href="/public/css/main_views/the20.css" rel="stylesheet">
 <div class="container">
     @if(!$hide_banner)
         @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
