@@ -8815,6 +8815,17 @@ footer {
       border-bottom: 1px solid white;
       width: 65%;
       text-align: center; }
+      .navbar-mia .menu-sm .nav-item .dropdown-menu {
+        background-color: #292b2c;
+        width: 100%;
+        color: white; }
+        .navbar-mia .menu-sm .nav-item .dropdown-menu .nav-item {
+          border-bottom: unset !important;
+          width: 100%; }
+          .navbar-mia .menu-sm .nav-item .dropdown-menu .nav-item .ajax_link_sm {
+            color: #ffffff;
+            margin-top: 4px;
+            margin-bottom: 4px; }
       .navbar-mia .menu-sm .nav-item .nav-link {
         color: white;
         line-height: 1.8rem;
