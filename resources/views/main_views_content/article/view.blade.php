@@ -59,8 +59,6 @@
     </div>
     <div id="fb-root"></div>
     <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-    <fb:comments href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" num_posts="5" width="100%"></fb:comments>
-
     <script>
         FB.XFBML.parse(document.getElementById('fb-comments'));
     </script>
