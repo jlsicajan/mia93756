@@ -42,9 +42,9 @@ class HomeController extends Controller
         $my_love = Category::where('nombre', 'like', '%MIAMOR%')->first()->toArray();
         $healthy = Category::where('nombre', 'like', '%SALUDABLE-MENTE%')->first()->toArray();
 
-        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor')->limit(6)->get()->toArray();
-        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor')->limit(4)->get()->toArray();
-        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen', 'autor')->limit(4)->get()->toArray();
+        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->limit(6)->get()->toArray();
+        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->limit(4)->get()->toArray();
+        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->limit(4)->get()->toArray();
 
         $home_categories = array(
             1 => $tell_me_more_category,

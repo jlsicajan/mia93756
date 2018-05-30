@@ -42,3 +42,39 @@
     height: 440px !important;
   }
 }
+
+//FOR HOME
+.article_container_home, .video_article_container_home{
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.12);
+  position: relative;
+  transition: all 0.15s ease;
+  height: 340px;
+  &:hover{
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.15);
+    transform: translate(0px, -5px);
+
+    .title{
+      color: $brand-primary;
+    }
+  }
+
+  .multiple_article{
+    height: 150px !important;
+  }
+
+  .title{
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.2em;
+  }
+
+  .description{
+    font-size: 13px;
+  }
+
+  .date{
+    font-size: 11px;
+  }
+}
