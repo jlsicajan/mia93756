@@ -19,20 +19,35 @@
                     <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
                 </div>
             </div>
+            @if(isset($content['main_elements']))
+                @if($content['main_elements']['instagram'])
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.iframe")
+                        </div>
+                        <div class="col-12 col-md-6 py-md-4 right-grid-resize">
+                        </div>
+                    </div>
+                @endif
+            @endif
             <div class="row">
                 @foreach($content['content'] as $article)
                     <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                        <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article['id']) }}">
+                        <button class="ajax_link text-no-decoration"
+                                data-href="{{ route('article_one', $article['id']) }}">
                             <div class="article_container row border">
                                 @if($article['autor'] == 'Gthoy' || strpos($article['imagen'], 'picsum') !== false)
-                                    <div class="col-12 multiple_article img-cover" style="background-image: url('{{ $article['imagen'] }}')"></div>
+                                    <div class="col-12 multiple_article img-cover"
+                                         style="background-image: url('{{ $article['imagen'] }}')"></div>
                                 @else
-                                    <div class="col-12 multiple_article img-cover" style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+                                    <div class="col-12 multiple_article img-cover"
+                                         style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
                                 @endif
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
                                     <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article['texto_uno']), 35) }}...</p>
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article['texto_uno']), 35) }}
+                                        ...</p>
                                 </div>
                             </div>
                         </button>
@@ -50,7 +65,7 @@
             max-height: 71.5%;
         }
 
-        footer{
+        footer {
             position: absolute;
             /* bottom: -22px; */
             margin-bottom: 70px;

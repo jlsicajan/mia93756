@@ -42,21 +42,13 @@ class Article extends Model {
         }
 
         $content = $subcategory != 0 ? Article::get_by_sub_category($category, $subcategory) : Article::get_by_category($category);
-//        if(!$is_video){
-//            //reorder for articles display, for the moment, this should be fixed
-//            $content = count($content) > 1 ? array_chunk($content, count($content) / 2) : $content;
-//            if(count($content) == 1){
-//                $new_articles[0] = $content;
-//                $new_articles[1] = array();
-//                $content = $new_articles;
-//            }
-//        }
+        $main_elements = $subcategory != 0 ? Article::check_main_elements($subcategory_info) : Article::check_main_elements($category_info);
 
         return array(
             'is_video' => $is_video,
             'content' => $content, 'main_background' => $main_background,
             'main_banner' => $main_banner, 'path_info' => $path_info,
-            'hide_banner' => $hide_banner, 'redirect' => $redirect
+            'hide_banner' => $hide_banner, 'redirect' => $redirect, 'main_elements' => $main_elements
         );
     }
 
@@ -88,4 +80,12 @@ class Article extends Model {
         return implode(" ",array_splice($words,0,$word_limit));
     }
 
+    public static function check_main_elements($category){
+        $main_elements = array('instagram' => false);
+        if(strpos($category, 'REDES') !== false){
+            $main_elements['instagram'] = true;
+        }
+
+        return $main_elements;
+    }
 }

@@ -14,7 +14,18 @@
             <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
         </div>
     </div>
-    <div class="row">
+        @if(isset($content['main_elements']))
+            @if($content['main_elements']['instagram'])
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        @include("elements.for_grid.iframe")
+                    </div>
+                    <div class="col-12 col-md-6 py-md-4 right-grid-resize">
+                    </div>
+                </div>
+            @endif
+        @endif
+        <div class="row">
         @foreach($content['content'] as $article)
             <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
                 <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article['id']) }}">
