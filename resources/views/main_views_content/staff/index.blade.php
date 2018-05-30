@@ -4,9 +4,8 @@
 <div class="container">
 
     @if(!$hide_banner)
-        @include('elements.for_grid.space_block', ['classes' => 'hidden-sm-down'])
-        @include('elements.for_grid.middle_space_block', ['classes' => ''])
-        @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
+        @include('elements.for_grid.space_block_header', ['classes' => ''])
+
     @else
         @include('elements.for_grid.space_block_navbar', ['classes' => ''])
     @endif

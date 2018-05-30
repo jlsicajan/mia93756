@@ -8982,6 +8982,9 @@ footer {
   width: 477px !important;
   margin-top: -3 !important; }
 
+.element-block-no-height {
+  height: unset !important; }
+
 .grid-block-double {
   width: 1155px !important; }
 
