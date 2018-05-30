@@ -35,8 +35,8 @@
 </div>
 <nav class="navbar navbar-toggleable-md navbar-mia">
     <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto">
-        <a class="navbar-brand navbar-logo" href="{{ route('home') }}"
-           style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></a>
+        <button class="ajax_link navbar-brand navbar-logo" data-href="{{ route('home') }}"
+           style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></button>
         <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
             <ul class="navbar-nav ml-auto">
                 @include('layouts.categories_menu')

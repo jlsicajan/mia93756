@@ -5,22 +5,35 @@
 
 @section('content')
     <div class="main_content_container">
-        @include('elements.mia-hdear', ['main_banner', $main_banner])
         <div class="container">
-            @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @include('elements.for_grid.space_block_navbar', ['classes' => ''])
 
             <div class="row">
-                <div class="col-12">
+                <div class="col-9">
                     <h3 class="color-primary">{{ $article['titulo'] }}</h3>
                     <hr>
                     <p>{!! $article['texto_uno'] !!}</p>
                     <strong>Visitas: {{ $article['visitas'] }}</strong>
                 </div>
+                <div class="col-3">
+                    <div class="share" id="share">
+                        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                            <a class="addthis_button_facebook"></a>
+                            <a class="addthis_button_twitter"></a>
+                            <a class="addthis_button_google_plusone_share"></a>
+                            <a class="addthis_button_linkedin"></a>
+                            <a class="addthis_button_compact"></a>
+                        </div>
+                    </div>
+                    <div class="bg-grid-default" style="height: 100%">
+
+                    </div>
+                </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="font_7">Articulos relacionados</h2>
+                    <h2 class="font_7">Artículos relacionados</h2>
                 </div>
                 <hr>
                 @foreach($articles_related as $article_related)
@@ -47,15 +60,9 @@
             <hr>
             <div class="row this">
                 <div class="col-12">
-                    <div class="share" id="share">
-                        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                            <a class="addthis_button_facebook"></a>
-                            <a class="addthis_button_twitter"></a>
-                            <a class="addthis_button_google_plusone_share"></a>
-                            <a class="addthis_button_linkedin"></a>
-                            <a class="addthis_button_compact"></a>
-                        </div>
-                    </div>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_gdxe"></div>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-592dee80164d65cb"></script>
                 </div>
             </div>
             <div class="row">
