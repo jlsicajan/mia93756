@@ -1,7 +1,7 @@
 @if(isset($youtube_url))
     <div class="container-fluid">
         <div class="row">
-            <div id="carousel_main_banner" class="carousel slide" data-ride="carousel">
+            <div id="carousel_main_banner" class="carousel slide z-2" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <div class="mia-header">

@@ -8755,7 +8755,18 @@ body {
 .content_title_container {
   padding-left: 7%; }
 
+.img-clean-display {
+  height: 350px !important; }
+
+.z-2 {
+  z-index: 3 !important; }
+
+.z-1 {
+  z-index: 3 !important; }
+
 @media (max-width: 575px) {
+  .img-clean-display {
+    height: 275px !important; }
   .mia-header {
     height: 50vh; }
     .mia-header .title-container {

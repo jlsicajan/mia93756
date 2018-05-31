@@ -100,8 +100,25 @@ body{
   padding-left: 7%;
 }
 
+.img-clean-display{
+  height: 350px !important;
+}
+
+//z-index
+.z-2{
+  z-index: 3 !important;
+}
+
+.z-1{
+  z-index: 3 !important;
+}
+
 //Mobile changes
 @include media-breakpoint-only(xs) {
+  .img-clean-display{
+    height: 275px !important;
+  }
+
   .mia-header{
     height: 50vh;
     .title-container{

@@ -6,7 +6,7 @@
         @if($content['hide_banner'])
             @include('elements.for_grid.space_block_navbar', ['classes' => ''])
         @else
-            @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @include('elements.for_grid.space_block_header', ['classes' => 'z-1'])
         @endif
 
         <div class="row mb-5">

@@ -5,6 +5,13 @@
         <div class="col-9">
             <h3 class="color-primary">{{ $article['titulo'] }}</h3>
             <hr>
+            @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
+                <div class="img-clean-display img-cover"
+                style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+            @else
+                <div class="img-clean-display img-cover"
+                style="background-image: url('{{ $article['imagen'] }}')"></div>
+            @endif
             <p>{!! $article['texto_uno'] !!}</p>
             <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
@@ -18,9 +25,7 @@
                     <a class="addthis_button_whatsapp cursor-pointer"></a>
                 </div>
             </div>
-            <div class="bg-grid-default" style="height: 100%">
-
-            </div>
+            <div class="bg-grid-default" style="height: 100%"></div>
         </div>
     </div>
     <hr>
