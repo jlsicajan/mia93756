@@ -14,7 +14,10 @@ $(document).ready(function(){
             setTimeout(function(){
                 $('.loading').removeClass('d-flex').addClass('d-none');
                 $(window).scrollTop(0);
-                addthis.toolbox('.addthis_toolbox')
+                if (typeof addthis !== 'undefined') {
+                    addthis.toolbox('.addthis_toolbox');
+                }
+                FB.XFBML.parse();
             }, 800);
 
         }, load_page_ajax);
@@ -38,7 +41,12 @@ $(document).ready(function(){
             setTimeout(function(){
                 $('.loading').removeClass('d-flex').addClass('d-none');
                 $(window).scrollTop(0);
-                addthis.toolbox('.addthis_toolbox');
+                if (typeof addthis !== 'undefined') {
+                    addthis.toolbox('.addthis_toolbox');
+                }
+                if (typeof FB !== 'undefined') {
+                    FB.XFBML.parse();
+                }
             }, 800);
 
         }, load_page_ajax);

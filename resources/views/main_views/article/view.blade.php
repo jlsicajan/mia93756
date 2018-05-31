@@ -68,7 +68,7 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-
+                    <div id="fb-comments" class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
                 </div>
             </div>
         </div>
@@ -90,6 +90,15 @@
             display: none !important;
         }
     </style>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=1765073390470250&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             // $("#at-share-dock").prependTo("#share");
