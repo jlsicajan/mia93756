@@ -6,7 +6,7 @@
 @section('content')
     <div class="main_content_container">
         @if(!$content['hide_banner'])
-            @include('elements.mia-hdear', ['main_banner' => $content['main_banner']])
+            @include('elements.mia-video-header', ['youtube_url' => $content['content'][0]['codigo_api']])
         @endif
         <div class="container">
             @if($content['hide_banner'])
