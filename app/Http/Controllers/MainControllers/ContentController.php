@@ -102,7 +102,7 @@ class ContentController extends Controller {
     }
 
     public function pinkCarpetPage($request, $content){
-        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->get()->toArray();
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->get()->toArray();
 
         $view = $request->ajax() ? 'main_views_content.pink_carpet.index' : 'main_views.pink_carpet.index';
         $content_for_view = array(

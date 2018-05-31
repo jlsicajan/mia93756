@@ -53,12 +53,12 @@ class Article extends Model {
     }
 
     public static function get_by_category($category){
-        $content = Article::where('categoria_id', '=', $category)->get()->toArray();
+        $content = Article::where('categoria_id', '=', $category)->orderBy('fecha', 'DESC')->get()->toArray();
         return $content;
     }
 
     public static function get_by_sub_category($category, $subcategory){
-        $content = Article::where('categoria_id', '=', $category)->where('sub_categoria_id', '=', $subcategory)->get()->toArray();
+        $content = Article::where('categoria_id', '=', $category)->where('sub_categoria_id', '=', $subcategory)->orderBy('fecha', 'DESC')->get()->toArray();
         return $content;
     }
 

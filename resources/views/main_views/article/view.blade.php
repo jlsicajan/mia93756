@@ -58,13 +58,6 @@
                 @endforeach
             </div>
             <hr>
-            <div class="row this">
-                <div class="col-12">
-                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_gdxe"></div>
-
-                    <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-592dee80164d65cb"></script>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>

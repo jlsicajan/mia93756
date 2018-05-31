@@ -51,22 +51,6 @@
         @endforeach
     </div>
     <hr>
-    <div class="row this">
-        <div class="col-12">
-            <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_gdxe"></div>
-
-            <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-592dee80164d65cb"></script>
-            <div class="share" id="share">
-                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                    <a class="addthis_button_facebook"></a>
-                    <a class="addthis_button_twitter"></a>
-                    <a class="addthis_button_google_plusone_share"></a>
-                    <a class="addthis_button_linkedin"></a>
-                    <a class="addthis_button_compact"></a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-12">
             <div id="fb-comments" class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
