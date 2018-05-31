@@ -1,3 +1,5 @@
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e" async=”async”></script>
 <div class="container">
     @include('elements.for_grid.space_block_navbar', ['classes' => ''])
 
@@ -10,12 +12,12 @@
         </div>
         <div class="col-3">
             <div class="share" id="share">
-                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                    <a class="addthis_button_facebook"></a>
-                    <a class="addthis_button_twitter"></a>
-                    <a class="addthis_button_google_plusone_share"></a>
-                    <a class="addthis_button_linkedin"></a>
-                    <a class="addthis_button_compact"></a>
+                <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
+                    <a class="addthis_button_facebook cursor-pointer"></a>
+                    <a class="addthis_button_twitter cursor-pointer"></a>
+                    <a class="addthis_button_email cursor-pointer"></a>
+                    <a class="addthis_button_linkedin cursor-pointer"></a>
+                    <a class="addthis_button_whatsapp cursor-pointer"></a>
                 </div>
             </div>
             <div class="bg-grid-default" style="height: 100%">
@@ -57,11 +59,6 @@
         </div>
     </div>
     <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-    <script>
-        FB.XFBML.parse(document.getElementById('fb-comments'));
-    </script>
-
     <style type="text/css">
         footer{
             position: absolute;
@@ -94,6 +91,5 @@
 
     </script>
     <script src="/public/js/nav_movements.js"></script>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e"></script>
+
 </div>

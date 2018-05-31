@@ -8719,6 +8719,9 @@ body {
 .bg-primary {
   background-color: #FF40A3 !important; }
 
+.cursor-pointer {
+  cursor: pointer !important; }
+
 .btn-primary {
   background-color: #FF40A3 !important;
   border-color: #FF009E !important; }

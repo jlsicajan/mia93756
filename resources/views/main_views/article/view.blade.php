@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('head')
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e" async=”async”></script>
 @endsection
 
 @section('content')
@@ -17,12 +19,12 @@
                 </div>
                 <div class="col-3">
                     <div class="share" id="share">
-                        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                            <a class="addthis_button_facebook"></a>
-                            <a class="addthis_button_twitter"></a>
-                            <a class="addthis_button_google_plusone_share"></a>
-                            <a class="addthis_button_linkedin"></a>
-                            <a class="addthis_button_compact"></a>
+                        <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
+                            <a class="addthis_button_facebook cursor-pointer"></a>
+                            <a class="addthis_button_twitter cursor-pointer"></a>
+                            <a class="addthis_button_email cursor-pointer"></a>
+                            <a class="addthis_button_linkedin cursor-pointer"></a>
+                            <a class="addthis_button_whatsapp cursor-pointer"></a>
                         </div>
                     </div>
                     <div class="bg-grid-default" style="height: 100%">
@@ -60,7 +62,7 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <div class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
+
                 </div>
             </div>
         </div>
@@ -82,16 +84,6 @@
             display: none !important;
         }
     </style>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=1765073390470250&autoLogAppEvents=1';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             // $("#at-share-dock").prependTo("#share");
@@ -102,6 +94,5 @@
             }
         });
     </script>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e"></script>
+
 @endsection
