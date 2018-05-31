@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('head')
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e" async=”async”></script>
 @endsection
 
 @section('content')
@@ -19,7 +17,8 @@
                 </div>
                 <div class="col-3">
                     <div class="share" id="share">
-                        <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
+                        <div class="addthis_toolbox  addthis_default_style addthis_32x32_style"
+                             data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
                             <a class="addthis_button_facebook cursor-pointer"></a>
                             <a class="addthis_button_twitter cursor-pointer"></a>
                             <a class="addthis_button_email cursor-pointer"></a>
@@ -40,19 +39,21 @@
                 <hr>
                 @foreach($articles_related as $article_related)
                     <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                        <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_related['id']) }}">
+                        <button class="ajax_link text-no-decoration"
+                                data-href="{{ route('article_one', $article_related['id']) }}">
                             <div class="article_container row border">
-                                @if($article_related['autor'] == 'Gthoy')
-                                    <div class="col-12 multiple_article img-cover"
-                                         style="background-image: url('{{ $article_related['imagen'] }}')"></div>
-                                @else
+                                @if((substr($article_related['imagen'], 0, 3) != 'htt') && (substr($article_related['imagen'], 0, 2) != '//'))
                                     <div class="col-12 multiple_article img-cover"
                                          style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article_related['imagen'] }}')"></div>
+                                @else
+                                    <div class="col-12 multiple_article img-cover"
+                                         style="background-image: url('{{ $article_related['imagen'] }}')"></div>
                                 @endif
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article_related['fecha'] }}</p>
                                     <p class="title font-weight-bold text-left">{{ $article_related['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}...</p>
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}
+                                        ...</p>
                                 </div>
                             </div>
                         </button>
@@ -94,5 +95,7 @@
             }
         });
     </script>
-
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e"
+            async=”async”></script>
 @endsection

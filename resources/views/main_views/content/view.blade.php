@@ -36,12 +36,12 @@
                         <button class="ajax_link text-no-decoration"
                                 data-href="{{ route('article_one', $article['id']) }}">
                             <div class="article_container row border">
-                                @if($article['autor'] == 'Gthoy' || strpos($article['imagen'], 'picsum') !== false)
-                                    <div class="col-12 multiple_article img-cover"
-                                         style="background-image: url('{{ $article['imagen'] }}')"></div>
-                                @else
+                                @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
                                     <div class="col-12 multiple_article img-cover"
                                          style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+                                @else
+                                    <div class="col-12 multiple_article img-cover"
+                                         style="background-image: url('{{ $article['imagen'] }}')"></div>
                                 @endif
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article['fecha'] }}</p>

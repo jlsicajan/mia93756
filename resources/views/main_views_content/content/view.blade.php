@@ -14,28 +14,28 @@
             <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
         </div>
     </div>
-        @if(isset($content['main_elements']))
-            @if($content['main_elements']['instagram'])
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        @include("elements.for_grid.iframe")
-                    </div>
-                    <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                    </div>
+    @if(isset($content['main_elements']))
+        @if($content['main_elements']['instagram'])
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    @include("elements.for_grid.iframe")
                 </div>
-            @endif
+                <div class="col-12 col-md-6 py-md-4 right-grid-resize">
+                </div>
+            </div>
         @endif
-        <div class="row">
+    @endif
+    <div class="row">
         @foreach($content['content'] as $article)
             <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
                 <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article['id']) }}">
                     <div class="article_container row border">
-                        @if($article['autor'] == 'Gthoy')
-                            <div class="col-12 multiple_article img-cover"
-                                 style="background-image: url('{{ $article['imagen'] }}')"></div>
-                        @else
+                        @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
                             <div class="col-12 multiple_article img-cover"
                                  style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+                        @else
+                            <div class="col-12 multiple_article img-cover"
+                                 style="background-image: url('{{ $article['imagen'] }}')"></div>
                         @endif
                         <div class="col-12 p-2 mt-2">
                             <p class="date text-muted text-left">{{ $article['fecha'] }}</p>

@@ -63,6 +63,21 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+    .article_content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-height: 71.5%;
+    }
+
+    .font_7 {
+        font-size: 20px;
+        color: #FF40A3;
+        font-style: italic;
+
+    }
+</style>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="/public/js/main_views/programmation/app.js"></script>
 <script src="/public/js/nav_movements.js"></script>

@@ -1,5 +1,3 @@
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e" async=”async”></script>
 <div class="container">
     @include('elements.for_grid.space_block_navbar', ['classes' => ''])
 
@@ -35,12 +33,12 @@
             <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
                 <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article_related['id']) }}">
                     <div class="article_container row border">
-                        @if($article_related['autor'] == 'Gthoy')
-                            <div class="col-12 multiple_article img-cover"
-                                 style="background-image: url('{{ $article_related['imagen'] }}')"></div>
-                        @else
+                        @if((substr($article_related['imagen'], 0, 3) != 'htt') && (substr($article_related['imagen'], 0, 2) != '//'))
                             <div class="col-12 multiple_article img-cover"
                                  style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article_related['imagen'] }}')"></div>
+                        @else
+                            <div class="col-12 multiple_article img-cover"
+                                 style="background-image: url('{{ $article_related['imagen'] }}')"></div>
                         @endif
                         <div class="col-12 p-2 mt-2">
                             <p class="date text-muted text-left">{{ $article_related['fecha'] }}</p>
@@ -91,5 +89,6 @@
 
     </script>
     <script src="/public/js/nav_movements.js"></script>
-
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5afbebe2d2bf457e" async=”async”></script>
 </div>
