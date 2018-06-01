@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app')0 2px 4px 0 rgba(0, 0, 0, 0.12)
 
 @section('head')
 @endsection
@@ -25,7 +25,8 @@
                         <div class="col-12 col-md-6">
                             @include("elements.for_grid.iframe")
                         </div>
-                        <div class="col-12 col-md-6 py-md-4 right-grid-resize">
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.fb_iframe")
                         </div>
                     </div>
                 @endif
@@ -56,6 +57,7 @@
             </div>
         </div>
     </div>
+    <div id="fb-root"></div>
     @include('elements.radio.live_radio_element')
     <style type="text/css">
         .article_content {
@@ -75,4 +77,11 @@
 @endsection
 
 @section('scripts')
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=167238943956140&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 @endsection
