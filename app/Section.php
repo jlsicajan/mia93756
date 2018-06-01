@@ -49,4 +49,10 @@ class Section extends Model {
 
         return $background_path;
     }
+    
+    public static function get_the20_url(){
+        $section_background = Section::where('nombre', '=', 'cuentame_mas')->first();
+        $slide_info = Slide::where('id_tabla', '=', $section_background->id)->first()->toArray();
+        return $slide_info['link'];
+    }
 }

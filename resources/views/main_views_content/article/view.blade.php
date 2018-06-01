@@ -2,7 +2,7 @@
     @include('elements.for_grid.space_block_navbar', ['classes' => ''])
 
     <div class="row">
-        <div class="col-9 bg-white mia-shadow">
+        <div class="col-9 bg-white mia-shadow py-2">
             <h3 class="color-primary">{{ $article['titulo'] }}</h3>
             <hr>
             @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
@@ -25,7 +25,7 @@
                     <a class="addthis_button_whatsapp cursor-pointer"></a>
                 </div>
             </div>
-            <div class="bg-grid-default" style="height: 100%"></div>
+            <div class="bg-grid-default" style="height: 99%"></div>
         </div>
     </div>
     <hr>
