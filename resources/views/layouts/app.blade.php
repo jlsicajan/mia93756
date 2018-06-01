@@ -34,11 +34,11 @@
     </div>
 </div>
 <nav class="navbar navbar-toggleable-md navbar-mia">
-    <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto">
+    <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto flex-column">
         <button class="ajax_link navbar-brand navbar-logo" data-href="{{ route('home') }}"
            style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></button>
-        <div class="collapse navbar-collapse hidden-sm-down" id="mainnavbar">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse hidden-sm-down align-items-center justify-content-center" id="mainnavbar">
+            <ul class="navbar-nav">
                 @include('layouts.categories_menu')
             </ul>
         </div>
@@ -78,8 +78,7 @@
                 <br>
                 <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary"
                                                                                         href="https://elcaminoweb.com.gt"
-                                                                                        target="_blank">El Camino
-                        Web.</a></p>
+                                                                                        target="_blank">El Camino Web.</a></p>
             </div>
             <div class="col-12 col-md-12 row">
                 <ol class="breadcrumb bg-grid-default col-12 col-sm-8 col-md-9">

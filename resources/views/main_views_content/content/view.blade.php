@@ -15,15 +15,21 @@
         </div>
     </div>
     @if(isset($content['main_elements']))
-        @if($content['main_elements']['instagram'])
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    @include("elements.for_grid.iframe")
-                </div>
-                <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                </div>
-            </div>
-        @endif
+            @if(isset($content['main_elements']))
+                @if($content['main_elements']['instagram'])
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.iframe")
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.fb_iframe")
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.twitter_iframe")
+                        </div>
+                    </div>
+                @endif
+            @endif
     @endif
     <div class="row">
         @foreach($content['content'] as $article)

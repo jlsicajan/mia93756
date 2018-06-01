@@ -4,7 +4,7 @@
     </button>
 </li>
 @foreach(App\Category::list_for_menu() as $category)
-    <li class="nav-item dropdown">
+    <span class="text-muted">|</span><li class="nav-item dropdown">
         @if(empty($category['subcategories']))
             <button class="ajax_link nav-link {{ Request::is('contenido/' . $category['id'] . '/0' ) ? 'active' : '' }}"
                     data-href="{{ route('content', [$category['id'], 0]) }}">

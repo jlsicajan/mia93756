@@ -8796,7 +8796,7 @@ footer {
   width: 100%; }
 
 .navbar-mia {
-  height: 87px;
+  height: 140px;
   background-color: #ffffff; }
   .navbar-mia .navbar-brand {
     color: #000000; }
@@ -8805,9 +8805,12 @@ footer {
   .navbar-mia .nav-item .nav-link {
     color: #000000;
     line-height: 16px;
-    font-size: 11px; }
+    font-weight: bold;
+    font-size: 13px !important; }
     .navbar-mia .nav-item .nav-link:hover {
-      color: #FF40A3; }
+      color: #ffffff;
+      background-color: #FF40A3;
+      border-radius: 2px; }
   .navbar-mia .active {
     color: #FF40A3 !important; }
   .navbar-mia .menu-sm {
@@ -8851,7 +8854,7 @@ footer {
         .navbar-mia .menu-sm .nav-item .nav-link:hover {
           color: #FF40A3; }
   .navbar-mia .container .navbar-logo {
-    height: 56px;
+    height: 80px;
     width: 170px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -9020,7 +9023,7 @@ footer {
   height: 65vh; }
 
 .grid-space-navbar {
-  height: 87px; }
+  height: 135px; }
 
 .grid-space-middle {
   height: 125px; }

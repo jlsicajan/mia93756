@@ -7,16 +7,19 @@
     }
   }
 
-  height: 87px;
+  height: 140px;
   background-color: #ffffff;
   .nav-item {
     .nav-link {
       color: $navbar-items-color;
       line-height: 16px;
-      font-size: 11px;
+      font-weight: bold;
+      font-size: 13px !important;
 
       &:hover {
-        color: $navbar-items-color-hover;
+        color: #ffffff;
+        background-color: $navbar-items-color-hover;
+        border-radius: 2px;
       }
     }
 
@@ -76,7 +79,7 @@
 
   .container{
     .navbar-logo{
-      height: 56px;
+      height: 80px;
       width: 170px;
       background-repeat: no-repeat;
       background-size: contain;

@@ -1,4 +1,4 @@
-@extends('layouts.app')0 2px 4px 0 rgba(0, 0, 0, 0.12)
+@extends('layouts.app')
 
 @section('head')
 @endsection
@@ -27,6 +27,9 @@
                         </div>
                         <div class="col-12 col-md-6">
                             @include("elements.for_grid.fb_iframe")
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.twitter_iframe")
                         </div>
                     </div>
                 @endif
