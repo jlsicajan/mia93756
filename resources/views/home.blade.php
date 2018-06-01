@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 py-md-4 pd-2rem">
                     @include('elements.radio.live_now_card', ['gradient' => 1, 'live_now' => $current_show])
-                    {{--@include('elements.news.news_card')--}}
+                    @include('elements.section.card-left', ['background_url' => $to_20_background])
                 </div>
                 <div class="col-12 col-md-6 py-md-4 right-grid-resize">
                     @include("elements.for_grid.iframe")
