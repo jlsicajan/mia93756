@@ -21,8 +21,7 @@
                 <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
                     <a class="addthis_button_facebook cursor-pointer"></a>
                     <a class="addthis_button_twitter cursor-pointer"></a>
-                    <a class="addthis_button_email cursor-pointer"></a>
-                    <a class="addthis_button_linkedin cursor-pointer"></a>
+                    <a class="addthis_button_google_plusone_share cursor-pointer"></a>
                     <a class="addthis_button_whatsapp cursor-pointer"></a>
                 </div>
             </div>

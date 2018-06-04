@@ -46,7 +46,7 @@ class Article extends Model {
 
         $content = Article::sanatize_articles($content);
 
-        $content_paginated = array_chunk($content, 9);
+        $content_paginated = $is_video ? $content : array_chunk($content, 9);
 
         return array(
             'is_video' => $is_video,
