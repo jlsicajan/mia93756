@@ -23,6 +23,13 @@
       }
     }
 
+    .nav-link.active {
+      &:hover {
+        color: #ffffff !important;
+      }
+    }
+
+
   }
 
   .active{

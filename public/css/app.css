@@ -8819,6 +8819,8 @@ footer {
       color: #ffffff;
       background-color: #FF40A3;
       border-radius: 2px; }
+  .navbar-mia .nav-item .nav-link.active:hover {
+    color: #ffffff !important; }
   .navbar-mia .active {
     color: #FF40A3 !important; }
   .navbar-mia .menu-sm {
