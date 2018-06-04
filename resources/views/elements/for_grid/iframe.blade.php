@@ -1,6 +1,6 @@
 <div class="row flex-column align-items-start mb-28px ml-0">
     <div class="grid-header col-12 {{ isset($classes) ? $classes : '' }}">
-        <span class="font_2 color-white font_2_grid"><i class="fa fa-instagram"></i> MIS MOMENTOS</span>
+        <span class="font_2 color-white font_2_grid"><i class="fa fa-instagram"></i> {{ \App\Radio::get_subscription_title() }}</span>
         @if(isset($gradient) && $gradient)
             <div class="gradient float-right"></div>
         @endif

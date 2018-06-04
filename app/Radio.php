@@ -20,4 +20,9 @@ class Radio extends Model {
         $logo_path = Radio::select('logo')->first();
         return $logo_path->logo;
     }
+
+    public static function get_subscription_title(){
+        $insta_title = Radio::select('titulo_suscripcion')->first();
+        return $insta_title->titulo_suscripcion;
+    }
 }
