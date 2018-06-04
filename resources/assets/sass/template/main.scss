@@ -108,6 +108,16 @@ body{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
 }
 
+.mia-page-link{
+  color: #FF009E !important;
+}
+
+.mia-page-item.active{
+  background-color: #d43386 !important;
+  .mia-page-link{
+    color: #ffffff !important;
+  }
+}
 //z-index
 .z-2{
   z-index: 3 !important;

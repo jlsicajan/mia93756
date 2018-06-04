@@ -44,12 +44,31 @@ class Article extends Model {
         $content = $subcategory != 0 ? Article::get_by_sub_category($category, $subcategory) : Article::get_by_category($category);
         $main_elements = $subcategory != 0 ? Article::check_main_elements($subcategory_info) : Article::check_main_elements($category_info);
 
+        $content = Article::sanatize_articles($content);
+
+        $content_paginated = array_chunk($content, 9);
+
         return array(
             'is_video' => $is_video,
-            'content' => $content, 'main_background' => $main_background,
+            'content_count_pag' => count($content_paginated),
+            'content' => $content_paginated, 'main_background' => $main_background,
             'main_banner' => $main_banner, 'path_info' => $path_info,
             'hide_banner' => $hide_banner, 'redirect' => $redirect, 'main_elements' => $main_elements
         );
+    }
+
+    public static function sanatize_articles($articles){
+        $articles_sanatized = [];
+        foreach($articles as $fix_article){
+
+            if((substr($fix_article['imagen'], 0, 3) != 'htt') && (substr($fix_article['imagen'], 0, 2) != '//')){
+                $fix_article['imagen'] = env('URL_ARTICLE_PATH') . $fix_article['imagen'];
+            }
+            $fix_article['link_url'] = route('article_one', $fix_article['id']);
+            $fix_article['texto_uno'] = Article::limit_words(strip_tags($fix_article['texto_uno']), 35);
+            array_push($articles_sanatized, $fix_article);
+        };
+        return $articles_sanatized;
     }
 
     public static function get_by_category($category){

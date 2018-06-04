@@ -39,4 +39,8 @@ elixir(function(mix) {
          '../../../resources/assets/js/nav_movements.js'
     ], 'public/js/nav_movements.js');
 
+     mix.scripts([
+         '../../../resources/assets/js/main_views/content/pagination_manager.js'
+    ], 'public/js/main_views/content/pagination_manager.js');
+
 });

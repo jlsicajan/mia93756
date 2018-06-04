@@ -34,30 +34,27 @@
                     </div>
                 @endif
             @endif
-            <div class="row">
-                @foreach($content['content'] as $article)
-                    <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                        <button class="ajax_link text-no-decoration"
-                                data-href="{{ route('article_one', $article['id']) }}">
-                            <div class="article_container row border">
-                                @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
-                                    <div class="col-12 multiple_article img-cover"
-                                         style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
-                                @else
+            <div class="row articles_container">
+                @if(isset($content['content'][0]) && count($content['content'][0]) > 0)
+                    @foreach($content['content'][0] as $article)
+                        <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
+                            <button class="ajax_link text-no-decoration"
+                                    data-href="{{ route('article_one', $article['id']) }}">
+                                <div class="article_container row border">
                                     <div class="col-12 multiple_article img-cover"
                                          style="background-image: url('{{ $article['imagen'] }}')"></div>
-                                @endif
-                                <div class="col-12 p-2 mt-2">
-                                    <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
-                                    <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article['texto_uno']), 35) }}
-                                        ...</p>
+                                    <div class="col-12 p-2 mt-2">
+                                        <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
+                                        <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
+                                        <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </button>
-                    </div>
-                @endforeach
+                            </button>
+                        </div>
+                    @endforeach
+                @endif
             </div>
+            @include('elements.pagination', ['size' => $content['content_count_pag']])
         </div>
     </div>
     <div id="fb-root"></div>
@@ -80,11 +77,17 @@
 @endsection
 
 @section('scripts')
-    <script>(function(d, s, id) {
+    <script type="text/javascript">
+        var articles = {!! json_encode($content['content']) !!};
+    </script>
+    <script src="/public/js/main_views/content/pagination_manager.js"></script>
+    <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=167238943956140&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 @endsection

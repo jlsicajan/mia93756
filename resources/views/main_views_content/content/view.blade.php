@@ -15,45 +15,46 @@
         </div>
     </div>
     @if(isset($content['main_elements']))
-            @if(isset($content['main_elements']))
-                @if($content['main_elements']['instagram'])
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            @include("elements.for_grid.iframe")
-                        </div>
-                        <div class="col-12 col-md-6">
-                            @include("elements.for_grid.fb_iframe")
-                        </div>
-                        <div class="col-12 col-md-6">
-                            @include("elements.for_grid.twitter_iframe")
-                        </div>
+        @if(isset($content['main_elements']))
+            @if($content['main_elements']['instagram'])
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        @include("elements.for_grid.iframe")
                     </div>
-                @endif
+                    <div class="col-12 col-md-6">
+                        @include("elements.for_grid.fb_iframe")
+                    </div>
+                    <div class="col-12 col-md-6">
+                        @include("elements.for_grid.twitter_iframe")
+                    </div>
+                </div>
             @endif
+        @endif
     @endif
-    <div class="row">
-        @foreach($content['content'] as $article)
-            <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
-                <button class="ajax_link text-no-decoration" data-href="{{ route('article_one', $article['id']) }}">
-                    <div class="article_container row border">
-                        @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
-                            <div class="col-12 multiple_article img-cover"
-                                 style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
-                        @else
+    <div class="row articles_container">
+        @if(isset($content['content'][0]) && count($content['content'][0]) > 0)
+            @foreach($content['content'][0] as $article)
+                <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
+                    <button class="ajax_link text-no-decoration"
+                            data-href="{{ route('article_one', $article['id']) }}">
+                        <div class="article_container row border">
                             <div class="col-12 multiple_article img-cover"
                                  style="background-image: url('{{ $article['imagen'] }}')"></div>
-                        @endif
-                        <div class="col-12 p-2 mt-2">
-                            <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
-                            <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
-                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article['texto_uno']), 35) }}
-                                ...</p>
+                            <div class="col-12 p-2 mt-2">
+                                <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
+                                <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
+                                <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
+                            </div>
                         </div>
-                    </div>
-                </button>
-            </div>
-        @endforeach
+                    </button>
+                </div>
+            @endforeach
+        @endif
     </div>
-
+    @include('elements.pagination', ['size' => $content['content_count_pag']])
 </div>
+<script type="text/javascript">
+    var articles = {!! json_encode($content['content']) !!};
+</script>
 <script src="/public/js/nav_movements.js"></script>
+<script src="/public/js/main_views/content/pagination_manager.js"></script>

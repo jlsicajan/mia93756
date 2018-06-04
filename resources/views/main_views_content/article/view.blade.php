@@ -16,9 +16,8 @@
             <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
         <div class="col-3">
-            <h3 class="font_7">Compartir</h3>
-            <hr>
-            <div class="share" id="share">
+            <h5 class="color-primary">Compartir</h5>
+            <div class="share mt-1" id="share">
                 <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
                     <a class="addthis_button_facebook cursor-pointer"></a>
                     <a class="addthis_button_twitter cursor-pointer"></a>

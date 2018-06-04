@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    add_ajax_link_event();
+});
+
+
+function get_path_ajax_to_load(element){
+    let original_href = element.attr('data-href');
+    page_to_load = original_href;
+
+    window.history.pushState({"html": page_to_load,"pageTitle":original_href},"", page_to_load);
+
+    return page_to_load;
+}
+
+function add_ajax_link_event(){
     $('.ajax_link').unbind('click').click(function(){
         let load_page_ajax = get_path_ajax_to_load($(this));
         $('.ajax_link').removeClass('active');
@@ -51,17 +65,6 @@ $(document).ready(function(){
 
         }, load_page_ajax);
     });
-
-});
-
-
-function get_path_ajax_to_load(element){
-    let original_href = element.attr('data-href');
-    page_to_load = original_href;
-
-    window.history.pushState({"html": page_to_load,"pageTitle":original_href},"", page_to_load);
-
-    return page_to_load;
 }
 
 //# sourceMappingURL=nav_movements.js.map

@@ -15,6 +15,7 @@ use App\UserBlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Routing\Matcher\RedirectableUrlMatcher;
 
 class ContentController extends Controller {
 
@@ -104,9 +105,14 @@ class ContentController extends Controller {
     public function pinkCarpetPage($request, $content){
         $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->get()->toArray();
 
+        $articles_gthoy = Article::sanatize_articles($articles_gthoy);
+
+        $content_paginated = array_chunk($articles_gthoy, 9);
+
         $view = $request->ajax() ? 'main_views_content.pink_carpet.index' : 'main_views.pink_carpet.index';
         $content_for_view = array(
-            'articles_gthoy' => $articles_gthoy,
+            'content_count_pag' => count($content_paginated),
+            'articles_gthoy' => $content_paginated,
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
             'hide_banner' => $content['hide_banner']);
