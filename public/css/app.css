@@ -8796,7 +8796,7 @@ footer {
   width: 100%; }
 
 .navbar-mia {
-  height: 140px;
+  height: 170px;
   background-color: #ffffff; }
   .navbar-mia .navbar-brand {
     color: #000000; }
@@ -8806,7 +8806,7 @@ footer {
     color: #000000;
     line-height: 16px;
     font-weight: bold;
-    font-size: 13px !important; }
+    font-size: 12px !important; }
     .navbar-mia .nav-item .nav-link:hover {
       color: #ffffff;
       background-color: #FF40A3;
@@ -8858,7 +8858,9 @@ footer {
     width: 170px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center; }
+    background-position: center;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important; }
 
 .navbar-toggler-mia {
   background-color: #000000;
@@ -9021,9 +9023,6 @@ footer {
 
 .grid-space-header {
   height: 65vh; }
-
-.grid-space-navbar {
-  height: 135px; }
 
 .grid-space-middle {
   height: 125px; }

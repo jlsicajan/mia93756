@@ -80,28 +80,6 @@
                                                                                         href="https://elcaminoweb.com.gt"
                                                                                         target="_blank">El Camino Web.</a></p>
             </div>
-            <div class="col-12 col-md-12 row">
-                <ol class="breadcrumb bg-grid-default col-12 col-sm-8 col-md-9">
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'home') ? 'active' : '' }}"
-                                                   href="{{ route('home') }}">INICIO</a></li>
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'pro') ? 'active' : '' }}"
-                                                   href="{{ route('pro') }}">PROGRAMACION</a></li>
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'staff') ? 'active' : '' }}"
-                                                   href="{{ route('staff') }}">STAFF</a></li>
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'cinema') ? 'active' : '' }}"
-                                                   href="{{ route('cinema') }}">CINE</a></li>
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'photos') ? 'active' : '' }}"
-                                                   href="{{ route('photos') }}">FOTOS</a></li>
-                    <li class="breadcrumb-item"><a class="color-black {{ ($route == 'the20') ? 'active' : '' }}"
-                                                   href="{{ route('the20') }}">LOS 20+</a></li>
-                </ol>
-                <div class="row social-icons justify-content-around d-flex col-12 col-sm-4 col-md-3">
-                    @foreach(App\SocialNetwork::orderBy('orden', 'ASC')->get()->toArray() as $social_network)
-                        <a href="{{ $social_network['link'] }}" target="_blank"><i
-                                    class="fa fa-{{ strtolower($social_network['nombre']) }} color-black"></i></a>
-                    @endforeach
-                </div>
-            </div>
         </div>
     </div>
 </footer>
