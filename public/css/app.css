@@ -9050,14 +9050,18 @@ footer {
   width: 475px;
   position: relative;
   left: 0;
-  padding-right: 0 !important; }
+  padding-right: 0 !important;
+  -ms-flex: unset !important;
+  flex: unset !important; }
   .grid-header .gradient {
     background-image: url("/public/img/grid/gradient.png");
     height: 60px;
     width: 240px; }
 
 .grid-header-double {
-  width: 1150px !important; }
+  width: 1150px !important;
+  -ms-flex: unset !important;
+  flex: unset !important; }
 
 .grid-header-double:after {
   left: 5% !important; }
@@ -9082,7 +9086,9 @@ footer {
   height: 244px;
   width: 475px;
   position: relative;
-  left: 0; }
+  left: 0;
+  -ms-flex: unset !important;
+  flex: unset !important; }
 
 .card-secondary {
   background-color: #00b7e5; }
