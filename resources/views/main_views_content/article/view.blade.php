@@ -2,7 +2,7 @@
     @include('elements.for_grid.space_block_navbar', ['classes' => ''])
 
     <div class="row">
-        <div class="col-9 bg-white mia-shadow py-2">
+        <div class="col-12 col-sm-9 bg-white mia-shadow py-2">
             <h3 class="color-primary">{{ $article['titulo'] }}</h3>
             <hr>
             @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
@@ -12,10 +12,17 @@
                 <div class="img-clean-display img-cover"
                 style="background-image: url('{{ $article['imagen'] }}')"></div>
             @endif
+            @if(isset($article['codigo_api']) && !empty($article['codigo_api']))
+                <br>
+                <iframe class="embed-responsive-item img-clean-display" width="100%"
+                        src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $article['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            @endif
             <p>{!! $article['texto_uno'] !!}</p>
             <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-sm-3">
+            <br class="hidden-sm-up">
             <h5 class="color-primary">Compartir</h5>
             <div class="share mt-1" id="share">
                 <div class="addthis_toolbox  addthis_default_style addthis_32x32_style" data-url="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-title="mia">
