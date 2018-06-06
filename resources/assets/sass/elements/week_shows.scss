@@ -1,0 +1,52 @@
+.week_show_image{
+  &:hover{
+    .card-img-overlay{
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.62);
+      .card-text{
+        opacity: 1;
+      }
+      .more_info_week_shows{
+        opacity: 1;
+      }
+    }
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.15);
+    //transform: translate(0px, -5px);
+  }
+
+  .card-img-overlay{
+    .card-text{
+      height: 35px !important;
+      opacity: 0;
+    }
+    .more_info_week_shows{
+      cursor: pointer;
+      opacity: 0;
+    }
+  }
+}
+
+.nav-week-item{
+  .nav-week-link.active{
+    border-color: unset !important;
+    background-color: #FF40A3;
+    color: #ffffff !important;
+  }
+  .nav-week-link{
+    border-color: white;
+    &:hover{
+      border-color: unset !important;
+      background-color: #FF40A3;
+      color: #ffffff !important;
+    }
+  }
+}
+
+.tab-week-content{
+  background-color: white;
+  padding: 15px;
+}
+
+.nav-week-tabs{
+  border-bottom: white;
+}

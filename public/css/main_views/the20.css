@@ -1,0 +1,52 @@
+.music_image {
+  height: 185px;
+  width: 180px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 5px solid white;
+  box-shadow: -1px 2px 4px 0px rgba(0, 0, 0, 0.5); }
+
+.music_order {
+  color: white;
+  font-size: 55px;
+  text-shadow: 2px 2px black; }
+
+.bg-black {
+  background-color: #000000; }
+
+.paff_title {
+  font-weight: 300;
+  margin-left: -20px;
+  margin-top: 10px; }
+
+.paff_time {
+  margin-left: -20px; }
+
+.paff_message {
+  font-family: Arial;
+  font-size: 28px;
+  margin-left: -41px;
+  /* quick solution :c*/
+  padding-left: 20px; }
+
+.play_button, .pause_button {
+  border: 2px solid white !important;
+  background: transparent;
+  border: none;
+  border: 2px solid black;
+  height: 70px;
+  border-radius: 50%;
+  width: 70px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .play_button .fa, .pause_button .fa {
+    font-size: 40px !important; }
+  .play_button:focus, .pause_button:focus {
+    outline: 0 !important; }
+
+/*# sourceMappingURL=the20.css.map */

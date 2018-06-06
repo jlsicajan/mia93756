@@ -11,12 +11,22 @@
 |
 */
 
-Route::get('/', ['as'   => 'home', 'uses' => 'HomeController@index']);
+//Route::get('/', ['as'   => 'home_root', 'uses' => 'HomeController@index']);
+Route::get('/', function()
+{
+    return Redirect::route('home');
+});
+
+Route::get('/home', ['as'   => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('/cine/', ['as'   => 'cinema', 'uses' => 'MainControllers\CinemaController@index']);
+
 Route::get('/programacion/', ['as'   => 'pro', 'uses' => 'MainControllers\ProgrammationController@index']);
+
 Route::get('/staff/', ['as'   => 'staff', 'uses' => 'MainControllers\StaffController@index']);
+
 Route::get('/fotos/', ['as'   => 'photos', 'uses' => 'MainControllers\PhotosController@index']);
+
 Route::get('/los20/', ['as'   => 'the20', 'uses' => 'MainControllers\The20Controller@index']);
 
 Route::get('/alfombrarosa/', ['as'   => 'pink_carpet', 'uses' => 'MainControllers\PinkCarpetController@index']);
@@ -24,3 +34,6 @@ Route::get('/alfombrarosa/', ['as'   => 'pink_carpet', 'uses' => 'MainController
 Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
 
 Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
+
+Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
+//Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);

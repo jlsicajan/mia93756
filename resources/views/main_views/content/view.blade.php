@@ -1,39 +1,63 @@
 @extends('layouts.app')
 
 @section('head')
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 @endsection
 
 @section('content')
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    @include('elements.mia-hdear', ['main_banner', $main_banner])
-
-    <div class="container">
-        @include('elements.for_grid.space_block_header', ['classes' => ''])
-
-        <div class="row mb-5">
-            <div class="col-12 content_title_container">
-                <h2 class="font_7 content_title">{{ $path_info }}</h2>
+    <div class="main_content_container">
+        @if(!$content['hide_banner'])
+            @include('elements.mia-hdear', ['main_banner' => $content['main_banner']])
+        @endif
+        <div class="container">
+            @if($content['hide_banner'])
+                @include('elements.for_grid.space_block_navbar', ['classes' => ''])
+            @else
+                @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @endif
+            <div class="row mb-5">
+                <div class="col-12 content_title_container">
+                    <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 py-md-4 pd-2rem">
-                @if(isset($articles[0]) && !empty($articles[0]))
-                    @foreach($articles[0] as $article_left)
-                        @include('elements.for_grid.grid_left', ['title' => $article_left['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_left])
+            @if(isset($content['main_elements']))
+                @if($content['main_elements']['instagram'])
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.iframe")
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.fb_iframe")
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @include("elements.for_grid.twitter_iframe")
+                        </div>
+                    </div>
+                @endif
+            @endif
+            <div class="row articles_container">
+                @if(isset($content['content'][0]) && count($content['content'][0]) > 0)
+                    @foreach($content['content'][0] as $article)
+                        <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2">
+                            <button class="ajax_link text-no-decoration"
+                                    data-href="{{ route('article_one', $article['id']) }}">
+                                <div class="article_container row border">
+                                    <div class="col-12 multiple_article img-cover"
+                                         style="background-image: url('{{ $article['imagen'] }}')"></div>
+                                    <div class="col-12 p-2 mt-2">
+                                        <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
+                                        <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
+                                        <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     @endforeach
                 @endif
             </div>
-            <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                @if(isset($articles[1]) && !empty($articles[1]))
-                    @foreach($articles[1] as $article_right)
-                        @include('elements.for_grid.grid_right', ['title' => $article_right['titulo'], 'grid_content' => '', 'gradient' => 1, 'grid_content' => $article_right])
-                    @endforeach
-                @endif
-            </div>
+            @include('elements.pagination', ['size' => $content['content_count_pag']])
         </div>
-
     </div>
+    <div id="fb-root"></div>
     @include('elements.radio.live_radio_element')
     <style type="text/css">
         .article_content {
@@ -43,7 +67,7 @@
             max-height: 71.5%;
         }
 
-        footer{
+        footer {
             position: absolute;
             /* bottom: -22px; */
             margin-bottom: 70px;
@@ -53,4 +77,17 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript">
+        var articles = {!! json_encode($content['content']) !!};
+    </script>
+    <script src="/public/js/main_views/content/pagination_manager.js"></script>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=167238943956140&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 @endsection

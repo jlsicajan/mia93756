@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PinkCarpetController extends Controller {
 
@@ -14,12 +15,16 @@ class PinkCarpetController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
         $main_banner = Section::get_banner();
-        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor')->get()->toArray();
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->get()->toArray();
 
-        return view('main_views.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+        if ($request->ajax()) {
+            return view('main_views_content_fixed.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+        }else{
+            return view('main_views_fixed.pink_carpet.index')->with(array('main_banner' => $main_banner, 'articles_gthoy' => $articles_gthoy));
+        }
 	}
 
 	/**

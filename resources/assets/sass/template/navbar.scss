@@ -7,18 +7,28 @@
     }
   }
 
-  height: 87px;
+  height: 170px;
   background-color: #ffffff;
   .nav-item {
     .nav-link {
       color: $navbar-items-color;
       line-height: 16px;
-      font-size: 11px;
+      font-weight: bold;
+      font-size: 12px !important;
 
       &:hover {
-        color: $navbar-items-color-hover;
+        color: #ffffff;
+        background-color: $navbar-items-color-hover;
+        border-radius: 2px;
       }
     }
+
+    .nav-link.active {
+      &:hover {
+        color: #ffffff !important;
+      }
+    }
+
 
   }
 
@@ -47,7 +57,21 @@
       border-bottom: 1px solid white;
       width: 65%;
       text-align: center;
-
+      .dropdown-menu{
+        background-color: #292b2c;
+        width: 100%;
+        color: white;
+        .nav-item{
+          border-bottom: unset !important;
+          width: 100%;
+          .ajax_link_sm{
+            background-color: unset!important;
+            color: #ffffff;
+            margin-top: 4px;
+            margin-bottom: 4px;
+          }
+        }
+      }
       .nav-link {
         color: white;
         line-height: 1.8rem;
@@ -55,6 +79,7 @@
 
         &:hover {
           color: $navbar-items-color-hover;
+          background-color: unset !important;
         }
       }
     }
@@ -62,11 +87,13 @@
 
   .container{
     .navbar-logo{
-      height: 56px;
+      height: 80px;
       width: 170px;
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
     }
   }
 }
@@ -89,10 +116,69 @@
 //Mobile changes
 @include media-breakpoint-only(xs) {
   .navbar-mia {
-    height: 63px;
+    height: 70px;
+    justify-content: center;
+
+    >.container{
+      padding: 0 !important;
+      .navbar-logo{
+        height: 40px;
+        width: 150px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .navbar{
+    padding-left: 0 !important;
   }
 }
 
 .close-menu-sm{
   display: none;
+}
+
+//dropdown menu
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(64, 64, 64);
+}
+.btco-menu li > a {
+  padding: 10px 15px;
+  color: #000;
+
+}
+
+.btco-menu .active a:focus,
+.btco-menu li a:focus ,
+.navbar > .show > a:focus{
+  background: transparent;
+  outline: 0;
+}
+
+
+.dropdown-menu .show > .dropdown-toggle::after{
+  transform: rotate(-90deg);
+}
+
+.ajax_link, .ajax_link_sm{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  &:focus{
+    outline: 0;
+  }
+}
+
+.ajax_link{
+  font-size: 11px !important;
+  margin-top: 1.5px !important;
+}
+
+.dropdown-item-mia{
+  font-size: 11px;
+  font-weight: lighter;
+}
+
+.dropdown-item-mia.active{
+  background-color: unset !important;
 }

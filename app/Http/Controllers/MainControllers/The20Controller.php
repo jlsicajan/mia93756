@@ -7,6 +7,7 @@ use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\The20;
+use Illuminate\Support\Facades\Redirect;
 
 class The20Controller extends Controller
 {
@@ -15,14 +16,17 @@ class The20Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $the_20 = The20::orderby('orden', 'DESC')->get()->toArray();
         $main_banner = Section::get_banner();
-        // print_r($the_20);die();
-        return view('main_views.the20.index')->with(array('the20' => $the_20,
+
+        $view = $request->ajax() ? 'main_views_content_fixed.the20.index' : 'main_views_fixed.the20.index';
+
+        return view($view)->with(array('the20' => $the_20,
                 'main_banner' => $main_banner));
     }
+
 
     /**
      * Show the form for creating a new resource.

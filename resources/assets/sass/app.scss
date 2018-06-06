@@ -9,6 +9,10 @@
 @import "resources/assets/sass/template/grid";
 @import "resources/assets/sass/elements/live_radio";
 @import "resources/assets/sass/elements/week_shows";
+@import "resources/assets/sass/main_views/staff";
+@import "resources/assets/sass/main_views/the20";
+@import "resources/assets/sass/content/article";
+@import "resources/assets/sass/elements/spinner";
 
 
 @mixin set-border-box {
@@ -33,3 +37,4 @@ html, body, h1, h2, h3, h4, h5, h6 {
   font-family: normal normal normal 13px/1.4em Arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif;
   font-weight: 100;
 }
+

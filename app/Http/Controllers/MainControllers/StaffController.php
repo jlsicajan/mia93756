@@ -9,6 +9,7 @@ use App\UserBlog;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class StaffController extends Controller
 {
@@ -17,20 +18,21 @@ class StaffController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $staff = Staff::all()->toArray();
-//        $staff = array_chunk($staff, 3);
 
         $usuarios_blog = UserBlog::all()->toArray();
         $main_banner = Section::get_banner();
-    
-        // print_r(Staff::all()->toArray());die();
-        return view('main_views.staff.index')->with(array('staff_separated' => $staff, 
+
+        $view = $request->ajax() ? 'main_views_content_fixed.staff.index' : 'main_views_fixed.staff.index';
+
+        return view($view)->with(array('staff_separated' => $staff,
                 'staff' => Staff::all()->toArray(),
                 'usuarios_blog' => $usuarios_blog,
                 'main_banner' => $main_banner));
     }
+
 
     /**
      * Show the form for creating a new resource.

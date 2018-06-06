@@ -8,6 +8,7 @@ use App\Slide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class ProgrammationController extends Controller
 {
@@ -16,7 +17,7 @@ class ProgrammationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $next_shows = $this->get_next_shows();
         $current_show = $this->get_current_show();
@@ -24,14 +25,17 @@ class ProgrammationController extends Controller
         $news = News::where('activo', '=', 1)->get()->toArray();
     
         $main_banner = Section::get_banner();
-    
-        
-        // print_r($week_programation);die();
-        return view('main_views.programmation.index')->with(array('next_shows' => $next_shows,
-                'current_show' => $current_show,
-                'week_programation' => $week_programation,
-                'news' => $news,
-                'main_banner' => $main_banner));
+        $content = array('next_shows' => $next_shows,
+            'current_show' => $current_show,
+            'week_programation' => $week_programation,
+            'news' => $news,
+            'main_banner' => $main_banner);
+
+        if ($request->ajax()) {
+            return view('main_views_content_fixed.programmation.index')->with($content);
+        }else{
+            return view('main_views_fixed.programmation.index')->with($content);
+        }
     }
 
     function get_next_shows()
@@ -44,17 +48,17 @@ class ProgrammationController extends Controller
         $concatHA = $diaActual * $longitudHA * $horaActual;
         $arregloProgramas = [];
         $limite = 6;
-        
+
         $empresa_id = env('RADIO_ID');
         $proximosProgramasP1 = "SELECT PON.id AS Id FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id WHERE D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND (D.id_php * length(trim(PON.inicio_formato)) * PON.inicio_formato) > " . $concatHA . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT " . $limite;
         $proximosProgramasP1 = DB::select($proximosProgramasP1);
 
         $resultadoPPp1 = $proximosProgramasP1;
-        
+
         foreach ($resultadoPPp1 AS $datosPPp1) {
             array_push($arregloProgramas, $datosPPp1->Id);
         }
-        
+
         $contadorPPp1 = count($resultadoPPp1);
         $limite -= $contadorPPp1;
         $ordenMostrar = "D.id_php ASC,";
@@ -67,18 +71,18 @@ class ProgrammationController extends Controller
                 $diaActual++;
                 $ordenMostrar = "D.id_php ASC,";
             }
-            
+
             $proximosProgramasP2 = "SELECT PON.id AS Id FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id WHERE D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT " . $limite;
 
             $resultadoPPp2 = DB::select($proximosProgramasP2);
 
-            
+
             foreach ($resultadoPPp2 AS $datosPPp2) {
                 array_push($arregloProgramas, $datosPPp2->Id);
             }
         }
 
-        
+
         $programacionIdS = implode(",", $arregloProgramas);
         $programacionIdS = empty($programacionIdS) ? '' : $programacionIdS;
         $proximosProgramas = "SELECT PON.*, D.nombre AS Dia, PMA.titulo AS Titulo, PMA.imagen AS Imagen FROM programacion PON INNER JOIN dia D ON PON.dia_id = D.id INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.id IN(" . $programacionIdS . ") ORDER BY " . $ordenMostrar . " concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
@@ -103,7 +107,10 @@ class ProgrammationController extends Controller
         $programaAlAireMyr="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen FROM programacion PON INNER JOIN dia D ON D.id = PON.dia_id INNER JOIN programa PMA ON PMA.id = PON.programa_id WHERE PON.inicio_formato >= " . $horaActual . " AND D.id_php = " . $diaActual . " AND PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " ORDER BY concat(D.id_php, length(trim(PON.inicio_formato)), PON.inicio_formato) ASC LIMIT 0,1";
         $resultadoPAAMyr= DB::select($programaAlAireMyr);
 
-        if(empty($resultadoPAAMyr) || empty($resultadoPAAMnr)){
+//        print_r($resultadoPAAMyr);die();
+//        print_r($resultadoPAAMyr);die();
+
+        if(empty($resultadoPAAMyr) && empty($resultadoPAAMnr)){
             $mensajePAAF = "Próximo programa";
             $tituloPAAF = "No hay programa";
             $imagenPAAF = "";
@@ -111,13 +118,18 @@ class ProgrammationController extends Controller
             $finPAAF = "00:00";
             return array('PAFF_message' => $mensajePAAF, 'PAFF_titulo' => $tituloPAAF, 'PAFF_image' => $imagenPAAF, 'PAFF_start' => $inicioPAAF, 'PAFF_end' => $finPAAF);
         }else{
-            $resultadoPAAMnr = $resultadoPAAMnr[0];
-            $resultadoPAAMyr = $resultadoPAAMyr[0];
-            
-            $inicioMnr = $this->convertirHoraMilitar($resultadoPAAMnr->inicio);
-            $finMnr = $this->convertirHoraMilitar($resultadoPAAMnr->fin);
-            $inicioMyr = $this->convertirHoraMilitar($resultadoPAAMyr->inicio);
-            $finMyr = $this->convertirHoraMilitar($resultadoPAAMyr->fin);
+            if(isset($resultadoPAAMnr[0]) && !empty($resultadoPAAMnr[0])){
+                $resultadoPAAMnr = $resultadoPAAMnr[0];
+                $inicioMnr = $this->convertirHoraMilitar($resultadoPAAMnr->inicio);
+                $finMnr = $this->convertirHoraMilitar($resultadoPAAMnr->fin);
+            }
+
+            if(isset($resultadoPAAMyr[0]) && !empty($resultadoPAAMyr[0])) {
+                $resultadoPAAMyr = $resultadoPAAMyr[0];
+                $inicioMyr = $this->convertirHoraMilitar($resultadoPAAMyr->inicio);
+                $finMyr = $this->convertirHoraMilitar($resultadoPAAMyr->fin);
+            }
+
 
             if($resultadoPAAMnr && !$resultadoPAAMyr){
                 $mensajePAAF = "Al aire ahora";
@@ -181,13 +193,13 @@ class ProgrammationController extends Controller
         $diasDeProgramacionS = "SELECT * FROM dia ORDER BY orden ASC";
         $resultadoDDPs = DB::select($diasDeProgramacionS);
         $result = [];
-        foreach($resultadoDDPs AS $datosDDPs){ 
+        foreach($resultadoDDPs AS $datosDDPs){
             $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
             $resultadoPPD = DB::select($programacionPorDia);
 
-            if($datosDDPs->id_php == date('N')){ 
+            if($datosDDPs->id_php == date('N')){
                 array_push($result, ['active', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
-            }else{ 
+            }else{
                 array_push($result, ['inactive', $datosDDPs->nombre, $datosDDPs->id_php, $resultadoPPD]);
             }
         }
@@ -195,7 +207,7 @@ class ProgrammationController extends Controller
         return $result;
 
     }
-    
+
     function convertirHoraMilitar($hora){
         if(strpos($hora, "AM") !== false){
             if(strpos($hora, "12") !== false){
@@ -214,7 +226,7 @@ class ProgrammationController extends Controller
                 $hora += 1200;
             }
         }
-        
+
         return $hora;
     }
 
