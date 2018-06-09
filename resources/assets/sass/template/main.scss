@@ -118,6 +118,11 @@ body{
     color: #ffffff !important;
   }
 }
+
+//Banner prev next
+.carousel-control-prev, .carousel-control-next{
+  z-index: 3 !important;
+}
 //z-index
 .z-2{
   z-index: 3 !important;

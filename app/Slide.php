@@ -8,7 +8,7 @@ class Slide extends Model {
     
     public function newQuery()
     {
-        return parent::newQuery()->where('tipo', '=', 'slide');
+        return parent::newQuery()->where('tipo', '=', 'slide')->orderBy('orden', 'ASC');
     }
 
 }

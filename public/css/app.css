@@ -8769,6 +8769,9 @@ body {
   .mia-page-item.active .mia-page-link {
     color: #ffffff !important; }
 
+.carousel-control-prev, .carousel-control-next {
+  z-index: 3 !important; }
+
 .z-2 {
   z-index: 3 !important; }
 
