@@ -33,6 +33,11 @@
 </div>
 <script type="text/javascript">
     var week_shows = {!! json_encode($week_programation) !!};
+    $(document).ready(function () {
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')');
+    });
 </script>
 <script src="/public/js/main_views/programmation/app.js"></script>
 <script src="/public/js/nav_movements.js"></script>

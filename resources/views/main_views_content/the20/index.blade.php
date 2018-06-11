@@ -24,5 +24,12 @@
         background: linear-gradient(to bottom right, #bd3188, #e2008c) !important;
     }
 </style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')');
+    });
+</script>
 <script src="/public/js/main_views/the20/the20.js"></script>
 <script src="/public/js/nav_movements.js"></script>

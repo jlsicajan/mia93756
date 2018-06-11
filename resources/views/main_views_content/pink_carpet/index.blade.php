@@ -41,5 +41,12 @@
 <script type="text/javascript">
     var articles = {!! json_encode($articles_gthoy) !!};
 </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')');
+    });
+</script>
 <script src="/public/js/nav_movements.js"></script>
 <script src="/public/js/main_views/content/pagination_manager.js"></script>
