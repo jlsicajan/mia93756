@@ -8,7 +8,7 @@
     <div class="main_content_container">
         @include('elements.mia-hdear', ['main_banner', $main_banner])
         <div class="container">
-            @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @include('elements.for_grid.space_block_header', ['classes' => 'z-0'])
 
             <div class="row">
                 <div class="col-12 col-md-6 py-md-4 pd-2rem">

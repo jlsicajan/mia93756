@@ -119,10 +119,6 @@ body{
   }
 }
 
-//Banner prev next
-.carousel-control-prev, .carousel-control-next{
-  z-index: 3 !important;
-}
 //z-index
 .z-2{
   z-index: 3 !important;
@@ -130,6 +126,18 @@ body{
 
 .z-1{
   z-index: 3 !important;
+}
+
+.z-4{
+  z-index: 4 !important;
+}
+
+.z-5{
+  z-index: 5 !important;
+}
+
+.z-0{
+  z-index: 0 !important;
 }
 
 //Mobile changes

@@ -4,7 +4,7 @@
 
 <link href="public/css/elements/week_shows.css" rel="stylesheet">
 <div class="container">
-    @include('elements.for_grid.space_block_header', ['classes' => ''])
+    @include('elements.for_grid.space_block_header', ['classes' => 'z-0'])
 
     <div class="row">
         <div class="col-12 col-md-6 py-md-4 pd-2rem">
