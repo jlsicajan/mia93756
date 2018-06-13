@@ -67,6 +67,11 @@
 </div>
 
 @yield('content')
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url_source_program = {{ env('URL_SOURCE_PROGRAM') }};
+    });
+</script>
 @yield('scripts')
 <div class="container">
     @include('elements.for_grid.middle_space_block', ['classes' => ''])
