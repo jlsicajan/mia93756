@@ -6,7 +6,7 @@ $(document).ready(function(){
         $('#week_show_modal .modal-title').empty().html(week_shows[main_position][3][show_position]['Titulo'] + ' ' + time_slot);
         $('#week_show_modal .modal-body').empty().html(week_shows[main_position][3][show_position]['Contenido']);
 
-        let show_image = $('div').css('background-image', 'url(' + url_source_program + week_shows[main_position][3][show_position]['Imagen'] + ')');
+        let show_image = $('<div>').addClass('img-cover img-clean-display').css('background-image', 'url(' + url_source_program + week_shows[main_position][3][show_position]['Imagen'] + ')');
         $('#week_show_modal .modal-body').append(show_image);
         console.log(main_position);
         console.log(show_position);
