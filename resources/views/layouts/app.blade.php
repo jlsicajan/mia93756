@@ -69,6 +69,7 @@
 @yield('content')
 <script type="text/javascript">
     var url_source_program = '{{ env('URL_SOURCE_PROGRAM') }}';
+    var url_source = '{{  env('URL_SOURCE') }}';
 </script>
 @yield('scripts')
 <div class="container">

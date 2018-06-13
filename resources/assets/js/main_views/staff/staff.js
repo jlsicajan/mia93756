@@ -8,5 +8,9 @@ $('.keep_reading').unbind('click').click(function () {
     console.log(users_blog);
     $('#staff_modal .modal-body').empty().html(staff_selected['texto']);
     $('#staff_modal .modal-title').empty().html(staff_selected['locutor']);
+    let staff_image = $('<div>').addClass('img-cover img-clean-display').css('background-image', 'url(' + url_source + '/uploads/staff/' + staff_selected['imagen'] + ')');
+    $('#staff_modal .modal-body').append(staff_image);
+
     console.log(staff_selected['texto']);
 });
+//# sourceMappingURL=staff.js.map
