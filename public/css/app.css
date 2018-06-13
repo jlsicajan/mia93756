@@ -8769,6 +8769,10 @@ body {
   .mia-page-item.active .mia-page-link {
     color: #ffffff !important; }
 
+.know_more_button {
+  position: absolute;
+  bottom: 20px; }
+
 .z-2 {
   z-index: 3 !important; }
 
@@ -8945,7 +8949,7 @@ footer {
 
 @font-face {
   font-family: ReklameScript-Regular;
-  src: url("/public/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }
+  src: url("/public/custom-fonts/Cocogoose_Pro_Semilight-trial.ttf") format("opentype"); }
 
 .font_3 {
   font-family: ReklameScript-Regular;
