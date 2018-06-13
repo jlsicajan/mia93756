@@ -24,7 +24,7 @@
                                         <h4 class="text-muted">{{ $banner['data']['texto_2'] }}</h4>
                                         <hr>
                                         @if(isset($banner['data']['link']) && !empty($banner['data']['link']))
-                                            <button data-href="{{ $banner['data']['link'] }}" class="ajax_link_no_style btn btn-primary z-4 cursor-pointer">Conoce mas</button>
+                                            <button data-href="{{ $banner['data']['link'] }}" class="ajax_link_no_style know_more_button btn btn-primary z-4 cursor-pointer">Conoce mas</button>
                                         @endif
                                     </div>
                                 @else
