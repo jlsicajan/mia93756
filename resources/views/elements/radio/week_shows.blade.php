@@ -45,7 +45,7 @@
 </div>
 <script type="text/javascript">
     $('#select_day').on('change', function() {
-        alert( this.value );
+        // alert( this.value );
         $('.tab-pane').removeClass('active');
         $('#' + this.value).removeClass('fade').addClass('active');
     })
