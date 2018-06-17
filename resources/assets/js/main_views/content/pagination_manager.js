@@ -29,8 +29,11 @@ function build_article_element(article_info){
     let button_container = $('<button>').addClass('ajax_link text-no-decoration').attr('data-href', article_info.link_url);
     let article_container = $('<div>').addClass('article_container row border');
     let article_container_image = $('<div>').addClass('col-12 multiple_article img-cover').css('background-image', 'url(' + article_info.imagen + ')');
+
+    let article_date = moment(article_info.fecha).format('DD MMM YYYY');
+
     let article_container_body = $('<div>').addClass('col-12 p-2 mt-2')
-        .append('<p class="date text-muted text-left">' + article_info.fecha + '</p>')
+        .append('<p class="date text-muted text-left">' + article_date + '</p>')
         .append('<p class="title font-weight-bold text-left">' + article_info.titulo + '</p>')
         .append('<p class="description text-muted text-left">' + article_info.texto_uno + '</p>');
 

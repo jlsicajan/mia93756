@@ -24,7 +24,7 @@
                                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="col-12 p-2 mt-2">
-                            <p class="date text-muted text-left">{{ $video['fecha'] }}</p>
+                            <p class="date text-muted text-left">{{ date('d M, Y', strtotime($video['fecha'])) }}</p>
                             <p class="title font-weight-bold text-left">{{ $video['titulo'] }}</p>
                         </div>
                     </div>

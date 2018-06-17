@@ -44,7 +44,7 @@
                                     <div class="col-12 multiple_article img-cover"
                                          style="background-image: url('{{ $article['imagen'] }}')"></div>
                                     <div class="col-12 p-2 mt-2">
-                                        <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
+                                        <p class="date text-muted text-left">{{ date('d M, Y', strtotime($article['fecha'])) }}</p>
                                         <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
                                         <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
                                     </div>

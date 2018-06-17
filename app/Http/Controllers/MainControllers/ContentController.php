@@ -74,7 +74,8 @@ class ContentController extends Controller {
             'news' => $news,
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
-            'hide_banner' => $content['hide_banner']);
+            'hide_banner' => $content['hide_banner']
+        );
 
         if ($request->ajax()) {
             $result = array('view' => 'main_views_content.programmation.index', 'data' => $content_for_view);

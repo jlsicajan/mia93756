@@ -18,6 +18,8 @@ elixir(function(mix) {
 
     mix.scripts(['../../../node_modules/jquery/dist/jquery.min.js',
     '../../../node_modules/bootstrap/dist/js/bootstrap.js',
+    '../../../node_modules/moment/min/moment.min.js',
+    '../../../resources/assets/js/main_views/content/moment_es.js',
     '../../../resources/assets/js/page_cleaner.js',
     '../../../resources/assets/js/nav.js',
     '../../../resources/assets/js/main_views/programmation/week_programmation.js'
