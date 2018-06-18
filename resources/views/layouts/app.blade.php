@@ -8,8 +8,7 @@
     <title>Mia 93.7</title>
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
-    <link rel="icon" href="/public/img/logo/logo_white_background.jpg" type="image/jpg">
-
+    <link rel="icon" href="/public/img/logo/favicon.png" type="image/png">
     <meta name="description" content="Escucha tu corazon">
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
