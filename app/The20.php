@@ -13,7 +13,7 @@ class The20 extends Model {
     
     public function newQuery()
     {
-        return parent::newQuery()->where('empresa_id', '=', env("RADIO_ID"));
+        return parent::newQuery()->where('empresa_id', '=', env("RADIO_ID"))->where('activo', 1);
     }
 
 
