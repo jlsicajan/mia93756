@@ -1,7 +1,6 @@
 $(document).ready(function () {
     add_ajax_link_event();
     $(window).on('hashchange', function () {
-        console.log("hello there =====");
         console.log($(this).val());
     });
 });
@@ -9,7 +8,6 @@ $(document).ready(function () {
 window.addEventListener('popstate', function (e) {
     let url = window.location;
     console.log(url.href);
-    console.log('General Kenobi :D');
     load_page_jl(url.href);
 });
 

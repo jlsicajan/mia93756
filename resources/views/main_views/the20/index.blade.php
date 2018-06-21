@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'mia 93.7 los top 20')
+@section('description', 'Radio mia 93.7 la vida es mejor cantando')
+@section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
+
 @section('content')
     <div class="main_content_container">
         @if(!$hide_banner)

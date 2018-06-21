@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('title', $article['titulo'])
+@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 140))
+@if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
+    @section('og_image', env('URL_ARTICLE_PATH') . $article['imagen'])
+@else
+    @section('og_image', $article['imagen'])
+@endif
 @section('head')
 @endsection
 
@@ -75,7 +82,9 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <div id="fb-comments" class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
+                    <div id="fb-comments" class="fb-comments"
+                         data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%"
+                         data-numposts="5"></div>
                 </div>
             </div>
         </div>
@@ -98,10 +107,11 @@
         }
     </style>
     <script>
-        (function(d, s, id) {
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=1765073390470250&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
