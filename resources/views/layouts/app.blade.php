@@ -2,6 +2,8 @@
 <html lang="en" xmlns:expr="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png" type="image/png">
@@ -50,7 +52,7 @@
 </div>
 <nav class="navbar navbar-toggleable-md navbar-mia">
     <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto flex-column">
-        <button class="ajax_link navbar-brand navbar-logo" data-href="{{ route('home') }}"
+        <button class="ajax_link navbar-brand navbar-logo" data-logo-link="{{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }}" data-href="{{ route('home') }}"
            style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></button>
         <div class="collapse navbar-collapse hidden-sm-down align-items-center justify-content-center" id="mainnavbar">
             <ul class="navbar-nav">

@@ -82,7 +82,19 @@
     $(document).ready(function(){
         console.log('all ready');
         var current_background = '{!! $main_background !!}';
-        $('body').css('background-image', 'url(' + current_background + ')');
+        $('body').css('background-image', 'url(' + current_background + ')')
+
+        let meta_title = 'mia 93.7';
+        let meta_description = 'Radio mia 93.7 escucha tu corazon';
+        let meta_image = $('.navbar-logo').attr('data-logo-link');
+
+        $('title').empty().text(meta_title);
+        $('meta[property=\'og:title\']').attr('content', meta_title);
+
+        $('meta[name=description]').attr('content', meta_description);
+        $('meta[property=\'og:description\']').attr('content', meta_description);
+
+        $('meta[property=\'og:image\']').attr('content', meta_image);
     });
 </script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

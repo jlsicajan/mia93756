@@ -3,13 +3,13 @@
 
     <div class="row">
         <div class="col-12 col-sm-9 bg-white mia-shadow py-2">
-            <h3 class="color-primary">{{ $article['titulo'] }}</h3>
+            <h3 class="color-primary article_one_title" data-text="{{ $article['titulo'] }}">{{ $article['titulo'] }}</h3>
             <hr>
             @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
-                <div class="img-clean-display img-cover"
+                <div class="img-clean-display img-cover article_one_image" data-image-link="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}"
                 style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
             @else
-                <div class="img-clean-display img-cover"
+                <div class="img-clean-display img-cover article_one_image" data-image-link="{{ $article['imagen'] }}"
                 style="background-image: url('{{ $article['imagen'] }}')"></div>
             @endif
             @if(isset($article['codigo_api']) && !empty($article['codigo_api']))
@@ -97,6 +97,18 @@
                     $(this).css('width', '100%');
                 });
             }
+
+            let meta_title = "{{ $article['titulo'] }}";
+            let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 140), FILTER_SANITIZE_URL) }}";
+            let met_image = $('.article_one_image').attr('data-image-link');
+
+            $('title').empty().text(meta_title);
+            $('meta[property=\'og:title\']').attr('content', meta_title);
+
+            $('meta[name=description]').attr('content', meta_description);
+            $('meta[property=\'og:description\']').attr('content', meta_description);
+
+            $('meta[property=\'og:image\']').attr('content', met_image);
         });
 
     </script>

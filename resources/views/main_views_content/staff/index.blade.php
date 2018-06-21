@@ -40,6 +40,18 @@
         console.log('all ready');
         var current_background = '{!! $main_background !!}';
         $('body').css('background-image', 'url(' + current_background + ')');
+
+        let meta_title = 'El equipo';
+        let meta_description = 'Radio mia 93.7 ' . meta_title;
+        let meta_image = $('.navbar-logo').attr('data-logo-link');
+
+        $('title').empty().text(meta_title);
+        $('meta[property=\'og:title\']').attr('content', meta_title);
+
+        $('meta[name=description]').attr('content', meta_description);
+        $('meta[property=\'og:description\']').attr('content', meta_description);
+
+        $('meta[property=\'og:image\']').attr('content', met_image);
     });
 </script>
 <script src="/public/js/main_views/staff/staff.js"></script>
