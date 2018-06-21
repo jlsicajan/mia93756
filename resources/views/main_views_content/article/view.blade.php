@@ -100,7 +100,7 @@
 
             let meta_title = "{{ $article['titulo'] }}";
             let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 140), FILTER_SANITIZE_URL) }}";
-            let met_image = $('.article_one_image').attr('data-image-link');
+            let meta_image = $('.article_one_image').attr('data-image-link');
 
             $('title').empty().text(meta_title);
             $('meta[property=\'og:title\']').attr('content', meta_title);
@@ -108,7 +108,7 @@
             $('meta[name=description]').attr('content', meta_description);
             $('meta[property=\'og:description\']').attr('content', meta_description);
 
-            $('meta[property=\'og:image\']').attr('content', met_image);
+            $('meta[property=\'og:image\']').attr('content', meta_image);
         });
 
     </script>

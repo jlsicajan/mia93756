@@ -47,7 +47,7 @@
         $('meta[name=description]').attr('content', meta_description);
         $('meta[property=\'og:description\']').attr('content', meta_description);
 
-        $('meta[property=\'og:image\']').attr('content', met_image);
+        $('meta[property=\'og:image\']').attr('content', meta_image);
     });
 </script>
 <script src="/public/js/main_views/programmation/app.js"></script>
