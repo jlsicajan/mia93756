@@ -38,9 +38,9 @@ class HomeController extends Controller
     
     public function index(\Illuminate\Http\Request $request)
     {
-        $tell_me_more_category = Category::where('nombre', 'like', '%NTAME MAS%')->first()->toArray();
-        $my_love = Category::where('nombre', 'like', '%MIAMOR%')->first()->toArray();
-        $healthy = Category::where('nombre', 'like', '%SALUDABLE-MENTE%')->first()->toArray();
+        $tell_me_more_category = Category::find(36)->first()->toArray();
+        $my_love = Category::find(39)->first()->toArray();
+        $healthy = Category::find(37)->first()->toArray();
 
         $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(6)->get()->toArray();
         $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(4)->get()->toArray();
