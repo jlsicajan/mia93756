@@ -65,7 +65,7 @@ class Article extends Model {
                 $fix_article['imagen'] = env('URL_ARTICLE_PATH') . $fix_article['imagen'];
             }
             $fix_article['link_url'] = route('article_one', $fix_article['id']);
-            $fix_article['texto_uno'] = Article::limit_words(strip_tags($fix_article['texto_uno']), 35);
+            $fix_article['texto_uno'] = Article::limit_words(strip_tags($fix_article['texto_uno']), 35, $fix_article['encriptado']);
             array_push($articles_sanatized, $fix_article);
         };
         return $articles_sanatized;
@@ -93,10 +93,16 @@ class Article extends Model {
         return array(0 => env('URL_RADIO_INFO_PATH')  . '/' . filter_var($banner_name, FILTER_SANITIZE_ENCODED));
     }
 
-    public static function limit_words($string, $word_limit)
+    public static function limit_words($string, $word_limit, $is_ecnrypted = false)
     {
+        $string = $is_ecnrypted ? strip_tags(Article::desencriptar_AES($string)) : $string;
+
         $words = explode(" ",$string);
         return implode(" ",array_splice($words,0,$word_limit));
+    }
+
+    public static function check_encryption($article_content, $is_encrypted = false){
+        return $is_encrypted ? Article::desencriptar_AES($article_content) : $article_content;
     }
 
     public static function check_main_elements($category){
@@ -106,5 +112,17 @@ class Article extends Model {
         }
 
         return $main_elements;
+    }
+
+    public static function desencriptar_AES($encrypted_data_hex, $key = "elcaminoweb") {
+        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+        $iv_size_hex = mcrypt_enc_get_iv_size($td) * 2;
+        $iv = pack("H*", substr($encrypted_data_hex, 0, $iv_size_hex));
+        $encrypted_data_bin = pack("H*", substr($encrypted_data_hex, $iv_size_hex));
+        mcrypt_generic_init($td, $key, $iv);
+        $decrypted = mdecrypt_generic($td, $encrypted_data_bin);
+        mcrypt_generic_deinit($td);
+        mcrypt_module_close($td);
+        return $decrypted;
     }
 }

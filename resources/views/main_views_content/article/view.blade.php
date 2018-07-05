@@ -18,7 +18,7 @@
                         src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $article['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
                         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             @endif
-            <p>{!! $article['texto_uno'] !!}</p>
+            <p>{!! \App\Article::check_encryption($article['texto_uno'], $article['encriptado']) !!}</p>
             <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
         <div class="col-12 col-sm-3">
@@ -55,7 +55,7 @@
                         <div class="col-12 p-2 mt-2">
                             <p class="date text-muted text-left">{{ date('d M, Y', strtotime($article_related['fecha'])) }}</p>
                             <p class="title font-weight-bold text-left">{{ $article_related['titulo'] }}</p>
-                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}...</p>
+                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35, $article_related['encriptado']) }}...</p>
                         </div>
                     </div>
                 </button>
@@ -99,7 +99,7 @@
             }
 
             let meta_title = "{{ $article['titulo'] }}";
-            let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 140), FILTER_SANITIZE_URL) }}";
+            let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 140, $article['encriptado']), FILTER_SANITIZE_URL) }}";
             let meta_image = $('.article_one_image').attr('data-image-link');
 
             $('title').empty().html(meta_title);

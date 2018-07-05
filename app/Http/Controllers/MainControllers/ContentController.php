@@ -104,7 +104,7 @@ class ContentController extends Controller {
     }
 
     public function pinkCarpetPage($request, $content){
-        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->get()->toArray();
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->get()->toArray();
 
         $articles_gthoy = Article::sanatize_articles($articles_gthoy);
 

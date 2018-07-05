@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $article['titulo'])
-@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 140))
+@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 140, $article['encriptado']))
 @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
     @section('og_image', env('URL_ARTICLE_PATH') . $article['imagen'])
 @else
@@ -32,7 +32,7 @@
                                 src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $article['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     @endif
-                    <p>{!! $article['texto_uno'] !!}</p>
+                    <p>{!! \App\Article::check_encryption($article['texto_uno'], $article['encriptado']) !!}</p>
                     <strong>Visitas: {{ $article['visitas'] }}</strong>
                 </div>
                 <div class="col-12 col-sm-3">
@@ -71,7 +71,7 @@
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article_related['fecha'] }}</p>
                                     <p class="title font-weight-bold text-left">{{ $article_related['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35, $article_related['encriptado']) }}
                                         ...</p>
                                 </div>
                             </div>
