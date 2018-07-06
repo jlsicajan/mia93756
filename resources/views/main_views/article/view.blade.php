@@ -33,6 +33,11 @@
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     @endif
                     <p>{!! \App\Article::check_encryption($article['texto_uno'], $article['encriptado']) !!}</p>
+                    @if(!empty($article['url_click']))
+                        <a href="{{ $article['url_click'] }}" target="_blank" class="btn btn-primary">Haz clic aquí</a>
+                    @endif
+                    <br>
+                    <hr>
                     <strong>Visitas: {{ $article['visitas'] }}</strong>
                 </div>
                 <div class="col-12 col-sm-3">
