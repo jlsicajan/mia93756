@@ -14,7 +14,7 @@ $('.keep_reading').unbind('click').click(function () {
     let staff_image = $('<div>').addClass('img-cover img-clean-display').css('background-image', 'url(' + url_source + '/uploads/staff/' + staff_selected['imagen'] + ')');
     let second_staff_image = $('<div>').addClass('img-cover img-clean-display').css('background-image', 'url(' + url_source + '/uploads/staff/' + staff_selected['imagen_dos'] + ')');
 
-    container.append([$('<div>').addClass('col-12 col-md-12 mb-2 p-3').append(staff_image), $('<div>').addClass('col-12 col-md-12 mb-2 p-3').append(second_staff_image)]);
+    container.append([$('<div>').addClass('col-12 col-md-12 mb-2 p-3').append(second_staff_image), $('<div>').addClass('col-12 col-md-12 mb-2 p-3').append(staff_image)]);
     $('#staff_modal .modal-body').append(container);
 
     console.log(staff_selected['texto']);
