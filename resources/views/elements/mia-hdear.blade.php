@@ -20,8 +20,8 @@
                                 {{--check if is main banner, to set text on the banner--}}
                                 @if(isset($banner['route']))
                                     <div class="d-flex flex-column align-items-center justify-content-center mia-header" style="background-image: url({{ $banner['route'] }});">
-                                        <h4 class="color-white font_3 text-center">{{ $banner['data']['texto_1'] }}</h4>
-                                        <h4 class="text-muted">{{ $banner['data']['texto_2'] }}</h4>
+                                        <h4 style="color: {{ isset($banner['data']['color']) ? $banner['data']['color'] : 'black' }} !important;" class="font_3 text-center">{{ $banner['data']['texto_1'] }}</h4>
+                                        <h4 style="color: {{ isset($banner['data']['color']) ? $banner['data']['color'] : 'black' }} !important;">{{ $banner['data']['texto_2'] }}</h4>
                                         <hr>
                                         @if(isset($banner['data']['link']) && !empty($banner['data']['link']))
                                             <button data-href="{{ $banner['data']['link'] }}" class="ajax_link_no_style know_more_button btn btn-primary z-4 cursor-pointer">Conoce más</button>
