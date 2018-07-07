@@ -18,11 +18,6 @@
             @else
                 @include('elements.for_grid.space_block_header', ['classes' => ''])
             @endif
-            <div class="row mb-5">
-                <div class="col-12 content_title_container">
-                    <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
-                </div>
-            </div>
             @if(isset($content['main_elements']))
                 @if($content['main_elements']['instagram'])
                     <div class="row">

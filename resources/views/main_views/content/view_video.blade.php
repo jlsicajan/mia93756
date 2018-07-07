@@ -19,12 +19,6 @@
             @else
                 @include('elements.for_grid.space_block_header', ['classes' => 'z-1'])
             @endif
-
-            <div class="row mb-5">
-                <div class="col-12 content_title_container">
-                    <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
-                </div>
-            </div>
             <div class="row">
                 @foreach($content['content'] as $video)
                     <div class="d-block col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2 p-4">
