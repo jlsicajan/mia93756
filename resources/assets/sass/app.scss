@@ -14,27 +14,60 @@
 @import "resources/assets/sass/content/article";
 @import "resources/assets/sass/elements/spinner";
 
-
 @mixin set-border-box {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 @mixin disable-text-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 html, body, h1, h2, h3, h4, h5, h6 {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
-*{
-  font-family: normal normal normal 13px/1.4em Arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif;
-  font-weight: 100;
+* {
+    font-family: normal normal normal 13px/1.4em Arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
+    font-weight: 100;
 }
+
+.modal-content {
+    border: none !important;
+    border-radius: unset !important;
+}
+
+.modal-header {
+    border-bottom: none !important;
+    padding: 25px !important;
+    .close {
+        font-size: 2.0rem !important;
+        opacity: unset;
+        color: white;
+        top: -15px;
+        position: absolute;
+        right: -10px;
+        height: 45px;
+        width: 45px;
+        border-radius: 50% !important;
+        border: 3px solid white;
+        background-color: black !important;
+    }
+
+}
+
+.modal-body {
+    padding: 30px !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
+
+
 

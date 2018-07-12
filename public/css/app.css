@@ -9409,4 +9409,27 @@ html, body, h1, h2, h3, h4, h5, h6 {
   font-family: normal normal normal 13px/1.4em Arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif;
   font-weight: 100; }
 
+.modal-content {
+  border: none !important;
+  border-radius: unset !important; }
+
+.modal-header {
+  border-bottom: none !important;
+  padding: 25px !important; }
+  .modal-header .close {
+    font-size: 2.0rem !important;
+    opacity: unset;
+    color: white;
+    top: -15px;
+    position: absolute;
+    right: -10px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    background-color: black !important; }
+
+.modal-footer {
+  border-top: none !important; }
+
 /*# sourceMappingURL=app.css.map */
