@@ -13,14 +13,17 @@
         @if(isset($content['main_elements']))
             @if($content['main_elements']['instagram'])
                 <div class="row">
-                    <div class="col-12 col-md-6">
-                        @include("elements.for_grid.iframe")
+                    <div class="col-12 col-md-6 row">
+                        <div class="col-12">
+                            @include("elements.for_grid.iframe")
+                        </div>
+                        <div class="col-12">
+                            @include("elements.for_grid.twitter_iframe")
+                        </div>
                     </div>
+
                     <div class="col-12 col-md-6">
                         @include("elements.for_grid.fb_iframe")
-                    </div>
-                    <div class="col-12 col-md-6">
-                        @include("elements.for_grid.twitter_iframe")
                     </div>
                 </div>
             @endif
@@ -57,7 +60,7 @@
 
 
         let meta_title = $('.content_title').text();
-        let meta_description = 'Radio mia 93.7 ' . meta_title;
+        let meta_description = 'Radio mia 93.7 '.meta_title;
         let meta_image = $('.navbar-logo').attr('data-logo-link');
 
         $('title').empty().text(meta_title);

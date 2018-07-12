@@ -8,7 +8,7 @@
     <div class="element-block element-block-no-height col-12">
 
         <div class="fb-page" data-href="https://www.facebook.com/mia937/" data-tabs="timeline" data-width="475px"
-             data-height="475px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+             data-height="1050px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
              data-show-facepile="true">
             <blockquote cite="https://www.facebook.com/mia937/" class="fb-xfbml-parse-ignore"><a
                         href="https://www.facebook.com/mia937/">Mia 937</a></blockquote>
