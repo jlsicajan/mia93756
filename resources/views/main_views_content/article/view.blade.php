@@ -37,7 +37,7 @@
                     <a class="addthis_button_whatsapp cursor-pointer"></a>
                 </div>
             </div>
-            <div class="img-cover h-100" style="background-image: url('{{ $vertical_banner['route'] }}');"></div>
+            <div class="img-cover h-100" style="background-image: url('{{ $vertical_banner['route'] }}'); height: 100% !important;"></div>
         </div>
     </div>
     <hr>
