@@ -78,13 +78,14 @@ class HomeController extends Controller
             $article->visitas = $article->visitas + 1;
             $article->save();
             $main_banner = Section::get_banner();
+            $vertical_banner = Section::get_article_vertical_banner();
             $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->where('id', '!=', $article->id)
                 ->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(3)->get()->toArray();
 
             $view = $request->ajax() ? 'main_views_content.article.view' : 'main_views.article.view';
 
             return view($view)->with(array('article' => $article,
-                    'main_banner' => $main_banner, 'articles_related' => $articles_related));
+                    'main_banner' => $main_banner, 'articles_related' => $articles_related, 'vertical_banner' => $vertical_banner));
         }
     }
 
