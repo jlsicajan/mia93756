@@ -5,7 +5,7 @@ $('.keep_reading').unbind('click').click(function () {
     // let user_selected = users_blog.find(us => us.id == staff_selected.usuario_id);
 
     console.log(users_blog);
-    $('#staff_modal .modal-title').empty().html(staff_selected['locutor']).addClass('color-primary');
+    $('#staff_modal .modal-title').empty().html(staff_selected['locutor']).addClass('color-white');
 
     $('#staff_modal .modal-body').empty().html(staff_selected['texto']);
 
