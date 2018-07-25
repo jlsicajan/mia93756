@@ -23,15 +23,15 @@
                     <div class="row">
                         <div class="col-12 col-md-6 row">
                             <div class="col-12">
-                                @include("elements.for_grid.iframe")
+                                @include("elements.for_grid.iframe", ['gradient' => 1])
                             </div>
                             <div class="col-12">
-                                @include("elements.for_grid.twitter_iframe")
+                                @include("elements.for_grid.twitter_iframe", ['gradient' => 1])
                             </div>
                         </div>
 
                         <div class="col-12 col-md-6">
-                            @include("elements.for_grid.fb_iframe")
+                            @include("elements.for_grid.fb_iframe", ['gradient' => 1])
                         </div>
                     </div>
                 @endif

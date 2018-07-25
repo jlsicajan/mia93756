@@ -20,7 +20,7 @@
                     @include('elements.section.card-left', ['background_url' => $to_20_background, 'link' => $to_20_url])
                 </div>
                 <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                    @include("elements.for_grid.iframe")
+                    @include("elements.for_grid.iframe", ['gradient' => 1])
                 </div>
             </div>
 
