@@ -9103,9 +9103,6 @@ footer {
   right: 0;
   z-index: 2; }
 
-.grid-header.inverted:after {
-  border-color: #ffffff transparent transparent transparent; }
-
 .card-primary, .card-secondary {
   height: 244px;
   width: 475px;

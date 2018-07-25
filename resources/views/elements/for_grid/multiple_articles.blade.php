@@ -1,6 +1,6 @@
 <div class="row flex-column align-items-end mb-28px">
     <div class="grid-header grid-header-double col-12 {{ isset($classes) ? $classes : '' }}">
-        <span class="font_2 font_2_grid_double color-primary font_2_grid">{{ $title }}</span>
+        <span class="font_2 font_2_grid_double color-white font_2_grid">{{ $title }}</span>
         @if(isset($gradient) && $gradient)
             <div class="gradient float-right"></div>
         @endif

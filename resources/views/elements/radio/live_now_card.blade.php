@@ -1,12 +1,12 @@
 <div class="row flex-column align-items-end mb-28px">
-    <div class="card-primary bg-white col-12 d-flex flex-row">
+    <div class="card-primary bg-grid-secondary col-12 d-flex flex-row">
         <div class="col-6 h-100 d-flex align-items-center">
             <div class="live_show_image shadow" style="background-image: url('{{ env('URL_SOURCE_PROGRAM') . $live_now['PAFF_image'] }}')"></div>
         </div>
         <div class="d-flex flex-column justify-content-center col-6 h-100 live_show_description">
             <span class="color-white bg-black display-4 text-uppercase paff_message">{{ $live_now['PAFF_message'] }}</span>
             <h5 class="color-white paff_title">{{ $live_now['PAFF_titulo'] }}</h5>
-            <p class="color-primary paff_time">{{ $live_now['PAFF_start'] . ' - ' . $live_now['PAFF_end'] }}</p>
+            <p class="color-white paff_time">{{ $live_now['PAFF_start'] . ' - ' . $live_now['PAFF_end'] }}</p>
         </div>
     </div>
 </div>
