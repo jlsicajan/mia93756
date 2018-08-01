@@ -40,8 +40,8 @@
                                  style="background-image: url('{{ $article['imagen'] }}')"></div>
                             <div class="col-12 p-2 mt-2">
                                 <p class="date text-muted text-left">{{ date('d M, Y', strtotime($article['fecha'])) }}</p>
-                                <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
-                                <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
+                                <p class="title font-weight-bold text-left cursor-pointer">{{ $article['titulo'] }}</p>
+                                <p class="description text-muted text-left cursor-pointer">{{ $article['texto_uno'] }}...</p>
                             </div>
                         </div>
                     </button>

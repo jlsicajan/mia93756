@@ -20,7 +20,8 @@
                         </div>
                         <div class="col-12 p-2 mt-2">
                             <p class="date text-muted text-left">{{ date('d M, Y', strtotime($video['fecha'])) }}</p>
-                            <p class="title font-weight-bold text-left">{{ $video['titulo'] }}</p>
+                            <p class="title font-weight-bold text-left cursor-pointer">{{ $video['titulo'] }}</p>
+                            <p class="description text-muted text-left cursor-pointer">{{ $video['texto_uno'] }}...</p>
                         </div>
                     </div>
                 </div>
