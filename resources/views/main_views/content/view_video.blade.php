@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="main_content_container">
-        @if(!$content['hide_banner'])
+        @if(!$content['hide_banner'] && isset($content['content'][0]) )
             @include('elements.mia-video-header', ['youtube_url' => $content['content'][0]['codigo_api']])
         @endif
         <div class="container">
