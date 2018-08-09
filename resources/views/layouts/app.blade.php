@@ -97,13 +97,20 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-12">
                 <br>
-                <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary"
-                                                                                        href="https://elcaminoweb.com.gt"
-                                                                                        target="_blank">El Camino Web.</a></p>
+                <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary" href="https://elcaminoweb.com.gt" target="_blank">El Camino Web.</a></p>
             </div>
         </div>
     </div>
 </footer>
 @yield('after_body')
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121085909-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121085909-1');
+</script>
 </body>
 </html>
