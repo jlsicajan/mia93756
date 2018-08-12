@@ -23,13 +23,19 @@
 </p>
 
 FOTOS KARLA GARZARO
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_1.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_2.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_3.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_5.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_7.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_8.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_9.jpeg" alt="" width="743" height="496">
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_1.jpeg')"></div>
+
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_2.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_3.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_5.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_7.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_8.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_9.jpeg')"></div>
 
 <p>
     <strong>
@@ -43,9 +49,9 @@ FOTOS KARLA GARZARO
     </strong>
 </p>
 FOTOS RENATA MERCHAN
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/renata_1.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg" alt="" width="743" height="496">
-<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg" alt="" width="743" height="496">
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/renata_1.jpeg')"></div>
+<hr>
+<div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg')"></div>
 
 <hr>
 
