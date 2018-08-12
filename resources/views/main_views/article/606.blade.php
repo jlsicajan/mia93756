@@ -21,8 +21,15 @@
         fuertes, con piezas que podrían utilizarse por separado. En las propuestas de Garzaro nos faltó más el diseño de
         novia, pero mostró su talento a través de estas piezas únicas.</strong>
 </p>
-FOTOS KARLA GARZARO
 
+FOTOS KARLA GARZARO
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_1.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_2.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_3.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_5.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_7.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_8.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_9.jpeg" alt="" width="743" height="496">
 
 <p>
     <strong>
@@ -36,7 +43,9 @@ FOTOS KARLA GARZARO
     </strong>
 </p>
 FOTOS RENATA MERCHAN
-
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/renata_1.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg" alt="" width="743" height="496">
+<img src="http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg" alt="" width="743" height="496">
 
 <hr>
 
@@ -46,6 +55,10 @@ FOTOS RENATA MERCHAN
 
 <hr>
 
-<p>11 \ 08
-    El sábado 11 de agosto iniciará la segunda propuesta de varios diseñadores entre ellos los guatemaltecos Eduardo
-    Figueroa, Mauricio Samayoa, Mariandreé Gaitán y la salvadoreña Mónica Arguedas.</p>
+<p>
+    <strong>
+        11 \ 08
+        El sábado 11 de agosto iniciará la segunda propuesta de varios diseñadores entre ellos los guatemaltecos Eduardo
+        Figueroa, Mauricio Samayoa, Mariandreé Gaitán y la salvadoreña Mónica Arguedas.
+    </strong>
+</p>
