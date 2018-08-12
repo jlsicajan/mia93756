@@ -18,6 +18,7 @@
 </p>
 
 <h4><strong>10 \ 08</strong></h4>
+
 <p>
     <strong>
         La apertura de este evento inició con un Trade Show en el que muchos proveedores de la mejor calidad, mostraron
@@ -66,7 +67,7 @@
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_8.jpeg')"></div>
 <hr>
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_9.jpeg')"></div>
-
+<hr>
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/renata_1.jpeg')"></div>
 <hr>
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/no_karla_11.jpeg')"></div>
