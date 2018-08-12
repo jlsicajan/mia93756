@@ -1,3 +1,4 @@
+<hr>
 <p>
     <strong>
         Siguiendo los estándares internacionales de las distintas semanas de la moda de novias a nivel mundial, los
