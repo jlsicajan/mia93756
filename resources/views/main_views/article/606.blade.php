@@ -24,7 +24,7 @@
 
 FOTOS KARLA GARZARO
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_1.jpeg')"></div>
-
+<hr>
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_2.jpeg')"></div>
 <hr>
 <div class="img-clean-display img-cover" style="background-image: url('http://mia937.elcaminoweb.com/img/mia_images_article_11_aug/karla_3.jpeg')"></div>
