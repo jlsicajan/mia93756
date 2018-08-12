@@ -18,7 +18,7 @@
 </p>
 
 <h4><strong>10 \ 08</strong></h4>
-
+<br>
 <p>
     <strong>
         La apertura de este evento inició con un Trade Show en el que muchos proveedores de la mejor calidad, mostraron
@@ -80,9 +80,10 @@
 
 <hr>
 
+<h4><strong>11 \ 08</strong></h4>
+<br>
 <p>
     <strong>
-        11 \ 08
         El sábado 11 de agosto iniciará la segunda propuesta de varios diseñadores entre ellos los guatemaltecos Eduardo
         Figueroa, Mauricio Samayoa, Mariandreé Gaitán y la salvadoreña Mónica Arguedas.
     </strong>
