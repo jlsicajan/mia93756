@@ -32,10 +32,10 @@
                                 src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $article['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     @endif
+
                     @if($article['id'] == 606)
                         @include('main_views.article.606')
                     @else
-
                         <p>{!! \App\Article::check_encryption($article['texto_uno'], $article['encriptado']) !!}</p>
                     @endif
 
