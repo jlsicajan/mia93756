@@ -37,8 +37,8 @@
         console.log('all ready');
         var current_background = '{!! $main_background !!}';
         $('body').css('background-image', 'url(' + current_background + ')');
-        let meta_title = 'Programacion';
-        let meta_description = 'Radio mia 93.7 ' . meta_title;
+        let meta_title = 'mia 93.7 Programación';
+        let meta_description = 'mia 93.7 ' . meta_title;
         let meta_image = $('.navbar-logo').attr('data-logo-link');
 
         $('title').empty().text(meta_title);
