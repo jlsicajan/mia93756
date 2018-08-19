@@ -37,7 +37,7 @@
         $('body').css('background-image', 'url(' + current_background + ')');
 
         let meta_title = $('.content_title').text();
-        let meta_description = 'Radio mia 93.7 ' . meta_title;
+        let meta_description = 'mia 93.7 ' . meta_title;
         let meta_image = $('.navbar-logo').attr('data-logo-link');
 
         $('title').empty().text(meta_title);

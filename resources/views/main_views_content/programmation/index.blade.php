@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     var week_shows = {!! json_encode($week_programation) !!};
     $(document).ready(function () {

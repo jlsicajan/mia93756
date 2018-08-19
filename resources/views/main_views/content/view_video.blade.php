@@ -2,7 +2,7 @@
 
 
 @section('title', 'mia 93.7 ' . $content['path_info'])
-@section('description', 'Radio mia 93.7 ' . $content['path_info'] )
+@section('description', 'mia 93.7 ' . $content['path_info'] )
 @section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
 
 @section('head')

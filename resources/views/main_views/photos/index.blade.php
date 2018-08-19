@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'mia 93.7 fotos')
-@section('description', 'Radio mia 93.7 galeria')
+@section('description', 'mia 93.7 galeria')
 @section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
 
 @section('content')

@@ -30,8 +30,8 @@
         var current_background = '{!! $main_background !!}';
         $('body').css('background-image', 'url(' + current_background + ')');
 
-        let meta_title = 'los 20';
-        let meta_description = 'Radio mia 93.7 ' . meta_title;
+        let meta_title = 'mia 93.7 La vida es mejor cantando';
+        let meta_description = 'mia 93.7 ' . meta_title;
         let meta_image = $('.navbar-logo').attr('data-logo-link');
 
         $('title').empty().text(meta_title);

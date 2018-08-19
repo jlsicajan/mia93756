@@ -85,7 +85,7 @@
         $('body').css('background-image', 'url(' + current_background + ')')
 
         let meta_title = 'mia 93.7';
-        let meta_description = 'Radio mia 93.7 escucha tu corazon';
+        let meta_description = 'mia 93.7 escucha tu corazón';
         let meta_image = $('.navbar-logo').attr('data-logo-link');
 
         $('title').empty().text(meta_title);
