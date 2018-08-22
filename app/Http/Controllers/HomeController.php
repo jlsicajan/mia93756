@@ -209,8 +209,10 @@ class HomeController extends Controller
             else{
                 // SI SON IGUALES
                 if( ($inicioMnr == $inicioMyr) && ($finMnr == $finMyr) ){
-                    $mensajePAAF = "Próximo programa";
-                    $tituloPAAF = $resultadoPAAMnr->Titulo;
+                      $mensajePAAF = "Próximo programa";
+ $mensajePAAF = "Al aire ahora";
+                  
+                     $tituloPAAF = $resultadoPAAMnr->Titulo;
                     $imagenPAAF = $resultadoPAAMnr->Imagen;
                     $inicioPAAF = $resultadoPAAMnr->inicio;
                     $finPAAF = $resultadoPAAMnr->fin;
@@ -227,6 +229,8 @@ class HomeController extends Controller
                 }
                 else{
                     $mensajePAAF = "Próximo programa";
+ $mensajePAAF = "Al aire ahora";
+
                     $tituloPAAF = $resultadoPAAMyr->Titulo;
                     $imagenPAAF = $resultadoPAAMyr->Imagen;
                     $inicioPAAF = $resultadoPAAMyr->inicio;
