@@ -33,15 +33,9 @@
     <meta property='article:published_time' content='2015-01-31T20:30:11-02:00' />
     <meta property='article:section' content='news' />
 
-    <meta property="og:description"content="description..." />
-    <meta property="og:title"content="Title" />
-    <meta property="og:url"content="http://current.url.com" />
     <meta property="og:type"content="article" />
-    <meta property="og:locale"content="pt-br" />
-    <meta property="og:locale:alternate"content="pt-pt" />
-    <meta property="og:locale:alternate"content="en-us" />
-    <meta property="og:site_name"content="name" />
-    <meta property="og:image"content="https://picsum.photos/500/500" />
+    <meta property="og:locale"content="es_gt" />
+    <meta property="og:site_name"content="mia" />
     <meta property="og:image"content="https://picsum.photos/500/500" />
     <meta property="og:image:url"content="https://picsum.photos/500/500" />
     <meta property="og:image:size"content="300" />
