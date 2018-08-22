@@ -6,11 +6,10 @@
             <h3 class="color-primary article_one_title" data-text="{{ $article['titulo'] }}">{{ $article['titulo'] }}</h3>
             <hr>
             @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
-                <div class="img-clean-display img-cover article_one_image" data-image-link="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}"
-                style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
+                <img src="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}" alt="{{ $article['titulo'] }}">
             @else
-                <div class="img-clean-display img-cover article_one_image" data-image-link="{{ $article['imagen'] }}"
-                style="background-image: url('{{ $article['imagen'] }}')"></div>
+                <img src="{{ $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+
             @endif
             @if(isset($article['codigo_api']) && !empty($article['codigo_api']))
                 <br>
