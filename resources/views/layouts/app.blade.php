@@ -14,6 +14,7 @@
 
     <title>@yield('title')</title>
     <meta expr:content='@yield('title')' property='og:title'/>
+    <meta property="og:url" content="@yield('title')" />
     <meta property="og:title" content="@yield('title')" />
 
     <meta name="description" content="@yield('description')">
@@ -26,6 +27,24 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png">
 
     <meta name="google-site-verification" content="X_7cDsfIpb0qSHwcjhAwzWuoNd7RMDkHOytvUB9H5ps"/>
+
+    <meta name='description' itemprop='description' content='description...' />
+    <meta name='keywords' content='key1, key2, key3' />
+    <meta property='article:published_time' content='2015-01-31T20:30:11-02:00' />
+    <meta property='article:section' content='news' />
+
+    <meta property="og:description"content="description..." />
+    <meta property="og:title"content="Title" />
+    <meta property="og:url"content="http://current.url.com" />
+    <meta property="og:type"content="article" />
+    <meta property="og:locale"content="pt-br" />
+    <meta property="og:locale:alternate"content="pt-pt" />
+    <meta property="og:locale:alternate"content="en-us" />
+    <meta property="og:site_name"content="name" />
+    <meta property="og:image"content="https://picsum.photos/500/500" />
+    <meta property="og:image"content="https://picsum.photos/500/500" />
+    <meta property="og:image:url"content="https://picsum.photos/500/500" />
+    <meta property="og:image:size"content="300" />
 
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
