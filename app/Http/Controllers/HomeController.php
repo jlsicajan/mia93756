@@ -85,7 +85,7 @@ class HomeController extends Controller
 
             $view = $request->ajax() ? 'main_views_content.article.view' : 'main_views.article.view';
             $background = Article::get_background_for_article($article->categoria_id, $article->sub_categoria_id);
-            print_r($background['main_background']);die();
+//            print_r($background['main_background']);die();
             return view($view)->with(array('article' => $article, 'main_background' => $background['main_background'],
                     'main_banner' => $main_banner, 'articles_related' => $articles_related, 'vertical_banner' => $vertical_banner));
         }
