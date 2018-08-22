@@ -137,6 +137,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // $("#at-share-dock").prependTo("#share");
+            var current_background = '{!! $main_background !!}';
+
+            $('body').css('background-image', 'url(' + current_background + ')');
             if ($(window).width() < 860) {
                 $('iframe, img').each(function () {
                     $(this).css('width', '100%');
