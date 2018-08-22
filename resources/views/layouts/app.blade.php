@@ -14,31 +14,58 @@
 
     <title>@yield('title')</title>
     <meta expr:content='@yield('title')' property='og:title'/>
-    <meta property="og:url" content="@yield('title')" />
-    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:url" content="@yield('title')"/>
+    <meta property="og:title" content="@yield('title')"/>
 
     <meta name="description" content="@yield('description')">
     <meta expr:content='@yield('description')' property='og:description'/>
-    <meta property="og:description" content="@yield('description')" />
+    <meta property="og:description" content="@yield('description')"/>
 
     <meta name="keywords" content="radiomia, mia937, radio mia fm, miaonline, mia937fm"/>
-    <meta property="og:image"content="@yield('og_image')"/>
-    <meta property="og:image:url"content="@yield('og_image')"/>
+    <meta property="og:image" content="@yield('og_image')"/>
+    <meta property="og:image:url" content="@yield('og_image')"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png">
 
     <meta name="google-site-verification" content="X_7cDsfIpb0qSHwcjhAwzWuoNd7RMDkHOytvUB9H5ps"/>
 
-    <meta name='description' itemprop='description' content='description...' />
-    <meta name='keywords' content='key1, key2, key3' />
-    <meta property='article:published_time' content='2015-01-31T20:30:11-02:00' />
-    <meta property='article:section' content='news' />
+    <meta name='description' itemprop='description' content='description...'/>
+    <meta name='keywords' content='key1, key2, key3'/>
+    <meta property='article:published_time' content='2015-01-31T20:30:11-02:00'/>
+    <meta property='article:section' content='news'/>
 
-    <meta property="og:type"content="article" />
-    <meta property="og:locale"content="es_gt" />
-    <meta property="og:site_name"content="mia" />
-    <meta property="og:image"content="https://picsum.photos/500/500" />
-    <meta property="og:image:url"content="https://picsum.photos/500/500" />
-    <meta property="og:image:size"content="300" />
+    <meta http-equiv="refresh" content="1;url=/2.110.2/static/unsupp.html"/>
+    <meta content="golf" name="section">
+    <meta name="referrer" content="unsafe-url">
+    <meta content="2018-08-21T11:26:41Z" property="og:pubdate">
+    <meta content="2018-08-21T11:26:41Z" name="pubdate">
+    <meta content="2018-08-21T11:26:41Z" name="lastmod">
+    <meta content="https://edition.cnn.com/2018/08/21/golf/bernhard-langer-golf-payne-stewart-award-spt-intl/index.html"
+          property="og:url">
+    <meta content="Bernhard Langer recognized with Payne Stewart Award" property="og:title">
+    <meta content="Bernhard Langer recognized with Payne Stewart Award" name="twitter:title">
+    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
+          property="og:description">
+    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
+          name="description">
+    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
+          name="twitter:description">
+    <meta content="golf, Bernhard Langer recognized with Payne Stewart Award - CNN" name="keywords">
+    <meta content="CNN" property="og:site_name">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="article" property="og:type">
+    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
+          property="og:image">
+    <meta content="1100" property="og:image:width">
+    <meta content="619" property="og:image:height">
+    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
+          name="thumbnail">
+    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
+          name="twitter:image">
+    <meta property="vr:canonical"
+          content="https://edition.cnn.com/2018/08/21/golf/bernhard-langer-golf-payne-stewart-award-spt-intl/index.html">
+    <meta content="80401312489" property="fb:app_id">
+    <meta content="5550296508,18793419640" property="fb:pages">
+    <meta name="template-top" content="golf,sport,bra-golf,art-gal">
 
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
@@ -66,8 +93,10 @@
 </div>
 <nav class="navbar navbar-toggleable-md navbar-mia">
     <div class="container px-5 ml-0 ml-sm-auto ml-md-auto ml-lg-auto flex-column">
-        <button class="ajax_link navbar-brand navbar-logo" data-logo-link="{{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }}" data-href="{{ route('home') }}"
-           style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></button>
+        <button class="ajax_link navbar-brand navbar-logo"
+                data-logo-link="{{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }}"
+                data-href="{{ route('home') }}"
+                style="background-image: url({{ env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo() }})"></button>
         <div class="collapse navbar-collapse hidden-sm-down align-items-center justify-content-center" id="mainnavbar">
             <ul class="navbar-nav">
                 @include('layouts.categories_menu')
@@ -111,7 +140,10 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-12">
                 <br>
-                <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary" href="https://elcaminoweb.com.gt" target="_blank">El Camino Web.</a></p>
+                <p class="ml-2">© 2018. 937 Radio. Todos los derechos reservados. by <a class="color-primary"
+                                                                                        href="https://elcaminoweb.com.gt"
+                                                                                        target="_blank">El Camino
+                        Web.</a></p>
             </div>
         </div>
     </div>
@@ -121,7 +153,11 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121085909-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'UA-121085909-1');
