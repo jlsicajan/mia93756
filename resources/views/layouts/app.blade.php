@@ -22,8 +22,8 @@
     <meta property="og:description" content="@yield('description')" />
 
     <meta name="keywords" content="radiomia, mia937, radio mia fm, miaonline, mia937fm"/>
-    <meta property="og:image" content="@yield('og_image')"/>
-    <meta property="og:image:url" content="@yield('og_image')"/>
+    <meta property="og:image"content="@yield('og_image')"/>
+    <meta property="og:image:url"content="@yield('og_image')"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png">
 
     <meta name="google-site-verification" content="X_7cDsfIpb0qSHwcjhAwzWuoNd7RMDkHOytvUB9H5ps"/>
@@ -33,12 +33,17 @@
     <meta property='article:published_time' content='2015-01-31T20:30:11-02:00' />
     <meta property='article:section' content='news' />
 
-    <meta property="og:url"content="http://mia937.com.gt" />
+    <meta property="og:description"content="description..." />
+    <meta property="og:title"content="Title" />
+    <meta property="og:url"content="http://current.url.com" />
     <meta property="og:type"content="article" />
-    <meta property="og:locale"content="es_gt" />
-    <meta property="og:locale:alternate"content="es_gt" />
-    <meta property="og:locale:alternate"content="es_gt" />
-    <meta property="og:site_name"content="mia" />
+    <meta property="og:locale"content="pt-br" />
+    <meta property="og:locale:alternate"content="pt-pt" />
+    <meta property="og:locale:alternate"content="en-us" />
+    <meta property="og:site_name"content="name" />
+    <meta property="og:image"content="https://picsum.photos/500/500" />
+    <meta property="og:image"content="https://picsum.photos/500/500" />
+    <meta property="og:image:url"content="https://picsum.photos/500/500" />
     <meta property="og:image:size"content="300" />
 
     <!-- Styles -->
