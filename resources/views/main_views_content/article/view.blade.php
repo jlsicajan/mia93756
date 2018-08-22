@@ -5,12 +5,22 @@
         <div class="col-12 col-sm-9 bg-white mia-shadow py-2">
             <h3 class="color-primary article_one_title" data-text="{{ $article['titulo'] }}">{{ $article['titulo'] }}</h3>
             <hr>
+
             @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
-                <img src="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+                <div class="img-clean-display img-cover"
+                     style="background-image: url('{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}')"></div>
             @else
-                <img src="{{ $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+                <div class="img-clean-display img-cover"
+                     style="background-image: url('{{ $article['imagen'] }}')"></div>
+            @endif
+
+            @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
+                <img style="display: none !important;" src="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+            @else
+                <img style="display: none !important;" src="{{ $article['imagen'] }}" alt="{{ $article['titulo'] }}">
 
             @endif
+
             @if(isset($article['codigo_api']) && !empty($article['codigo_api']))
                 <br>
                 <iframe class="embed-responsive-item img-clean-display" width="100%"
