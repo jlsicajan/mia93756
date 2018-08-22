@@ -121,6 +121,7 @@
             $('meta[property=\'og:description\']').attr('expr:content', meta_description);
 
             $('meta[property=\'og:image\']').attr('content', meta_image);
+            $('meta[property=\'og:image:url\']').attr('content', meta_image);
         });
 
     </script>
