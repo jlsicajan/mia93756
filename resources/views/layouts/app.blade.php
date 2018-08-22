@@ -28,44 +28,9 @@
 
     <meta name="google-site-verification" content="X_7cDsfIpb0qSHwcjhAwzWuoNd7RMDkHOytvUB9H5ps"/>
 
-    <meta name='description' itemprop='description' content='description...'/>
-    <meta name='keywords' content='key1, key2, key3'/>
-    <meta property='article:published_time' content='2015-01-31T20:30:11-02:00'/>
-    <meta property='article:section' content='news'/>
 
-    <meta http-equiv="refresh" content="1;url=/2.110.2/static/unsupp.html"/>
-    <meta content="golf" name="section">
-    <meta name="referrer" content="unsafe-url">
-    <meta content="2018-08-21T11:26:41Z" property="og:pubdate">
-    <meta content="2018-08-21T11:26:41Z" name="pubdate">
-    <meta content="2018-08-21T11:26:41Z" name="lastmod">
-    <meta content="https://edition.cnn.com/2018/08/21/golf/bernhard-langer-golf-payne-stewart-award-spt-intl/index.html"
-          property="og:url">
-    <meta content="Bernhard Langer recognized with Payne Stewart Award" property="og:title">
-    <meta content="Bernhard Langer recognized with Payne Stewart Award" name="twitter:title">
-    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
-          property="og:description">
-    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
-          name="description">
-    <meta content="He celebrates his 61st birthday next week, but golf great Bernhard Langer shows no signs of slowing down. "
-          name="twitter:description">
-    <meta content="golf, Bernhard Langer recognized with Payne Stewart Award - CNN" name="keywords">
-    <meta content="CNN" property="og:site_name">
-    <meta content="summary_large_image" name="twitter:card">
     <meta content="article" property="og:type">
-    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
-          property="og:image">
-    <meta content="1100" property="og:image:width">
-    <meta content="619" property="og:image:height">
-    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
-          name="thumbnail">
-    <meta content="https://cdn.cnn.com/cnnnext/dam/assets/180821111500-bernhard-langer-tease-super-tease.jpg"
-          name="twitter:image">
-    <meta property="vr:canonical"
-          content="https://edition.cnn.com/2018/08/21/golf/bernhard-langer-golf-payne-stewart-award-spt-intl/index.html">
-    <meta content="80401312489" property="fb:app_id">
-    <meta content="5550296508,18793419640" property="fb:pages">
-    <meta name="template-top" content="golf,sport,bra-golf,art-gal">
+    <meta content="@yield('og_image')" name="thumbnail">
 
     <!-- Styles -->
     <link href="/public/css/app.css" rel="stylesheet">
