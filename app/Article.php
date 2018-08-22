@@ -57,6 +57,20 @@ class Article extends Model {
         );
     }
 
+    public static function get_background_for_article($category, $subcategory){
+        $category_info = Category::find($category);
+
+        if($subcategory != 0){
+            $subcategory_info = SubCategory::find($subcategory);
+            $main_background = Article::get_company_path(empty($subcategory_info->fondo) ? $category_info->fondo : $subcategory_info->fondo);
+        }else{
+            //only category
+            $main_background = Article::get_company_path($category_info->fondo);
+        }
+
+        return array('main_background' => $main_background);
+    }
+
     public static function sanatize_articles($articles){
         $articles_sanatized = [];
         foreach($articles as $fix_article){

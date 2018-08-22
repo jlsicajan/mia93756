@@ -72,6 +72,7 @@ class HomeController extends Controller
 
     public function article_one($article_id, \Illuminate\Http\Request $request){
         $article = Article::findOrFail($article_id);
+
         if(empty($article)){
             print_r('Article not found');die();
         }else{
@@ -83,8 +84,9 @@ class HomeController extends Controller
                 ->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(3)->get()->toArray();
 
             $view = $request->ajax() ? 'main_views_content.article.view' : 'main_views.article.view';
-
-            return view($view)->with(array('article' => $article,
+            $background = Article::get_background_for_article($article->categoria_id, $article->sub_categoria_id);
+            print_r($background['main_background']);die();
+            return view($view)->with(array('article' => $article, 'main_background' => $background['main_background'],
                     'main_banner' => $main_banner, 'articles_related' => $articles_related, 'vertical_banner' => $vertical_banner));
         }
     }
