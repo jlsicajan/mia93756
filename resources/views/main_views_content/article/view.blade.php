@@ -112,6 +112,10 @@
     <script type="text/javascript">
         $(document).ready(function(){
             // $("#at-share-dock").prependTo("#share");
+            var current_background = '{!! $main_background !!}';
+
+            $('body').css('background-image', 'url(' + current_background + ')');
+
             if ($(window).width() < 860) {
                 $('iframe, img').each(function(){
                     $(this).css('width', '100%');
@@ -119,7 +123,7 @@
             }
 
             let meta_title = "{{ $article['titulo'] }}";
-            let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 140, $article['encriptado']), FILTER_SANITIZE_URL) }}";
+            let meta_description = "{{ filter_var(\App\Article::limit_words(strip_tags($article['texto_uno']), 40, $article['encriptado']), FILTER_SANITIZE_URL) }}";
             let meta_image = $('.article_one_image').attr('data-image-link');
 
             $('title').empty().html(meta_title);

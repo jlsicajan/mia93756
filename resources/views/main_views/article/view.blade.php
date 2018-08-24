@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $article['titulo'])
-@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 140, $article['encriptado']))
+@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 40, $article['encriptado']))
 @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
     @section('og_image', env('URL_ARTICLE_PATH') . $article['imagen'])
 @else

@@ -17,13 +17,10 @@
     <meta property="og:url" content="@yield('title')"/>
     <meta property="og:title" content="@yield('title')"/>
 
-    <meta name="description" content="@yield('description')">
-    <meta expr:content='@yield('description')' property='og:description'/>
     <meta property="og:description" content="@yield('description')"/>
 
     <meta name="keywords" content="radiomia, mia937, radio mia fm, miaonline, mia937fm"/>
     <meta property="og:image" content="@yield('og_image')"/>
-    <meta property="og:image:url" content="@yield('og_image')"/>
     <link rel="shortcut icon" type="image/x-icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png">
 
     <meta name="google-site-verification" content="X_7cDsfIpb0qSHwcjhAwzWuoNd7RMDkHOytvUB9H5ps"/>
