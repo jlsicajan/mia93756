@@ -38,6 +38,9 @@
                 <a href="{{ $article['url_click'] }}" target="_blank" class="btn btn-primary">Haz clic aquí</a>
             @endif
             <br>
+            @if(isset($article['autor']) && !empty($article['autor']))
+                <strong>Autor: {{ $article['autor'] }}</strong>
+            @endif
             <hr>
             <strong>Visitas: {{ $article['visitas'] }}</strong>
         </div>
