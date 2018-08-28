@@ -17,7 +17,7 @@ Route::get('/', function()
     return Redirect::route('home');
 });
 
-Route::get('/home', ['as'   => 'home', 'uses' => 'HomeController@index']);
+Route::get('/', ['as'   => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('/cine/', ['as'   => 'cinema', 'uses' => 'MainControllers\CinemaController@index']);
 
