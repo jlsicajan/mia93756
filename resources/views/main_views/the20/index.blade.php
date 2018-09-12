@@ -18,8 +18,7 @@
             @endif
 
             <div class="row">
-                <?php 
-                // 
+                <?php
                     $content = DB::table('empresa')->where('id', env("RADIO_ID"))->select('texto_multimedia')->first();
                 ?>
                 @if (!is_null($content) && $content->texto_multimedia != '')
