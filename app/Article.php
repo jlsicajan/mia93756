@@ -27,6 +27,7 @@ class Article extends Model {
             $subcategory_info = SubCategory::find($subcategory);
             $is_video = $subcategory_info->video;
             $path_info = $category_info->nombre . ' > ' . $subcategory_info->nombre;
+            $observations = $category_info->observaciones;
             $main_background = Article::get_company_path(empty($subcategory_info->fondo) ? $category_info->fondo : $subcategory_info->fondo);
             $main_banner = Article::get_banner_path(empty($subcategory_info->banner) ? $category_info->banner : $subcategory_info->banner);
             $hide_banner = $subcategory_info->oculta_banner;
@@ -35,6 +36,7 @@ class Article extends Model {
             //only category
             $is_video = $category_info->video;
             $path_info = $category_info->nombre;
+            $observations = $category_info->observaciones;
             $main_background = Article::get_company_path($category_info->fondo);
             $main_banner = Article::get_banner_path($category_info->banner);
             $hide_banner = $category_info->oculta_banner;
@@ -51,9 +53,14 @@ class Article extends Model {
         return array(
             'is_video' => $is_video,
             'content_count_pag' => count($content_paginated),
-            'content' => $content_paginated, 'main_background' => $main_background,
-            'main_banner' => $main_banner, 'path_info' => $path_info,
-            'hide_banner' => $hide_banner, 'redirect' => $redirect, 'main_elements' => $main_elements
+            'content' => $content_paginated,
+            'main_background' => $main_background,
+            'main_banner' => $main_banner,
+            'path_info' => $path_info,
+            'observations' => $observations,
+            'hide_banner' => $hide_banner,
+            'redirect' => $redirect,
+            'main_elements' => $main_elements
         );
     }
 

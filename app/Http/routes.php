@@ -42,3 +42,4 @@ Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' =
 
 Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
 //Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
+// Route::post('/');

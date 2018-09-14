@@ -9447,6 +9447,14 @@ html, body, h1, h2, h3, h4, h5, h6 {
 /*# sourceMappingURL=app.css.map */
 
 /* Rootcode */
+.spi {
+  padding-left: 0 !important;
+}
+
+.spd {
+  padding-right: 0 !important;
+}
+
 .txt-col-12 {
   padding: 8px !important;
 }
@@ -9462,4 +9470,12 @@ html, body, h1, h2, h3, h4, h5, h6 {
 .txt-big-mia h5 {
   height: 2em;
   padding: 10px;
+}
+
+/* Formulario */
+.form-mia-back {
+  margin-top: 15px;
+  background-color: #d2198b;
+  color: #fff;
+  padding: 20px;
 }
