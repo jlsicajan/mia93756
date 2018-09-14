@@ -118,6 +118,12 @@ body{
     color: #ffffff !important;
   }
 }
+
+.know_more_button{
+  position: absolute;
+  bottom: 20px;
+}
+
 //z-index
 .z-2{
   z-index: 3 !important;
@@ -125,6 +131,18 @@ body{
 
 .z-1{
   z-index: 3 !important;
+}
+
+.z-4{
+  z-index: 4 !important;
+}
+
+.z-5{
+  z-index: 5 !important;
+}
+
+.z-0{
+  z-index: 0 !important;
 }
 
 //Mobile changes
@@ -139,7 +157,7 @@ body{
       width: 65% !important;
     }
     .font_3{
-      font-size: 50px;
+      font-size: 35px;
     }
     .row{
       padding-left: 0;

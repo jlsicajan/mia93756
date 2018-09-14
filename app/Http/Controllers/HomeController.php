@@ -38,13 +38,15 @@ class HomeController extends Controller
     
     public function index(\Illuminate\Http\Request $request)
     {
-        $tell_me_more_category = Category::find(36)->first()->toArray();
-        $my_love = Category::find(39)->first()->toArray();
-        $healthy = Category::find(37)->first()->toArray();
 
-        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(6)->get()->toArray();
-        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(4)->get()->toArray();
-        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(4)->get()->toArray();
+        $tell_me_more_category = Category::where('id', '=', 36)->first()->toArray();
+        $my_love = Category::where('id', '=', 39)->first()->toArray();
+        $healthy = Category::where('id', '=', 37)->first()->toArray();
+
+
+        $tell_me_more_category['articles'] = Article::where('categoria_id', '=', $tell_me_more_category['id'])->select('id','titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(6)->get()->toArray();
+        $my_love['articles'] = Article::where('categoria_id', '=', $my_love['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(4)->get()->toArray();
+        $healthy['articles'] = Article::where('categoria_id', '=', $healthy['id'])->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(4)->get()->toArray();
 
         $home_categories = array(
             1 => $tell_me_more_category,
@@ -70,19 +72,22 @@ class HomeController extends Controller
 
     public function article_one($article_id, \Illuminate\Http\Request $request){
         $article = Article::findOrFail($article_id);
+
         if(empty($article)){
             print_r('Article not found');die();
         }else{
             $article->visitas = $article->visitas + 1;
             $article->save();
             $main_banner = Section::get_banner();
+            $vertical_banner = Section::get_article_vertical_banner();
             $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->where('id', '!=', $article->id)
-                ->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->limit(3)->get()->toArray();
+                ->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(3)->get()->toArray();
 
             $view = $request->ajax() ? 'main_views_content.article.view' : 'main_views.article.view';
-
-            return view($view)->with(array('article' => $article,
-                    'main_banner' => $main_banner, 'articles_related' => $articles_related));
+            $background = Article::get_background_for_article($article->categoria_id, $article->sub_categoria_id);
+//            print_r($background['main_background']);die();
+            return view($view)->with(array('article' => $article, 'main_background' => $background['main_background'],
+                    'main_banner' => $main_banner, 'articles_related' => $articles_related, 'vertical_banner' => $vertical_banner));
         }
     }
 
@@ -206,8 +211,10 @@ class HomeController extends Controller
             else{
                 // SI SON IGUALES
                 if( ($inicioMnr == $inicioMyr) && ($finMnr == $finMyr) ){
-                    $mensajePAAF = "Próximo programa";
-                    $tituloPAAF = $resultadoPAAMnr->Titulo;
+                      $mensajePAAF = "Próximo programa";
+ $mensajePAAF = "Al aire ahora";
+                  
+                     $tituloPAAF = $resultadoPAAMnr->Titulo;
                     $imagenPAAF = $resultadoPAAMnr->Imagen;
                     $inicioPAAF = $resultadoPAAMnr->inicio;
                     $finPAAF = $resultadoPAAMnr->fin;
@@ -224,6 +231,8 @@ class HomeController extends Controller
                 }
                 else{
                     $mensajePAAF = "Próximo programa";
+ $mensajePAAF = "Al aire ahora";
+
                     $tituloPAAF = $resultadoPAAMyr->Titulo;
                     $imagenPAAF = $resultadoPAAMyr->Imagen;
                     $inicioPAAF = $resultadoPAAMyr->inicio;
@@ -242,7 +251,7 @@ class HomeController extends Controller
         $resultadoDDPs = DB::select($diasDeProgramacionS);
         $result = [];
         foreach($resultadoDDPs AS $datosDDPs){
-            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
+            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.imagen_dos AS Imagen_dos, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
             $resultadoPPD = DB::select($programacionPorDia);
 
             if($datosDDPs->id_php == date('N')){

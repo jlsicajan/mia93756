@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('title', $article['titulo'])
+@section('description', \App\Article::limit_words(strip_tags($article['texto_uno']), 40, $article['encriptado']))
+@if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
+    @section('og_image', env('URL_ARTICLE_PATH') . $article['imagen'])
+@else
+    @section('og_image', $article['imagen'])
+@endif
 @section('head')
 @endsection
 
@@ -19,13 +26,35 @@
                         <div class="img-clean-display img-cover"
                              style="background-image: url('{{ $article['imagen'] }}')"></div>
                     @endif
+
+                    @if((substr($article['imagen'], 0, 3) != 'htt') && (substr($article['imagen'], 0, 2) != '//'))
+                        <img style="display: none !important;" src="{{ env('URL_ARTICLE_PATH') . $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+                    @else
+                        <img style="display: none !important;" src="{{ $article['imagen'] }}" alt="{{ $article['titulo'] }}">
+
+                    @endif
                     @if(isset($article['codigo_api']) && !empty($article['codigo_api']))
                         <br>
                         <iframe class="embed-responsive-item img-clean-display" width="100%"
                                 src="{{ str_replace(array('https://youtu.be/', 'https://www.youtube.com/watch?v='), 'https://youtube.be/embed/', $article['codigo_api']) }}?rel=0&autoplay=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=0"
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     @endif
-                    <p>{!! $article['texto_uno'] !!}</p>
+
+                    @if($article['id'] == 606)
+                        @include('main_views.article.606')
+                    @else
+                        <p>{!! \App\Article::check_encryption($article['texto_uno'], $article['encriptado']) !!}</p>
+                    @endif
+
+                    @if(!empty($article['url_click']))
+                        <a href="{{ $article['url_click'] }}" target="_blank" class="btn btn-primary">Haz clic aquí</a>
+                    @endif
+                    <br>
+
+                    @if(isset($article['autor']) && !empty($article['autor']))
+                        <strong>Autor: {{ $article['autor'] }}</strong>
+                    @endif
+                    <hr>
                     <strong>Visitas: {{ $article['visitas'] }}</strong>
                 </div>
                 <div class="col-12 col-sm-3">
@@ -40,7 +69,7 @@
                             <a class="addthis_button_whatsapp cursor-pointer"></a>
                         </div>
                     </div>
-                    <div class="bg-grid-default" style="height: 99%"></div>
+                    <div class="img-cover h-available" style="background-image: url('{{ $vertical_banner['route'] }}');"></div>
                 </div>
             </div>
             <hr>
@@ -64,7 +93,7 @@
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article_related['fecha'] }}</p>
                                     <p class="title font-weight-bold text-left">{{ $article_related['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35, $article_related['encriptado']) }}
                                         ...</p>
                                 </div>
                             </div>
@@ -75,7 +104,9 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <div id="fb-comments" class="fb-comments" data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%" data-numposts="5"></div>
+                    <div id="fb-comments" class="fb-comments"
+                         data-href="http://mia937.elcaminoweb.com/articulo/{{ $article['id'] }}" data-width="100%"
+                         data-numposts="5"></div>
                 </div>
             </div>
         </div>
@@ -98,10 +129,11 @@
         }
     </style>
     <script>
-        (function(d, s, id) {
+        (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0&appId=1765073390470250&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
@@ -109,6 +141,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // $("#at-share-dock").prependTo("#share");
+            var current_background = '{!! $main_background !!}';
+
+            $('body').css('background-image', 'url(' + current_background + ')');
             if ($(window).width() < 860) {
                 $('iframe, img').each(function () {
                     $(this).css('width', '100%');

@@ -34,6 +34,27 @@ class Section extends Model {
 
     }
 
+    public static function get_article_vertical_banner(){
+        $vertical_banner = Section::where('nombre', '=', 'Banner vertical')->first();
+        $vertical_banner_paths = array();
+
+        if($vertical_banner){
+            $route_banner = Slide::where('id_tabla', '=', $vertical_banner->id)->get()->toArray();
+            if(count($route_banner) > 0){
+                foreach($route_banner as $banner){
+                    $banner_path = env('URL_SLIDE_PATH')  . $banner['identificador'] . '/' . filter_var($banner['nombre'], FILTER_SANITIZE_ENCODED);
+                    array_push($vertical_banner_paths, array('route' => $banner_path, 'data' => $banner));
+                }
+            }else{
+                array_push($vertical_banner_paths, array('route' => '/public/img/header/mia_header.png', 'data' => ''));
+            }
+        }else{
+            array_push($vertical_banner_paths, array('route' => '/public/img/header/mia_header.png', 'data' => ''));
+        }
+//        Return random image
+        return $vertical_banner_paths[array_rand($vertical_banner_paths)];
+    }
+
     public static function get_background(){
         $section_background = Section::where('nombre', '=', 'background')->first();
         $route_background = Slide::where('id_tabla', '=', $section_background->id)->first()->toArray();
@@ -43,7 +64,7 @@ class Section extends Model {
     }
 
     public static function get_the20_background(){
-        $section_background = Section::where('nombre', '=', 'cuentame_mas')->first();
+        $section_background = Section::where('nombre', 'like', '%' . 'cantando' . '%')->first();
         $route_background = Slide::where('id_tabla', '=', $section_background->id)->first()->toArray();
         $background_path = env('URL_SLIDE_PATH')  . $route_background['identificador'] . '/' . filter_var($route_background['nombre'], FILTER_SANITIZE_ENCODED);
 
@@ -51,7 +72,7 @@ class Section extends Model {
     }
     
     public static function get_the20_url(){
-        $section_background = Section::where('nombre', '=', 'cuentame_mas')->first();
+        $section_background = Section::where('nombre', 'like',  '%' . 'cantando' . '%')->first();
         $slide_info = Slide::where('id_tabla', '=', $section_background->id)->first()->toArray();
         return $slide_info['link'];
     }

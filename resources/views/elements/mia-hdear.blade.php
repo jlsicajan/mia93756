@@ -16,15 +16,15 @@
                 <div id="carousel_main_banner" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         @foreach($main_banner as $index => $banner)
-                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <div class="carousel-item z-4 {{ $index == 0 ? 'active' : '' }}">
                                 {{--check if is main banner, to set text on the banner--}}
                                 @if(isset($banner['route']))
                                     <div class="d-flex flex-column align-items-center justify-content-center mia-header" style="background-image: url({{ $banner['route'] }});">
-                                        <h3 class="color-white font_3">{{ $banner['data']['texto_1'] }}</h3>
-                                        <h4 class="color-white text-muted font_3">{{ $banner['data']['texto_1'] }}</h4>
+                                        <h4 style="color: {{ isset($banner['data']['color']) ? $banner['data']['color'] : 'black' }} !important;" class="font_3 text-center">{{ $banner['data']['texto_1'] }}</h4>
+                                        <h4 style="color: {{ isset($banner['data']['color']) ? $banner['data']['color'] : 'black' }} !important;">{{ $banner['data']['texto_2'] }}</h4>
                                         <hr>
-                                        @if(!empty($banner['data']['click']))
-                                            <a href="{{ $banner['data']['click'] }}" class="btn btn-outline-info">Ver mas</a>
+                                        @if(isset($banner['data']['link']) && !empty($banner['data']['link']))
+                                            <button data-href="{{ $banner['data']['link'] }}" class="ajax_link_no_style know_more_button btn btn-primary z-4 cursor-pointer">Conoce más</button>
                                         @endif
                                     </div>
                                 @else
@@ -35,11 +35,11 @@
                         @endforeach
                     </div>
                     @if(count($main_banner) > 1)
-                        <a class="carousel-control-prev" href="#carousel_main_banner" role="button" data-slide="prev">
+                        <a class="carousel-control-prev z-4" href="#carousel_main_banner" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Anterior</span>
                         </a>
-                        <a class="carousel-control-next" href="#carousel_main_banner" role="button" data-slide="next">
+                        <a class="carousel-control-next z-4" href="#carousel_main_banner" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Siguiente</span>
                         </a>

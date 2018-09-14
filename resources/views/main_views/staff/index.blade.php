@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'mia 93.7 el equipo')
+@section('description', 'mia 93.7 conoce al equipo')
+@section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
+
 @section('content')
     <div class="main_content_container">
         @if(!$hide_banner)
@@ -29,7 +33,7 @@
                         <div class="modal-body">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>

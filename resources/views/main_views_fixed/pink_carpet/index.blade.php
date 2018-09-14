@@ -26,7 +26,7 @@
                                 <div class="col-12 p-2 mt-2">
                                     <p class="date text-muted text-left">{{ $article_gthoy['fecha'] }}</p>
                                     <p class="title font-weight-bold text-left">{{ $article_gthoy['titulo'] }}</p>
-                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_gthoy['texto_uno']), 35) }} ...</p>
+                                    <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_gthoy['texto_uno']), 35, $article_gthoy['encriptado']) }} ...</p>
                                 </div>
                             </div>
                         </button>

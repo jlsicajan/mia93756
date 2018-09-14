@@ -31,7 +31,7 @@
                         <div class="col-12 p-2 mt-2">
                             <p class="date text-muted text-left">{{ $article_related['fecha'] }}</p>
                             <p class="title font-weight-bold text-left">{{ $article_related['titulo'] }}</p>
-                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35) }}
+                            <p class="description text-muted text-left">{{ \App\Article::limit_words(strip_tags($article_related['texto_uno']), 35, $article_related['encriptado']) }}
                                 ...</p>
                         </div>
                     </div>

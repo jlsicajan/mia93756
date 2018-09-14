@@ -5,7 +5,7 @@
         </div>
         <div class="d-flex flex-column justify-content-center col-6 h-100 live_show_description">
             <span class="color-white bg-black display-4 text-uppercase paff_message">{{ $live_now['PAFF_message'] }}</span>
-            <h5 class="color-white paff_title">{{ $live_now['PAFF_titulo'] }}</h5>
+            <h5 class="color-white paff_title" style="font-size: 17px !important;">{{ $live_now['PAFF_titulo'] }}</h5>
             <p class="color-white paff_time">{{ $live_now['PAFF_start'] . ' - ' . $live_now['PAFF_end'] }}</p>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
     .paff_message{
         font-family: Arial;
-        font-size: 28px;
+        font-size: 26px;
         margin-left: -41px; /* quick solution :c*/
         padding-left: 20px;
     }

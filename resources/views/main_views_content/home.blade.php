@@ -4,7 +4,7 @@
 
 <link href="public/css/elements/week_shows.css" rel="stylesheet">
 <div class="container">
-    @include('elements.for_grid.space_block_header', ['classes' => ''])
+    @include('elements.for_grid.space_block_header', ['classes' => 'z-0'])
 
     <div class="row">
         <div class="col-12 col-md-6 py-md-4 pd-2rem">
@@ -12,7 +12,7 @@
             @include('elements.section.card-left', ['background_url' => $to_20_background, 'link' => $to_20_url])
         </div>
         <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-            @include("elements.for_grid.iframe", ['iframe_url' => ''])
+            @include("elements.for_grid.iframe", ['iframe_url' => '', 'gradient' => 1])
         </div>
     </div>
 
@@ -78,6 +78,25 @@
 
     }
 </style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')')
+
+        let meta_title = 'mia 93.7';
+        let meta_description = 'mia 93.7 escucha tu corazón';
+        let meta_image = $('.navbar-logo').attr('data-logo-link');
+
+        $('title').empty().text(meta_title);
+        $('meta[property=\'og:title\']').attr('content', meta_title);
+
+        $('meta[name=description]').attr('content', meta_description);
+        $('meta[property=\'og:description\']').attr('content', meta_description);
+
+        $('meta[property=\'og:image\']').attr('content', meta_image);
+    });
+</script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="/public/js/main_views/programmation/app.js"></script>
 <script src="/public/js/nav_movements.js"></script>

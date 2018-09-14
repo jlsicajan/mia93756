@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'mia 93.7 ' . $content['path_info'])
+@section('description', 'mia 93.7 ' . $content['path_info'] )
+@section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
+
 @section('head')
 @endsection
 
@@ -14,22 +18,20 @@
             @else
                 @include('elements.for_grid.space_block_header', ['classes' => ''])
             @endif
-            <div class="row mb-5">
-                <div class="col-12 content_title_container">
-                    <h2 class="font_7 content_title">{{ $content['path_info'] }}</h2>
-                </div>
-            </div>
             @if(isset($content['main_elements']))
                 @if($content['main_elements']['instagram'])
                     <div class="row">
-                        <div class="col-12 col-md-6">
-                            @include("elements.for_grid.iframe")
+                        <div class="col-12 col-md-6 row">
+                            <div class="col-12">
+                                @include("elements.for_grid.iframe", ['gradient' => 1])
+                            </div>
+                            <div class="col-12">
+                                @include("elements.for_grid.twitter_iframe", ['gradient' => 1])
+                            </div>
                         </div>
+
                         <div class="col-12 col-md-6">
-                            @include("elements.for_grid.fb_iframe")
-                        </div>
-                        <div class="col-12 col-md-6">
-                            @include("elements.for_grid.twitter_iframe")
+                            @include("elements.for_grid.fb_iframe", ['gradient' => 1])
                         </div>
                     </div>
                 @endif
@@ -44,9 +46,9 @@
                                     <div class="col-12 multiple_article img-cover"
                                          style="background-image: url('{{ $article['imagen'] }}')"></div>
                                     <div class="col-12 p-2 mt-2">
-                                        <p class="date text-muted text-left">{{ $article['fecha'] }}</p>
-                                        <p class="title font-weight-bold text-left">{{ $article['titulo'] }}</p>
-                                        <p class="description text-muted text-left">{{ $article['texto_uno'] }}...</p>
+                                        <p class="date text-muted text-left">{{ date('d M, Y', strtotime($article['fecha'])) }}</p>
+                                        <p class="title font-weight-bold text-left cursor-pointer">{{ $article['titulo'] }}</p>
+                                        <p class="description text-muted text-left cursor-pointer">{{ $article['texto_uno'] }}...</p>
                                     </div>
                                 </div>
                             </button>

@@ -7,7 +7,7 @@
 		@endif
 	</div>
 	<div class="grid-block-sm bg-grid-default col-12 d-flex align-items-center justify-content-around">
-		<audio autoplay id="live_player"><source src="http://96.127.183.74:8612/live" type="audio/mp3">Your browser does not support the audio element.</audio>
+		<audio autoplay id="live_player"><source src="" type="audio/mp3">Your browser does not support the audio element.</audio>
 
 			<button class="play_button" type="button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button> 
 			<button class="vol_down" onclick="document.getElementById('live_player').volume -= 0.1">Vol - </button> 

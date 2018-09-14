@@ -8,6 +8,7 @@
             @include('elements.for_grid.middle_space_block', ['classes' => ''])
             @include('elements.for_grid.middle_space_block', ['classes' => 'hidden-sm-down'])
 
+            
             <div class="row justify-content-center">
                 @foreach($the20 as $plus)
                     @if(!empty($plus['audio']) && !empty($plus['imagen']))

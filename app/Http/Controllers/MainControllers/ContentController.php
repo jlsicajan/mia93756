@@ -35,14 +35,14 @@ class ContentController extends Controller {
             if(!empty($content['redirect'])){
                 $view_data = $this->where_to_redirect($content, $request);
                 
-                return view($view_data['view'])->with($view_data['data']);
+                return view($view_data['view'])->with($view_data['data'])->with(array('main_background' => $content['main_background']));
             }else{
                 if($content['is_video']){
                     $view = $request->ajax() ? 'main_views_content.content.view_video' : 'main_views.content.view_video';
                 }else{
                     $view = $request->ajax() ? 'main_views_content.content.view' : 'main_views.content.view';
                 }
-                return view($view)->with(array('content' => $content));
+                return view($view)->with(array('content' => $content, 'main_background' => $content['main_background']));
             }
         }
     }
@@ -74,7 +74,8 @@ class ContentController extends Controller {
             'news' => $news,
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
-            'hide_banner' => $content['hide_banner']);
+            'hide_banner' => $content['hide_banner']
+        );
 
         if ($request->ajax()) {
             $result = array('view' => 'main_views_content.programmation.index', 'data' => $content_for_view);
@@ -103,7 +104,7 @@ class ContentController extends Controller {
     }
 
     public function pinkCarpetPage($request, $content){
-        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno')->orderBy('fecha', 'DESC')->get()->toArray();
+        $articles_gthoy = Article::where('autor', '=', 'Gthoy')->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->get()->toArray();
 
         $articles_gthoy = Article::sanatize_articles($articles_gthoy);
 
@@ -290,7 +291,7 @@ class ContentController extends Controller {
         $resultadoDDPs = DB::select($diasDeProgramacionS);
         $result = [];
         foreach($resultadoDDPs AS $datosDDPs){
-            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
+            $programacionPorDia="SELECT PON.*, PMA.titulo AS Titulo, PMA.imagen AS Imagen, PMA.imagen_dos AS Imagen_dos, PMA.contenido AS Contenido FROM programacion PON INNER JOIN programa PMA ON PON.programa_id = PMA.id WHERE PON.activo = 1 AND PON.empresa_id = " . $empresa_id . " AND PON.dia_id = " . $datosDDPs->id . " ORDER BY concat(length(trim(PON.inicio_formato)), PON.inicio_formato) ASC";
             $resultadoPPD = DB::select($programacionPorDia);
 
             if($datosDDPs->id_php == date('N')){

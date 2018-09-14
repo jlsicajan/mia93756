@@ -8769,11 +8769,24 @@ body {
   .mia-page-item.active .mia-page-link {
     color: #ffffff !important; }
 
+.know_more_button {
+  position: absolute;
+  bottom: 20px; }
+
 .z-2 {
   z-index: 3 !important; }
 
 .z-1 {
   z-index: 3 !important; }
+
+.z-4 {
+  z-index: 4 !important; }
+
+.z-5 {
+  z-index: 5 !important; }
+
+.z-0 {
+  z-index: 0 !important; }
 
 @media (max-width: 575px) {
   .img-clean-display {
@@ -8783,7 +8796,7 @@ body {
     .mia-header .title-container {
       width: 65% !important; }
     .mia-header .font_3 {
-      font-size: 50px; }
+      font-size: 35px; }
     .mia-header .row {
       padding-left: 0; }
   .wxs-100 {
@@ -8936,13 +8949,13 @@ footer {
 
 @font-face {
   font-family: ReklameScript-Regular;
-  src: url("/public/custom-fonts/ReklameScript-Regular.otf") format("opentype"); }
+  src: url("/public/custom-fonts/Cocogoose_Pro_Semilight-trial.ttf") format("opentype"); }
 
 .font_3 {
   font-family: ReklameScript-Regular;
   font-style: normal;
   font-variant: normal;
-  font-size: 68px;
+  font-size: 45px;
   line-height: 1em;
   letter-spacing: 3px; }
 
@@ -8992,6 +9005,14 @@ footer {
 .px-6rem {
   padding-right: 6rem !important;
   padding-left: 6rem !important; }
+
+.h-available {
+  height: 100%;
+  height: -moz-available;
+  /* WebKit-based browsers will ignore this. */
+  height: -webkit-fill-available;
+  /* Mozilla-based browsers will ignore this. */
+  height: fill-available; }
 
 .grid-block, .element-block {
   height: 755px;
@@ -9393,7 +9414,52 @@ html, body, h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
 * {
-  font-family: normal normal normal 13px/1.4em Arial,'ｍｓ ｐゴシック','ms pgothic','돋움',dotum,helvetica,sans-serif;
+  font-family: normal normal normal 13px/1.4em Arial, 'ｍｓ ｐゴシック', 'ms pgothic', '돋움', dotum, helvetica, sans-serif;
   font-weight: 100; }
 
+.modal-content {
+  border: none !important;
+  border-radius: unset !important; }
+
+.modal-header {
+  border-bottom: none !important;
+  padding: 25px !important;
+  background-color: #FF40A3 !important; }
+  .modal-header .close {
+    font-size: 2.0rem !important;
+    opacity: unset;
+    color: white;
+    top: -15px;
+    position: absolute;
+    right: -10px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50% !important;
+    border: 3px solid white;
+    background-color: black !important; }
+
+.modal-body {
+  padding: 30px !important; }
+
+.modal-footer {
+  border-top: none !important; }
+
 /*# sourceMappingURL=app.css.map */
+
+/* Rootcode */
+.txt-col-12 {
+  padding: 8px !important;
+}
+
+.txt-big-mia {
+  background-color: #d2198b;
+  color: #fff;
+  line-height: 16px;
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
+.txt-big-mia h5 {
+  height: 2em;
+  padding: 10px;
+}

@@ -19,6 +19,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')');
+    });
+</script>
 <script src="/public/js/nav_movements.js"></script>
 <style type="text/css">
     .movie_image {

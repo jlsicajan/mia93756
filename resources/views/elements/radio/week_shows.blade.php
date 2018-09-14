@@ -32,7 +32,7 @@
                                 <p class="card-text color-white font_9"> {{ $show_of_the_day->inicio . ' - ' . $show_of_the_day->fin}}</p>
                                 <button type="button" data-toggle="modal" data-target="#week_show_modal"
                                         data-main-position="{{ $index_main }}" data-show-position="{{ $index_shows }}"
-                                        class="btn btn-primary more_info_week_shows">Ver mas
+                                        class="btn btn-primary more_info_week_shows">Ver más
                                 </button>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
 </div>
 <script type="text/javascript">
     $('#select_day').on('change', function() {
-        alert( this.value );
+        // alert( this.value );
         $('.tab-pane').removeClass('active');
         $('#' + this.value).removeClass('fade').addClass('active');
     })

@@ -25,7 +25,7 @@ class Category extends Model {
     }
 
     public static  function list_for_menu(){
-        $categories_list = Category::with('subcategories')->orderBy('orden', 'ASC')->get()->toArray();
+        $categories_list = Category::with('subcategories')->where('activo', '=', 1)->orderBy('orden', 'ASC')->get()->toArray();
         return $categories_list;
     }
 }

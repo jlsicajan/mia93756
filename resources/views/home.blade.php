@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'mia 93.7')
+@section('description', 'mia 93.7 escucha tu corazón')
+@section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
+
 @section('head')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 @endsection
@@ -8,7 +12,7 @@
     <div class="main_content_container">
         @include('elements.mia-hdear', ['main_banner', $main_banner])
         <div class="container">
-            @include('elements.for_grid.space_block_header', ['classes' => ''])
+            @include('elements.for_grid.space_block_header', ['classes' => 'z-0'])
 
             <div class="row">
                 <div class="col-12 col-md-6 py-md-4 pd-2rem">
@@ -16,7 +20,7 @@
                     @include('elements.section.card-left', ['background_url' => $to_20_background, 'link' => $to_20_url])
                 </div>
                 <div class="col-12 col-md-6 py-md-4 right-grid-resize">
-                    @include("elements.for_grid.iframe")
+                    @include("elements.for_grid.iframe", ['gradient' => 1])
                 </div>
             </div>
 
@@ -73,13 +77,13 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"></h4>
+                    <h4 class="modal-title color-primary"></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -88,17 +92,10 @@
         var week_shows = {!! json_encode($week_programation) !!};
         $(document).ready(function(){
             $('.more_info_week_shows').unbind('click').click(function(){
-                let main_position = $(this).attr('data-main-position');
-                let show_position = $(this).attr('data-show-position');
-                let time_slot = week_shows[main_position][3][show_position]['inicio'] + ' - ' + week_shows[main_position][3][show_position]['fin'];
-                $('#week_show_modal .modal-title').empty().html(week_shows[main_position][3][show_position]['Titulo'] + ' ' + time_slot);
-                $('#week_show_modal .modal-body').empty().html(week_shows[main_position][3][show_position]['Contenido']);
-                console.log(main_position);
-                console.log(show_position);
-                console.log(week_shows[main_position][3][show_position]);
             });
         });
     </script>
+    <script src="/public/js/main_views/programmation/app.js"></script>
 @endsection
 
 @section('scripts')

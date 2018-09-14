@@ -26,13 +26,30 @@
             <div class="modal-body">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     var week_shows = {!! json_encode($week_programation) !!};
+    $(document).ready(function () {
+        console.log('all ready');
+        var current_background = '{!! $main_background !!}';
+        $('body').css('background-image', 'url(' + current_background + ')');
+        let meta_title = 'mia 93.7 Programación';
+        let meta_description = 'mia 93.7 ' . meta_title;
+        let meta_image = $('.navbar-logo').attr('data-logo-link');
+
+        $('title').empty().text(meta_title);
+        $('meta[property=\'og:title\']').attr('content', meta_title);
+
+        $('meta[name=description]').attr('content', meta_description);
+        $('meta[property=\'og:description\']').attr('content', meta_description);
+
+        $('meta[property=\'og:image\']').attr('content', meta_image);
+    });
 </script>
 <script src="/public/js/main_views/programmation/app.js"></script>
 <script src="/public/js/nav_movements.js"></script>
