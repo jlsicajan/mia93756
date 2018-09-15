@@ -39,45 +39,50 @@ class FormularioController extends Controller {
 	public function store(Request $request, $category)
 	{		
 			//Imagen
-			if ($request->hasFile('foto')) {
-					$foto = $request->file('foto');
-					$random = str_random(10); 
-					$filename = $random .".". $foto->getClientOriginalExtension();
-					$image = Image::make($foto->getRealPath());
+			$registro = Formulario::where('correo_electronico',$request->email)->first();
 
-					$urlimagen = $filename;
-
-					$path = public_path('uploads/bodasmia/');
-					$image->save(public_path($path . $filename));
+			if ($registro) {
+					return "Usted ya llenó el formulario una vez";
+			} else {
+					if ($request->hasFile('foto')) {
+							$foto = $request->file('foto');
+							$random = str_random(10); 
+							$filename = $random .".". $foto->getClientOriginalExtension();
+							$image = Image::make($foto->getRealPath());
+		
+							$urlimagen = $filename;
+		
+							$image->save(public_path('uploads/bodasmia/'.$filename));
+							
+					} else {
+							$foto = '';
+							$urlimagen = '';
+					}
+		
+					//Si viene vacía la historia
+					if ($request->historia == '') {
+						$mihistoria = '';
+					} else {
+						$mihistoria = $request->historia;
+					}
 					
-			} else {
-					$foto = '';
-					$urlimagen = '';
+		
+					DB::table('formulario')->insert([
+							'categoria_id' => $category,
+							'tipo' => 'BodaMIa',
+							'ano' => date("Y"),
+							'nombre_completo' => $request->nombre_completo,
+							'nombre_secundario' => $request->nombre_secundario,
+							'telefono' => $request->telefono,
+							'correo_electronico' => $request->email,
+							'historia' => $mihistoria,
+							'url_foto' => $urlimagen,
+							'fecha_creacion' => date("Y-m-d H:i:s"),
+							'empresa_id' => env("RADIO_ID"),
+					]);
+					
+					Redirect::route('home');
 			}
-
-			//Si viene vacía la historia
-			if ($request->historia == '') {
-				$mihistoria = '';
-			} else {
-				$mihistoria = $request->historia;
-			}
-			
-
-			DB::table('formulario')->insert([
-					'categoria_id' => $category,
-					'tipo' => 'BodaMIa',
-					'ano' => date("Y"),
-					'nombre_completo' => $request->nombre_completo,
-					'nombre_secundario' => $request->nombre_secundario,
-					'telefono' => $request->telefono,
-					'correo_electronico' => $request->email,
-					'historia' => $mihistoria,
-					'url_foto' => $urlimagen,
-					'fecha_creacion' => date("Y-m-d H:i:s"),
-					'empresa_id' => env("RADIO_ID"),
-			]);
-			
-			Redirect::route('home');
 	}
 
 	/**
