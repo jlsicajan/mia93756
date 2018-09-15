@@ -58,6 +58,7 @@ class Article extends Model {
             'main_banner' => $main_banner,
             'path_info' => $path_info,
             'observations' => $observations,
+            'category' => $category,
             'hide_banner' => $hide_banner,
             'redirect' => $redirect,
             'main_elements' => $main_elements

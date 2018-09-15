@@ -140,6 +140,7 @@ class ContentController extends Controller {
     public function formularioMia($request, $content){
         $view = $request->ajax() ? 'main_views_content.forms.index' : 'main_views.forms.index';
         $content_for_view = array(
+            'category' => $content['category'],
             'observations' => $content['observations'],
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
