@@ -36,19 +36,19 @@
                     <input type="hidden" name="_token" value="{{ $category }}">
                     <div class="form-group">
                         <label for="nombre_completo">Nombre Completo</label>
-                        <input type="text" class="form-control" name="nombre_completo" id="nombre_completo" placeholder="Nombre completo...">
+                        <input type="text" class="form-control" name="nombre_completo" id="nombre_completo" placeholder="Nombre completo..." required>
                     </div>
                     <div class="form-group">
                         <label for="nombre_secundario">Nombre de la pareja</label>
-                        <input type="text" class="form-control" name="nombre_secundario" id="nombre_secundario" placeholder="Nombre completo de la pareja...">
+                        <input type="text" class="form-control" name="nombre_secundario" id="nombre_secundario" placeholder="Nombre completo de la pareja..." required>
                     </div>
                     <div class="form-group">
                         <label for="telefono">No. de Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="0000-0000">
+                        <input type="text" class="form-control" name="telefono" id="telefono" placeholder="0000-0000" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com" required>
                     </div>
                     <div class="form-group">
                         <label for="historia">Cuéntanos tu historia: </label>

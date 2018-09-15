@@ -36,7 +36,6 @@ class FormularioController extends Controller {
 	 */
 	public function store(Request $request, $category)
 	{
-		// return $request->nombre_completo;
 		DB::table('formulario')->insert([
 			'categoria_id' => $category,
 			'tipo' => 'BodaMIa',
@@ -47,7 +46,7 @@ class FormularioController extends Controller {
 			'correo_electronico' => $request->email,
 			'historia' => $request->historia,
 			'url_foto' => '',
-			'fecha_creacion' => "2018-09-14 16:00:00",
+			'fecha_creacion' => date("Y-m-d H:i:s"),
 			'empresa_id' => env("RADIO_ID"),
 		]);
 		
