@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Formulario;
+use Image;
 
 class FormularioController extends Controller {
 
@@ -35,21 +37,47 @@ class FormularioController extends Controller {
 	 * @return Response
 	 */
 	public function store(Request $request, $category)
-	{
-		DB::table('formulario')->insert([
-			'categoria_id' => $category,
-			'tipo' => 'BodaMIa',
-			'ano' => date("Y"),
-			'nombre_completo' => $request->nombre_completo,
-			'nombre_secundario' => $request->nombre_secundario,
-			'telefono' => $request->telefono,
-			'correo_electronico' => $request->email,
-			'historia' => $request->historia,
-			'url_foto' => '',
-			'fecha_creacion' => date("Y-m-d H:i:s"),
-			'empresa_id' => env("RADIO_ID"),
-		]);
-		
+	{		
+			//Imagen
+			if ($request->hasFile('foto')) {
+					$foto = $request->file('foto');
+					$random = str_random(10); 
+					$filename = $random .".". $foto->getClientOriginalExtension();
+					$image = Image::make($foto->getRealPath());
+
+					$urlimagen = $filename;
+
+					$path = public_path('uploads/bodasmia/');
+					$image->save(public_path($path . $filename));
+					
+			} else {
+					$foto = '';
+					$urlimagen = '';
+			}
+
+			//Si viene vacía la historia
+			if ($request->historia == '') {
+				$mihistoria = '';
+			} else {
+				$mihistoria = $request->historia;
+			}
+			
+
+			DB::table('formulario')->insert([
+					'categoria_id' => $category,
+					'tipo' => 'BodaMIa',
+					'ano' => date("Y"),
+					'nombre_completo' => $request->nombre_completo,
+					'nombre_secundario' => $request->nombre_secundario,
+					'telefono' => $request->telefono,
+					'correo_electronico' => $request->email,
+					'historia' => $mihistoria,
+					'url_foto' => $urlimagen,
+					'fecha_creacion' => date("Y-m-d H:i:s"),
+					'empresa_id' => env("RADIO_ID"),
+			]);
+			
+			Redirect::route('home');
 	}
 
 	/**

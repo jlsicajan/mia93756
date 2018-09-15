@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="historia">Cuéntanos tu historia: </label>
-                        <textarea type="text" rows="5" class="form-control" name="historia" id="historia"></textarea>
+                        <textarea type="text" rows="5" class="form-control" name="historia" id="historia" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="foto">Foto</label>
