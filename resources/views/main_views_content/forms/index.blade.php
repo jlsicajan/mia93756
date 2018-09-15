@@ -48,9 +48,9 @@
             </div>
             <div class="form-group">
                 <label for="foto">Foto</label>
-                <input type="file" class="form-control" name="foto">
+                <input type="file" class="form-control" name="foto" id="foto">
             </div>
-            
+
             <button type="submit" class="btn btn-secondary">Enviar</button>
         </form>
     </div>
