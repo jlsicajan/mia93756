@@ -1,0 +1,20 @@
+[26-May-2018 11:56:58 America/Guatemala] PHP Fatal error:  Class 'App\Http\Controllers\MainControllers\Redirect' not found in /home/mia937elcaminowe/public_html/app/Http/Controllers/MainControllers/PinkCarpetController.php on line 28
+[26-May-2018 11:56:59 America/Guatemala] PHP Fatal error:  Class 'App\Http\Controllers\MainControllers\Redirect' not found in /home/mia937elcaminowe/public_html/app/Http/Controllers/MainControllers/PinkCarpetController.php on line 28
+[27-Jun-2018 16:03:38 America/Guatemala] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/mia937elcaminowe/public_html/app/Http/Controllers/HomeController.php on line 42
+[27-Jun-2018 16:04:12 America/Guatemala] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/mia937elcaminowe/public_html/app/Http/Controllers/HomeController.php on line 42
+[15-Sep-2018 09:51:58 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:56:29 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:56:30 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:56:31 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:56:47 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:58:35 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:58:43 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 09:58:45 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:00:50 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:00:52 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:05:51 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:06:23 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:06:24 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:06:25 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:06:26 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
+[15-Sep-2018 10:06:28 America/Guatemala] PHP Fatal error:  Class 'Intervention\Image\ImageServiceProvider' not found in /home/mia937elcaminowe/public_html/vendor/compiled.php on line 6466
