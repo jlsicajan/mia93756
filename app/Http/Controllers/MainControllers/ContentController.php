@@ -31,11 +31,11 @@ class ContentController extends Controller {
             print_r('Category or subcategory not found');die();
         }else{
             $content = Article::get_content_info($category, $subcategory);
-            
+            // return $content;
             if(!empty($content['redirect'])){
                 $view_data = $this->where_to_redirect($content, $request);
                 
-                return view($view_data['view'])->with($view_data['data'])->with(array('main_background' => $content['main_background']));
+                return view($view_data['view'])->with($content['observations'])->with($view_data['data'])->with(array('main_background' => $content['main_background']));
             }else{
                 if($content['is_video']){
                     $view = $request->ajax() ? 'main_views_content.content.view_video' : 'main_views.content.view_video';
@@ -56,6 +56,8 @@ class ContentController extends Controller {
             return $this->pinkCarpetPage($request, $content);
         }elseif(strpos($content['redirect'], 'los20') !== false){
             return $this->the20Page($request, $content);
+        }elseif(strpos($content['redirect'], 'formulario-mia') !== false){
+            return $this->formularioMia($request, $content);
         }else{
             Redirect::route('home');
         }
@@ -128,6 +130,18 @@ class ContentController extends Controller {
         $view = $request->ajax() ? 'main_views_content.the20.index' : 'main_views.the20.index';
         $content_for_view = array(
             'the20' => $the_20,
+            'main_banner' => $content['main_banner'],
+            'main_background' => $content['main_background'],
+            'hide_banner' => $content['hide_banner']);
+
+        return array('view' => $view, 'data' => $content_for_view);
+    }
+
+    public function formularioMia($request, $content){
+        $view = $request->ajax() ? 'main_views_content.forms.index' : 'main_views.forms.index';
+        $content_for_view = array(
+            'category' => $content['category'],
+            'observations' => $content['observations'],
             'main_banner' => $content['main_banner'],
             'main_background' => $content['main_background'],
             'hide_banner' => $content['hide_banner']);

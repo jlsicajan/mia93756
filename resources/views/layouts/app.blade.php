@@ -9,6 +9,7 @@
     <link rel="icon" href="{{ env('RADIO_URL') }}/public/img/logo/favicon.png" type="image/png">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="{{csrf_token()}}" />
     <meta name="HandheldFriendly" content="True">
     <meta name="author" content="El Camino Web | https://www.elcaminoweb.com.gt ">
 

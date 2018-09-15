@@ -11,6 +11,9 @@
 |
 */
 
+use App\Http\Requests;
+use Illuminate\Http\Request;
+
 //Route::get('/', ['as'   => 'home_root', 'uses' => 'HomeController@index']);
 Route::get('/', function()
 {
@@ -42,3 +45,4 @@ Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' =
 
 Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
 //Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
+Route::post('/formulario/{categorya}', 'MainControllers\FormularioController@store');
