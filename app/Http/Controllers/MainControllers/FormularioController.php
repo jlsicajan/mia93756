@@ -42,7 +42,7 @@ class FormularioController extends Controller {
 			$registro = Formulario::where('correo_electronico',$request->email)->first();
 
 			if ($registro) {
-					return "Usted ya llenó el formulario una vez";
+					return "Usted ya llenó el formulario una vez con este correo.";
 			} else {
 					if ($request->hasFile('foto')) {
 							$foto = $request->file('foto');
