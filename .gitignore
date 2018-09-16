@@ -4,7 +4,4 @@
 .idea/*
 
 \.DS_Store
-/public/uploads
-
-.htaccess
-.htccesscop
+public/uploads/bodasmia/
