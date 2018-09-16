@@ -39,7 +39,7 @@ class FormularioController extends Controller
     {
         $registro = Formulario::where('correo_electronico', $request->email)->first();
         if ($registro) {
-            return "Ya ingresaste una vez el formulario con este correo.";
+            return redirect('/');
         } else {
             if ($request->hasFile('foto')) {
                 $filenombre = str_random(30);
@@ -68,6 +68,8 @@ class FormularioController extends Controller
                 'fecha_creacion' => date("Y-m-d H:i:s"),
                 'empresa_id' => env("RADIO_ID"),
             ]);
+
+						return redirect('/');
         }
     }
 

@@ -34,7 +34,7 @@ class ContentController extends Controller {
             // return $content;
             if(!empty($content['redirect'])){
                 $view_data = $this->where_to_redirect($content, $request);
-                
+
                 return view($view_data['view'])->with($content['observations'])->with($view_data['data'])->with(array('main_background' => $content['main_background']));
             }else{
                 if($content['is_video']){

@@ -31,7 +31,7 @@
 
             <div class="row justify-content-center">
                 {{-- Formulario --}}
-                <form class="col-sm-12 col-md-8 col-lg-6 form-mia-back" method="POST" action="/formulario/{{$category}}" accept-charset="UTF-8" enctype="multipart/form-data">
+                <form class="col-sm-12 col-md-8 col-lg-6 form-mia-back" method="POST" data-href="/" action="/formulario/{{$category}}" accept-charset="UTF-8" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="_token" value="{{ $category }}">
                     <div class="form-group">
@@ -60,6 +60,10 @@
                     </div>
 
                     <button type="submit" class="btn btn-secondary">Enviar</button>
+                    {{-- <button class="ajax_link nav-link {{ Request::is('contenido/' . $category . '/0' ) ? 'active' : '' }}"
+                            data-href="/">
+                        {{ $category }}
+                    </button> --}}
                 </form>
             </div>
         </div>
