@@ -3636,8 +3636,10 @@ $(document).ready(function () {
 
 function clean_main_content_container(callback, page_to_load){
     $('.main_content_container').empty();
-    $('.main_content_container').load(page_to_load);
-    callback();
+    $('.main_content_container').load(page_to_load, function(){
+        callback();
+        $('.loading').removeClass('d-flex').addClass('d-none');
+    });
 }
 function close_menu_sm(){
     $('.menu-sm').css('display', 'none');
