@@ -25,8 +25,42 @@ class ContentController extends Controller {
 	 * @return Response
 	 */
 
+    public function indexmns($category, $subcategory, $mensaje, Request $request){
+        if(empty($category)){
+            print_r('Category or subcategory not found');die();
+        }else{
+            switch ($mensaje) {
+              case '1':
+                $mensaje = "El correo ya se ingresó en otro formulario.";
+                break;
+              case '2':
+                $mensaje = "Formulario completado con exito.";
+                  break;
+              default:
+                $mensaje = '';
+                break;
+            }
+            // return $mensaje;
+            $content = Article::get_content_info($category, $subcategory);
+            // return $content;
+            if(!empty($content['redirect'])){
+                $view_data = $this->where_to_redirect($content, $request);
+
+                return view($view_data['view'])->with($content['observations'])->with($view_data['data'])->with(array('main_background' => $content['main_background'], 'mensaje' => $mensaje));
+            }else{
+                if($content['is_video']){
+                    $view = $request->ajax() ? 'main_views_content.content.view_video' : 'main_views.content.view_video';
+                }else{
+                    $view = $request->ajax() ? 'main_views_content.content.view' : 'main_views.content.view';
+                }
+                return view($view)->with(array('content' => $content, 'main_background' => $content['main_background']));
+            }
+        }
+    }
+
     public function index($category, $subcategory, Request $request){
 //        $article = Article::findOrFail($article_id);
+        $mensaje = '';
         if(empty($category)){
             print_r('Category or subcategory not found');die();
         }else{
@@ -35,7 +69,7 @@ class ContentController extends Controller {
             if(!empty($content['redirect'])){
                 $view_data = $this->where_to_redirect($content, $request);
 
-                return view($view_data['view'])->with($content['observations'])->with($view_data['data'])->with(array('main_background' => $content['main_background']));
+                return view($view_data['view'])->with($content['observations'])->with($view_data['data'])->with(array('main_background' => $content['main_background'], 'mensaje' => $mensaje));
             }else{
                 if($content['is_video']){
                     $view = $request->ajax() ? 'main_views_content.content.view_video' : 'main_views.content.view_video';

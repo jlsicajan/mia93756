@@ -39,7 +39,7 @@ class FormularioController extends Controller
     {
         $registro = Formulario::where('correo_electronico', $request->email)->first();
         if ($registro) {
-            return redirect('/');
+            return redirect('/response/'.$category.'/0/1');
         } else {
             if ($request->hasFile('foto')) {
                 $filenombre = str_random(30);
@@ -69,7 +69,7 @@ class FormularioController extends Controller
                 'empresa_id' => env("RADIO_ID"),
             ]);
 
-						return redirect('/');
+						return redirect('/response/'.$category.'/0/2');
         }
     }
 
