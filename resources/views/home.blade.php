@@ -3,7 +3,6 @@
 @section('title', 'mia 93.7')
 @section('description', 'mia 93.7 escucha tu corazón')
 @section('og_image', env('URL_RADIO_INFO_PATH') . \App\Radio::get_logo())
-
 @section('head')
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 @endsection

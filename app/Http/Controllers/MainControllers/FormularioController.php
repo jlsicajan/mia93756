@@ -32,14 +32,13 @@ class FormularioController extends Controller
         //
     }
 
-<<<<<<< HEAD
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
 	public function store(Request $request, $category)
-	{		
+	{
 			//Imagen
 			$registro = Formulario::where('correo_electronico',$request->email)->first();
 
@@ -48,27 +47,27 @@ class FormularioController extends Controller
 			} else {
 					if ($request->hasFile('foto')) {
 							$foto = $request->file('foto');
-							$random = str_random(10); 
+							$random = str_random(10);
 							$filename = $random .".". $foto->getClientOriginalExtension();
 							$image = Image::make($foto->getRealPath());
-		
+
 							$urlimagen = $filename;
-		
+
 							$image->save(public_path('uploads/bodasmia/'.$filename));
-							
+
 					} else {
 							$foto = '';
 							$urlimagen = '';
 					}
-		
+
 					//Si viene vacía la historia
 					if ($request->historia == '') {
 						$mihistoria = '';
 					} else {
 						$mihistoria = $request->historia;
 					}
-					
-		
+
+
 					DB::table('formulario')->insert([
 							'categoria_id' => $category,
 							'tipo' => 'BodaMIa',
@@ -82,11 +81,10 @@ class FormularioController extends Controller
 							'fecha_creacion' => date("Y-m-d H:i:s"),
 							'empresa_id' => env("RADIO_ID"),
 					]);
-					
+
 					Redirect::route('home');
 			}
 	}
-=======
     /**
      * Store a newly created resource in storage.
      *
@@ -101,7 +99,6 @@ class FormularioController extends Controller
             if ($request->hasFile('foto')) {
                 $filenombre = str_random(30);
                 $target = public_path('uploads/bodasmia/');
->>>>>>> 73505747f179a1810e5eb27b995cc503dc6a6d9e
 
                 $filename = $_FILES['foto']['name'];
                 $filetmpname = $_FILES['foto']['tmp_name'];
