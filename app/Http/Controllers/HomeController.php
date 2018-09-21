@@ -91,6 +91,27 @@ class HomeController extends Controller
         }
     }
 
+    public function video_one($article_id, \Illuminate\Http\Request $request){
+        $article = Article::findOrFail($article_id);
+
+        if(empty($article)){
+            print_r('Article not found');die();
+        }else{
+            $article->visitas = $article->visitas + 1;
+            $article->save();
+            $main_banner = Section::get_banner();
+            $vertical_banner = Section::get_article_vertical_banner();
+            $articles_related = Article::where('categoria_id', '=', $article->categoria_id)->where('id', '!=', $article->id)
+                ->select('id', 'titulo', 'imagen', 'autor', 'fecha', 'texto_uno', 'encriptado')->orderBy('fecha', 'DESC')->limit(3)->get()->toArray();
+
+            $view = $request->ajax() ? 'main_views_content.article.view_video' : 'main_views.article.view_video';
+            $background = Article::get_background_for_article($article->categoria_id, $article->sub_categoria_id);
+//            print_r($background['main_background']);die();
+            return view($view)->with(array('article' => $article, 'main_background' => $background['main_background'],
+                    'main_banner' => $main_banner, 'articles_related' => $articles_related, 'vertical_banner' => $vertical_banner));
+        }
+    }
+
     function get_next_shows()
     {
         //Abraham's code adapted to laravel ORM, this have to be adapted correctly

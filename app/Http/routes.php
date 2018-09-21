@@ -40,10 +40,12 @@ Route::get('/los20/', ['as'   => 'the20', 'uses' => 'MainControllers\The20Contro
 Route::get('/alfombrarosa/', ['as'   => 'pink_carpet', 'uses' => 'MainControllers\PinkCarpetController@index']);
 
 Route::get('/articulo/{articulo_id}', ['as'   => 'article_one', 'uses' => 'HomeController@article_one']);
+Route::get('/video/{articulo_id}', ['as'   => 'video_one', 'uses' => 'HomeController@video_one']);
 
 Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' => 'MainControllers\ContentController@index']);
 
 Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
 //Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
 Route::post('/formulario/{categorya}', 'MainControllers\FormularioController@store');
+
 Route::get('/response/{category}/{subcategory}/{mensaje}', 'MainControllers\ContentController@indexmns');

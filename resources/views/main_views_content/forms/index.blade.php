@@ -33,7 +33,7 @@
         @endif
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
         {{-- Form --}}
         @include('main_views.forms.common_form')
     </div>
