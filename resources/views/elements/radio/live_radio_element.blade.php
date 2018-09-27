@@ -38,10 +38,7 @@
                     alert('Autoplay started!');
                 }).catch(error => {
                     alert('Autoplay was prevented');
-                    $( window ).load(function() {
-                        console.log('run');
-                        radio.play();
-                    });
+                    $('.play_live_button').trigger('click');
                     // Autoplay was prevented.
                     // Show a "Play" button so that user can start playback.
                 });
