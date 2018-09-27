@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 live_radio_element bg-grid-default d-flex align-items-center justify-content-around">
-            <audio id="live_player" muted>
+            <audio id="live_player">
                 <source src="https://rcn.radioonlinehd.net:8010/mia937" type="audio/mp3">Your browser does not support the audio element.
             </audio>
             <button class="play_live_button" type="button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
@@ -25,19 +25,18 @@
     });
 
     function toggle_radio(){
-        radio.muted = false;
         if(radio.paused == false){
             radio.pause();
             $('.play_live_button > .fa-pause').hide();
             $('.play_live_button > .fa-play').show();
         }else{
-            var promise = radio.play();
+            let promise = radio.play();
             if (promise !== undefined) {
                 promise.then(_ => {
                     // Autoplay started!
-                    alert('Autoplay started!');
+                    console.log('Autoplay started!');
                 }).catch(error => {
-                    alert('Autoplay was prevented');
+                    console.log('Autoplay was prevented');
                     $('.play_live_button > .fa-pause').hide();
                     $('.play_live_button > .fa-play').show();
                     // Autoplay was prevented.
