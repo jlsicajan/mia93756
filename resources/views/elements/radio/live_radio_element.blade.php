@@ -31,7 +31,19 @@
             $('.play_live_button > .fa-pause').hide();
             $('.play_live_button > .fa-play').show();
         }else{
-            radio.play();
+            var promise = radio.play();
+            alert(promise);
+            if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                    alert('Autoplay started!');
+                }).catch(error => {
+                    alert('Autoplay was prevented');
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            }
+
             $('.play_live_button > .fa-pause').show();
             $('.play_live_button > .fa-play').hide();
         }
