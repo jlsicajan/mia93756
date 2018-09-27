@@ -126,9 +126,5 @@
     gtag('config', 'UA-121085909-1');
 </script>
 
-<script type="text/javascript">
-    $('.play_live_button').trigger('click');
-    $('.play_live_button').trigger('click');
-</script>
 </body>
 </html>
