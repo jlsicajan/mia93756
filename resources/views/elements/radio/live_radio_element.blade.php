@@ -38,8 +38,9 @@
                     alert('Autoplay started!');
                 }).catch(error => {
                     alert('Autoplay was prevented');
-                    alert('toggle again');
-                    toggle_radio();
+                    setTimeout(function() {
+                        radio.play();
+                    }, 2000);
                     // Autoplay was prevented.
                     // Show a "Play" button so that user can start playback.
                 });
