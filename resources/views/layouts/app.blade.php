@@ -15,7 +15,7 @@
 
     <title>@yield('title')</title>
     <meta expr:content='@yield('title')' property='og:title'/>
-    <meta property="og:url" content="@yield('title')"/>
+    <meta property="og:url" content="<?php echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>"/>
     <meta property="og:title" content="@yield('title')"/>
 
     <meta property="og:description" content="@yield('description')"/>

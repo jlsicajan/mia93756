@@ -44,6 +44,7 @@
 
         $('title').empty().text(meta_title);
         $('meta[property=\'og:title\']').attr('content', meta_title);
+        $('meta[property=\'og:url\']').attr('content', window.location.href );
 
         $('meta[name=description]').attr('content', meta_description);
         $('meta[property=\'og:description\']').attr('content', meta_description);
