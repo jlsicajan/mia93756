@@ -32,13 +32,14 @@
             $('.play_live_button > .fa-play').show();
         }else{
             var promise = radio.play();
-            alert(promise);
             if (promise !== undefined) {
                 promise.then(_ => {
                     // Autoplay started!
                     alert('Autoplay started!');
                 }).catch(error => {
                     alert('Autoplay was prevented');
+                    alert('toggle again');
+                    toggle_radio();
                     // Autoplay was prevented.
                     // Show a "Play" button so that user can start playback.
                 });
