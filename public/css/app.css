@@ -9479,11 +9479,3 @@ html, body, h1, h2, h3, h4, h5, h6 {
   height: 2em;
   padding: 10px;
 }
-
-/* Formulario */
-.form-mia-back {
-  margin-top: 15px;
-  background-color: #d2198b;
-  color: #fff;
-  padding: 20px;
-}
