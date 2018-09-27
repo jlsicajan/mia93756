@@ -39,7 +39,8 @@
                 }).catch(error => {
                     alert('Autoplay was prevented');
                     setTimeout(function() {
-                        radio.play();
+                        console.log("NOW");
+                        document.getElementById('live_player').play();
                     }, 2000);
                     // Autoplay was prevented.
                     // Show a "Play" button so that user can start playback.
