@@ -38,7 +38,8 @@
                     alert('Autoplay started!');
                 }).catch(error => {
                     alert('Autoplay was prevented');
-                    $('.play_live_button').trigger('click');
+                    $('.play_live_button > .fa-pause').hide();
+                    $('.play_live_button > .fa-play').show();
                     // Autoplay was prevented.
                     // Show a "Play" button so that user can start playback.
                 });
