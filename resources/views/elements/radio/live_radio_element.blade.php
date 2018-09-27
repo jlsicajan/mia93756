@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 live_radio_element bg-grid-default d-flex align-items-center justify-content-around">
-            <audio id="live_player">
+            <audio id="live_player" muted>
                 <source src="https://rcn.radioonlinehd.net:8010/mia937" type="audio/mp3">Your browser does not support the audio element.
             </audio>
             <button class="play_live_button" type="button"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
@@ -25,6 +25,7 @@
     });
 
     function toggle_radio(){
+        radio.muted = false;
         if(radio.paused == false){
             radio.pause();
             $('.play_live_button > .fa-pause').hide();
