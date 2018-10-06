@@ -69,3 +69,10 @@
         transition: all 0.2s ease;
     }
 </style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.wedding_form_send').unbind('click').click(function(){
+
+        });
+    });
+</script>

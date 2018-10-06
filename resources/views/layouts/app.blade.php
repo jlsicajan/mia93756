@@ -45,6 +45,7 @@
             crossorigin="anonymous"></script>
     <script src="/public/js/app.js"></script>
     <script src="/public/js/nav_movements.js"></script>
+    <script src="/public/js/ajax_functions.js"></script>
     @yield('head')
 </head>
 <body @if(isset($main_background) && !empty($main_background)) style="background-image: url({{ $main_background }})" @endif>

@@ -9445,37 +9445,3 @@ html, body, h1, h2, h3, h4, h5, h6 {
   border-top: none !important; }
 
 /*# sourceMappingURL=app.css.map */
-
-/* Rootcode */
-.spi {
-  padding-left: 0 !important;
-}
-
-.spd {
-  padding-right: 0 !important;
-}
-
-.txt-col-12 {
-  padding: 8px !important;
-}
-
-.txt-big-mia {
-  background-color: #d2198b;
-  color: #fff;
-  line-height: 16px;
-  font-weight: bold;
-  font-size: 16px !important;
-}
-
-.txt-big-mia-msj {
-  background-color: #02add9;
-  color: #fff;
-  line-height: 16px;
-  font-weight: bold;
-  font-size: 16px !important;
-}
-
-.txt-big-mia h5 {
-  height: 2em;
-  padding: 10px;
-}
