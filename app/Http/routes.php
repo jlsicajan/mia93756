@@ -46,6 +46,8 @@ Route::get('/contenido/{category}/{subcategory}', ['as'   => 'content', 'uses' =
 
 Route::get('/videos/', ['as'   => 'videos', 'uses' => 'MainControllers\VideosController@index']);
 //Route::get('/videos_ajax/', ['as'   => 'pink_carpet_ajax', 'uses' => 'MainControllers\PinkCarpetController@index_ajax']);
-Route::post('/formulario/{categorya}', 'MainControllers\FormularioController@store');
 
 Route::get('/response/{category}/{subcategory}/{mensaje}', 'MainControllers\ContentController@indexmns');
+
+//WEDDING FORM
+Route::post('/bodamia/', 'FormController\WeddingController@save_wedding_info');

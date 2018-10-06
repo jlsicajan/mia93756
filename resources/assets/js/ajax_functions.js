@@ -1,4 +1,4 @@
-function submit_form(url, form_data, method = 'post', callback) {
+function submit_form(url, form_data, callback, method = 'post') {
     $.ajax({
         url: url,
         method: method,

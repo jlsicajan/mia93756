@@ -32,6 +32,11 @@
         </div>
 
     </form>
+    <div class="message_after_update hide text-center">
+        <h4 class="text-primary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolore ea, illum perspiciatis repudiandae tempore temporibus. Amet asperiores atque ea eius, eligendi illum laborum nam quasi qui quia. Aut, nemo.
+        </h4>
+    </div>
 </div>
 
 <style type="text/css">
@@ -72,7 +77,12 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.wedding_form_send').unbind('click').click(function(){
-
+            $(this).attr('disable', 'disable'); //disable the button to avoid two fast clicks
+            let form_data = {};
+            submit_form('/bodamia/', form_data, function(){//show the div with the message from admin
+                $('.wedding_form').hide('slow');
+                $('.message_after_update').show('slow');
+            });
         });
     });
 </script>
